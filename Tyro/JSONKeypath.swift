@@ -49,3 +49,24 @@ extension JSONKeypath : CustomStringConvertible {
         return self.path.intersperse(".").reduce("", combine: +)
     }
 }
+
+internal func resolveKeypath(lhs : Dictionary<String, JSONValue>, rhs : JSONKeypath) -> JSONValue? {
+    if rhs.path.isEmpty {
+        return nil
+    }
+    
+    switch rhs.path.match {
+    case .Nil:
+        return nil
+    case let .Cons(hd, tl):
+        if let o = lhs[hd] {
+            switch o {
+            case let .JSONObject(d) where rhs.path.count > 1:
+                return resolveKeypath(d, rhs: JSONKeypath(tl))
+            default:
+                return o
+            }
+        }
+        return nil
+    }
+}

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DE702CCF1BFAC6830017CEE8"
-               BuildableName = "Tyro-iOS.framework"
+               BuildableName = "Tyro.framework"
                BlueprintName = "Tyro-iOS"
                ReferencedContainer = "container:Tyro.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE702CCF1BFAC6830017CEE8"
-            BuildableName = "Tyro-iOS.framework"
+            BuildableName = "Tyro.framework"
             BlueprintName = "Tyro-iOS"
             ReferencedContainer = "container:Tyro.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE702CCF1BFAC6830017CEE8"
-            BuildableName = "Tyro-iOS.framework"
+            BuildableName = "Tyro.framework"
             BlueprintName = "Tyro-iOS"
             ReferencedContainer = "container:Tyro.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE702CCF1BFAC6830017CEE8"
-            BuildableName = "Tyro-iOS.framework"
+            BuildableName = "Tyro.framework"
             BlueprintName = "Tyro-iOS"
             ReferencedContainer = "container:Tyro.xcodeproj">
          </BuildableReference>

@@ -29,6 +29,18 @@
 		DE702D331BFB2ADC0017CEE8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
 		DE702D341BFB2ADC0017CEE8 /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
 		DE702D351BFB2AEC0017CEE8 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE702D2F1BFB2AD00017CEE8 /* Swiftz.framework */; };
+		DE8483B31BFBD87800273011 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B21BFBD87800273011 /* Decoder.swift */; };
+		DE8483B51BFBD8B000273011 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B41BFBD8B000273011 /* JSONValue.swift */; };
+		DE8483B61BFBD8E500273011 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B21BFBD87800273011 /* Decoder.swift */; };
+		DE8483B71BFBD8E500273011 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B41BFBD8B000273011 /* JSONValue.swift */; };
+		DE8483B91BFBDC3600273011 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B81BFBDC3600273011 /* Operators.swift */; };
+		DE8483BA1BFBDC3600273011 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B81BFBDC3600273011 /* Operators.swift */; };
+		DE8483BC1BFBDC5000273011 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BB1BFBDC5000273011 /* Types.swift */; };
+		DE8483BD1BFBDC5000273011 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BB1BFBDC5000273011 /* Types.swift */; };
+		DE8483BF1BFBDCED00273011 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BE1BFBDCED00273011 /* Enum.swift */; };
+		DE8483C01BFBDCED00273011 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BE1BFBDCED00273011 /* Enum.swift */; };
+		DE8483C21BFBDD1700273011 /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
+		DE8483C31BFBDD1700273011 /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +75,12 @@
 		DE702D261BFB2A0B0017CEE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE702D281BFB2A1C0017CEE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE702D2F1BFB2AD00017CEE8 /* Swiftz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swiftz.framework; path = Carthage/Build/Mac/Swiftz.framework; sourceTree = "<group>"; };
+		DE8483B21BFBD87800273011 /* Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		DE8483B41BFBD8B000273011 /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
+		DE8483B81BFBDC3600273011 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		DE8483BB1BFBDC5000273011 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		DE8483BE1BFBDCED00273011 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		DE8483C11BFBDD1700273011 /* EncodedTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodedTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,11 +145,17 @@
 		DE702CD21BFAC6830017CEE8 /* Tyro */ = {
 			isa = PBXGroup;
 			children = (
+				DE702CEE1BFB0AAB0017CEE8 /* Supporting Files */,
 				DE702CF91BFB1BDB0017CEE8 /* ArrayExt.swift */,
 				DE702CF61BFB17850017CEE8 /* DictionaryExt.swift */,
 				DE702CEA1BFAC7750017CEE8 /* JSON.swift */,
 				DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */,
-				DE702CEE1BFB0AAB0017CEE8 /* Supporting Files */,
+				DE8483B21BFBD87800273011 /* Decoder.swift */,
+				DE8483B41BFBD8B000273011 /* JSONValue.swift */,
+				DE8483B81BFBDC3600273011 /* Operators.swift */,
+				DE8483BB1BFBDC5000273011 /* Types.swift */,
+				DE8483BE1BFBDCED00273011 /* Enum.swift */,
+				DE8483C11BFBDD1700273011 /* EncodedTypes.swift */,
 			);
 			path = Tyro;
 			sourceTree = "<group>";
@@ -368,7 +392,13 @@
 			files = (
 				DE702CED1BFAC79C0017CEE8 /* JSONKeypath.swift in Sources */,
 				DE702CFA1BFB1BDB0017CEE8 /* ArrayExt.swift in Sources */,
+				DE8483C31BFBDD1700273011 /* EncodedTypes.swift in Sources */,
+				DE8483BA1BFBDC3600273011 /* Operators.swift in Sources */,
+				DE8483BD1BFBDC5000273011 /* Types.swift in Sources */,
 				DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */,
+				DE8483C01BFBDCED00273011 /* Enum.swift in Sources */,
+				DE8483B71BFBD8E500273011 /* JSONValue.swift in Sources */,
+				DE8483B61BFBD8E500273011 /* Decoder.swift in Sources */,
 				DE702CF71BFB17850017CEE8 /* DictionaryExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +418,13 @@
 			files = (
 				DE702D341BFB2ADC0017CEE8 /* JSONKeypath.swift in Sources */,
 				DE702D331BFB2ADC0017CEE8 /* JSON.swift in Sources */,
+				DE8483C21BFBDD1700273011 /* EncodedTypes.swift in Sources */,
+				DE8483B91BFBDC3600273011 /* Operators.swift in Sources */,
+				DE8483BC1BFBDC5000273011 /* Types.swift in Sources */,
 				DE702D311BFB2ADC0017CEE8 /* ArrayExt.swift in Sources */,
+				DE8483BF1BFBDCED00273011 /* Enum.swift in Sources */,
+				DE8483B51BFBD8B000273011 /* JSONValue.swift in Sources */,
+				DE8483B31BFBD87800273011 /* Decoder.swift in Sources */,
 				DE702D321BFB2ADC0017CEE8 /* DictionaryExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +724,7 @@
 				DE702CE61BFAC6830017CEE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE702CE71BFAC6830017CEE8 /* Build configuration list for PBXNativeTarget "Tyro-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -696,6 +733,7 @@
 				DE702CE91BFAC6830017CEE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE702D201BFB28E30017CEE8 /* Build configuration list for PBXNativeTarget "Tyro" */ = {
 			isa = XCConfigurationList;
@@ -704,6 +742,7 @@
 				DE702D221BFB28E30017CEE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE702D231BFB28E30017CEE8 /* Build configuration list for PBXNativeTarget "TyroTests" */ = {
 			isa = XCConfigurationList;
@@ -712,6 +751,7 @@
 				DE702D251BFB28E30017CEE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
