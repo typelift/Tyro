@@ -9,8 +9,8 @@
 import Foundation
 import Swiftz
 
-extension Bool : JSON {
-    public static func fromJSON(x : JSONValue) -> Bool? {
+extension Bool: JSON {
+    public static func fromJSON(x: JSONValue) -> Bool? {
         switch x {
         case .JSONNumber(false),
         .JSONNumber(0):
@@ -23,13 +23,13 @@ extension Bool : JSON {
         }
     }
     
-    public static func toJSON(xs : Bool) -> JSONValue {
+    public static func toJSON(xs: Bool) -> JSONValue {
         return JSONValue.JSONNumber(xs)
     }
 }
 
-extension Int : JSON {
-    public static func fromJSON(x : JSONValue) -> Int? {
+extension Int: JSON {
+    public static func fromJSON(x: JSONValue) -> Int? {
         switch x {
         case let .JSONNumber(n):
             return n as Int
@@ -38,13 +38,13 @@ extension Int : JSON {
         }
     }
     
-    public static func toJSON(xs : Int) -> JSONValue {
+    public static func toJSON(xs: Int) -> JSONValue {
         return JSONValue.JSONNumber(xs)
     }
 }
 
-extension Int64 : JSON {
-    public static func fromJSON(x : JSONValue) -> Int64? {
+extension Int64: JSON {
+    public static func fromJSON(x: JSONValue) -> Int64? {
         switch x {
         case let .JSONNumber(n):
             return n.longLongValue
@@ -53,13 +53,13 @@ extension Int64 : JSON {
         }
     }
     
-    public static func toJSON(xs : Int64) -> JSONValue {
+    public static func toJSON(xs: Int64) -> JSONValue {
         return JSONValue.JSONNumber(NSNumber(longLong: xs))
     }
 }
 
-extension UInt64 : JSON {
-    public static func fromJSON(x : JSONValue) -> UInt64? {
+extension UInt64: JSON {
+    public static func fromJSON(x: JSONValue) -> UInt64? {
         switch x {
         case let .JSONNumber(n):
             return n.unsignedLongLongValue
@@ -68,13 +68,13 @@ extension UInt64 : JSON {
         }
     }
     
-    public static func toJSON(xs : UInt64) -> JSONValue {
+    public static func toJSON(xs: UInt64) -> JSONValue {
         return JSONValue.JSONNumber(NSNumber(unsignedLongLong: xs))
     }
 }
 
-extension Double : JSON {
-    public static func fromJSON(x : JSONValue) -> Double? {
+extension Double: JSON {
+    public static func fromJSON(x: JSONValue) -> Double? {
         switch x {
         case let .JSONNumber(n):
             return n as Double
@@ -83,13 +83,13 @@ extension Double : JSON {
         }
     }
     
-    public static func toJSON(xs : Double) -> JSONValue {
+    public static func toJSON(xs: Double) -> JSONValue {
         return JSONValue.JSONNumber(xs)
     }
 }
 
-extension Float : JSON {
-    public static func fromJSON(x : JSONValue) -> Float? {
+extension Float: JSON {
+    public static func fromJSON(x: JSONValue) -> Float? {
         switch x {
         case let .JSONNumber(n):
             return n as Float
@@ -98,13 +98,13 @@ extension Float : JSON {
         }
     }
     
-    public static func toJSON(xs : Float) -> JSONValue {
+    public static func toJSON(xs: Float) -> JSONValue {
         return JSONValue.JSONNumber(xs)
     }
 }
 
-extension NSNumber : JSON {
-    public class func fromJSON(x : JSONValue) -> NSNumber? {
+extension NSNumber: JSON {
+    public class func fromJSON(x: JSONValue) -> NSNumber? {
         switch x {
         case let .JSONNumber(n):
             return n
@@ -113,13 +113,13 @@ extension NSNumber : JSON {
         }
     }
     
-    public class func toJSON(xs : NSNumber) -> JSONValue {
+    public class func toJSON(xs: NSNumber) -> JSONValue {
         return JSONValue.JSONNumber(xs)
     }
 }
 
-extension String : JSON {
-    public static func fromJSON(x : JSONValue) -> String? {
+extension String: JSON {
+    public static func fromJSON(x: JSONValue) -> String? {
         switch x {
         case let .JSONString(n):
             return n
@@ -128,14 +128,14 @@ extension String : JSON {
         }
     }
     
-    public static func toJSON(xs : String) -> JSONValue {
+    public static func toJSON(xs: String) -> JSONValue {
         return JSONValue.JSONString(xs)
     }
 }
 
 // or unit...
-extension NSNull : JSON {
-    public class func fromJSON(x : JSONValue) -> NSNull? {
+extension NSNull: JSON {
+    public class func fromJSON(x: JSONValue) -> NSNull? {
         switch x {
         case .JSONNull:
             return NSNull()
@@ -144,7 +144,7 @@ extension NSNull : JSON {
         }
     }
     
-    public class func toJSON(xs : NSNull) -> JSONValue {
+    public class func toJSON(xs: NSNull) -> JSONValue {
         return .JSONNull
     }
 }

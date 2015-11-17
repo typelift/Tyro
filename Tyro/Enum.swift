@@ -11,10 +11,10 @@ import Swiftz
 
 /// Make Swift enum JSONDecodable that has a raw value of type Int
 extension JSONDecodable where Self: RawRepresentable, Self.RawValue == Int {
-    public static func fromJSON(x : JSONValue) -> Self? {
+    public static func fromJSON(x: JSONValue) -> Self? {
         switch x {
         case let .JSONNumber(n as Int):
-            return self.init(rawValue : n)
+            return self.init(rawValue: n)
         default:
             return nil
         }
@@ -30,10 +30,10 @@ extension JSONEncodable where Self: RawRepresentable, Self.RawValue == Int {
 
 /// Make Swift enum JSONDecodable that has a raw value of type String
 extension JSONDecodable where Self: RawRepresentable, Self.RawValue == String {
-    public static func fromJSON(x : JSONValue) -> Self? {
+    public static func fromJSON(x: JSONValue) -> Self? {
         switch x {
         case let .JSONString(s):
-            return self.init(rawValue : s)
+            return self.init(rawValue: s)
         default:
             return nil
         }

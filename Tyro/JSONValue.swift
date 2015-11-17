@@ -9,7 +9,7 @@
 import Foundation
 import Swiftz
 
-public enum JSONValue : CustomStringConvertible {
+public enum JSONValue: CustomStringConvertible {
     case JSONArray([JSONValue])
     case JSONObject(Dictionary<String, JSONValue>)
     case JSONString(String)
@@ -34,7 +34,7 @@ public enum JSONValue : CustomStringConvertible {
     }
     
     // we know this is safe because of the NSJSONSerialization docs
-    private static func make(a : AnyObject) -> JSONValue {
+    private static func make(a: AnyObject) -> JSONValue {
         switch a {
         case let xs as [AnyObject]:
             return .JSONArray(xs.map(make))
@@ -61,8 +61,8 @@ public enum JSONValue : CustomStringConvertible {
     }
     
     // TODO: should this be optional?
-    public static func decode(s : NSData) -> JSONValue? {
-        let r : AnyObject?
+    public static func decode(s: NSData) -> JSONValue? {
+        let r: AnyObject?
         do {
             r = try NSJSONSerialization.JSONObjectWithData(s, options: NSJSONReadingOptions(rawValue: 0))
         } catch _ {
@@ -76,11 +76,11 @@ public enum JSONValue : CustomStringConvertible {
         }
     }
     
-    public static func decode(s : String) -> JSONValue? {
+    public static func decode(s: String) -> JSONValue? {
         return JSONValue.decode(s.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
     }
     
-    public var description : String {
+    public var description: String {
         get {
             switch self {
             case .JSONNull:
@@ -100,7 +100,7 @@ public enum JSONValue : CustomStringConvertible {
 
 // you'll have more fun if you match tuples
 // Equatable
-public func ==(lhs : JSONValue, rhs : JSONValue) -> Bool {
+public func ==(lhs: JSONValue, rhs: JSONValue) -> Bool {
     switch (lhs, rhs) {
     case (.JSONNull, .JSONNull):
         return true
@@ -118,7 +118,7 @@ public func ==(lhs : JSONValue, rhs : JSONValue) -> Bool {
     }
 }
 
-public func !=(lhs : JSONValue, rhs : JSONValue) -> Bool {
+public func !=(lhs: JSONValue, rhs: JSONValue) -> Bool {
     return !(lhs == rhs)
 }
 
