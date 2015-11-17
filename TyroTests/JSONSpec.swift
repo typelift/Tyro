@@ -306,6 +306,8 @@ extension JSONSpec {
     }
 }
 
+// MARK: - Optional retrieve: <??
+
 struct TestObject: JSONDecodable {
     let required1: String
     let required2: String
@@ -362,6 +364,8 @@ extension JSONSpec {
         XCTAssert(testObject4!.optional2 == nil)
     }
 }
+
+// MARK: - Enums
 
 enum UserAccessLevel: Int {
     case NoAccess, Level1
@@ -424,5 +428,29 @@ extension JSONSpec {
         let jsonString = jsonValue.encode()?.toUTF8String()
         
         XCTAssert("{\"accessLevel\":1,\"userRole\":\"admin\"}" == jsonString)
+    }
+}
+
+// MARK: - Date
+
+extension NSDate: DateTimestampJSONConvertible {}
+
+struct UserAccessLog: JSONDecodable {
+    let lastUpdated: NSDate
+    
+    static func fromJSON(x: JSONValue) -> UserAccessLog? {
+        let p1 : NSDate? = x <? "lastUpdated"
+        return UserAccessLog.init <^> p1
+    }
+}
+
+extension JSONSpec {
+    func testDateJSONDecodable() {
+        let timestampInMilliseconds: Double = 1443769200000
+        let date = NSDate(timeIntervalSince1970: timestampInMilliseconds / 1000.0)
+        let json = "{\"lastUpdated\":\(timestampInMilliseconds)}"
+        let userAccessLog = JSONValue.decode(json) >>- UserAccessLog.fromJSON
+        XCTAssertNotNil(userAccessLog)
+        XCTAssert(userAccessLog?.lastUpdated == date)
     }
 }

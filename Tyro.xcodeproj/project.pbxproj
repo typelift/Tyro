@@ -41,6 +41,8 @@
 		DE8483C01BFBDCED00273011 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BE1BFBDCED00273011 /* Enum.swift */; };
 		DE8483C21BFBDD1700273011 /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
 		DE8483C31BFBDD1700273011 /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
+		DE8483C51BFBDE4300273011 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C41BFBDE4300273011 /* Date.swift */; };
+		DE8483C61BFBDE4300273011 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C41BFBDE4300273011 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,7 @@
 		DE8483BB1BFBDC5000273011 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		DE8483BE1BFBDCED00273011 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		DE8483C11BFBDD1700273011 /* EncodedTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodedTypes.swift; sourceTree = "<group>"; };
+		DE8483C41BFBDE4300273011 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,7 @@
 				DE8483BB1BFBDC5000273011 /* Types.swift */,
 				DE8483BE1BFBDCED00273011 /* Enum.swift */,
 				DE8483C11BFBDD1700273011 /* EncodedTypes.swift */,
+				DE8483C41BFBDE4300273011 /* Date.swift */,
 			);
 			path = Tyro;
 			sourceTree = "<group>";
@@ -398,6 +402,7 @@
 				DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */,
 				DE8483C01BFBDCED00273011 /* Enum.swift in Sources */,
 				DE8483B71BFBD8E500273011 /* JSONValue.swift in Sources */,
+				DE8483C61BFBDE4300273011 /* Date.swift in Sources */,
 				DE8483B61BFBD8E500273011 /* Decoder.swift in Sources */,
 				DE702CF71BFB17850017CEE8 /* DictionaryExt.swift in Sources */,
 			);
@@ -424,6 +429,7 @@
 				DE702D311BFB2ADC0017CEE8 /* ArrayExt.swift in Sources */,
 				DE8483BF1BFBDCED00273011 /* Enum.swift in Sources */,
 				DE8483B51BFBD8B000273011 /* JSONValue.swift in Sources */,
+				DE8483C51BFBDE4300273011 /* Date.swift in Sources */,
 				DE8483B31BFBD87800273011 /* Decoder.swift in Sources */,
 				DE702D321BFB2ADC0017CEE8 /* DictionaryExt.swift in Sources */,
 			);
