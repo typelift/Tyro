@@ -9,14 +9,19 @@
 import Foundation
 import Swiftz
 
-public protocol JSONDecodable {
-    typealias J = Self
-    static func fromJSON(x: JSONValue) -> J?
-}
+//// FromJSON
+//public protocol JSONDecodable {
+//    typealias J = Self
+//    static func fromJSON(x: JSONValue) -> J?
+//}
 
-public protocol JSONEncodable {
-    typealias J
-    static func toJSON(x: J) -> JSONValue
-}
 
-public protocol JSON: JSONDecodable, JSONEncodable { }
+//extension JSON {
+//    static func fromJSON(x: JSONValue) -> J? {
+//        return nil
+//    }
+//    
+//    static func toJSON(x: J) -> JSONValue? {
+//        return nil
+//    }
+//}

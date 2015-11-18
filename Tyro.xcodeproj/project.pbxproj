@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4480241BFC440E00010200 /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
 		DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
 		DE702CED1BFAC79C0017CEE8 /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
 		DE702CF41BFB15D00017CEE8 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE702CF31BFB15D00017CEE8 /* Swiftz.framework */; };
@@ -43,6 +44,12 @@
 		DE8483C31BFBDD1700273011 /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
 		DE8483C51BFBDE4300273011 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C41BFBDE4300273011 /* Date.swift */; };
 		DE8483C61BFBDE4300273011 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C41BFBDE4300273011 /* Date.swift */; };
+		DE8483C81BFBF3CA00273011 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C71BFBF3CA00273011 /* Error.swift */; };
+		DE8483C91BFBF3CA00273011 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C71BFBF3CA00273011 /* Error.swift */; };
+		DE8483CB1BFBF4F600273011 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CA1BFBF4F600273011 /* Encoder.swift */; };
+		DE8483CC1BFBF4F600273011 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CA1BFBF4F600273011 /* Encoder.swift */; };
+		DE8483CE1BFBF50D00273011 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
+		DE8483CF1BFBF50D00273011 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE4480231BFC440E00010200 /* EitherExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherExt.swift; sourceTree = "<group>"; };
 		DE702CD01BFAC6830017CEE8 /* Tyro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tyro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE702CDA1BFAC6830017CEE8 /* Tyro-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tyro-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE702CEA1BFAC7750017CEE8 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -84,6 +92,9 @@
 		DE8483BE1BFBDCED00273011 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		DE8483C11BFBDD1700273011 /* EncodedTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodedTypes.swift; sourceTree = "<group>"; };
 		DE8483C41BFBDE4300273011 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		DE8483C71BFBF3CA00273011 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		DE8483CA1BFBF4F600273011 /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
+		DE8483CD1BFBF50D00273011 /* NSDataExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,15 +162,19 @@
 				DE702CEE1BFB0AAB0017CEE8 /* Supporting Files */,
 				DE702CF91BFB1BDB0017CEE8 /* ArrayExt.swift */,
 				DE702CF61BFB17850017CEE8 /* DictionaryExt.swift */,
+				DE4480231BFC440E00010200 /* EitherExt.swift */,
+				DE8483CD1BFBF50D00273011 /* NSDataExt.swift */,
+				DE8483B21BFBD87800273011 /* Decoder.swift */,
+				DE8483CA1BFBF4F600273011 /* Encoder.swift */,
 				DE702CEA1BFAC7750017CEE8 /* JSON.swift */,
 				DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */,
-				DE8483B21BFBD87800273011 /* Decoder.swift */,
 				DE8483B41BFBD8B000273011 /* JSONValue.swift */,
 				DE8483B81BFBDC3600273011 /* Operators.swift */,
 				DE8483BB1BFBDC5000273011 /* Types.swift */,
 				DE8483BE1BFBDCED00273011 /* Enum.swift */,
 				DE8483C11BFBDD1700273011 /* EncodedTypes.swift */,
 				DE8483C41BFBDE4300273011 /* Date.swift */,
+				DE8483C71BFBF3CA00273011 /* Error.swift */,
 			);
 			path = Tyro;
 			sourceTree = "<group>";
@@ -398,6 +413,9 @@
 				DE702CFA1BFB1BDB0017CEE8 /* ArrayExt.swift in Sources */,
 				DE8483C31BFBDD1700273011 /* EncodedTypes.swift in Sources */,
 				DE8483BA1BFBDC3600273011 /* Operators.swift in Sources */,
+				DE8483CC1BFBF4F600273011 /* Encoder.swift in Sources */,
+				DE8483C91BFBF3CA00273011 /* Error.swift in Sources */,
+				DE8483CF1BFBF50D00273011 /* NSDataExt.swift in Sources */,
 				DE8483BD1BFBDC5000273011 /* Types.swift in Sources */,
 				DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */,
 				DE8483C01BFBDCED00273011 /* Enum.swift in Sources */,
@@ -425,6 +443,10 @@
 				DE702D331BFB2ADC0017CEE8 /* JSON.swift in Sources */,
 				DE8483C21BFBDD1700273011 /* EncodedTypes.swift in Sources */,
 				DE8483B91BFBDC3600273011 /* Operators.swift in Sources */,
+				DE8483CB1BFBF4F600273011 /* Encoder.swift in Sources */,
+				DE8483C81BFBF3CA00273011 /* Error.swift in Sources */,
+				DE4480241BFC440E00010200 /* EitherExt.swift in Sources */,
+				DE8483CE1BFBF50D00273011 /* NSDataExt.swift in Sources */,
 				DE8483BC1BFBDC5000273011 /* Types.swift in Sources */,
 				DE702D311BFB2ADC0017CEE8 /* ArrayExt.swift in Sources */,
 				DE8483BF1BFBDCED00273011 /* Enum.swift in Sources */,
