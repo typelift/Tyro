@@ -12,7 +12,7 @@ import Swiftz
 
 extension String {
     var toJSON: Either<JSONError, JSONValue>? {
-        return JSONValue.deserialize <^> self
+        return JSONValue.decodeEither <^> self
     }
 }
 
@@ -28,7 +28,7 @@ class TyroSpec: XCTestCase {
         XCTAssertNil(either?.left)
         XCTAssertNotNil(either?.right)
         
-        XCTAssertNotNil((JSONValue.deserialize <^> invalidJson)?.left)
+        XCTAssertNotNil(invalidJson.toJSON?.left)
     }
     
     func testEitherCoalescing() {

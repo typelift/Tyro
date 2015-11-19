@@ -128,7 +128,7 @@ extension JSONValue {
 }
 
 extension JSONValue {
-    public static func deserialize(data: NSData) -> Either<JSONError, JSONValue> {
+    public static func decodeEither(data: NSData) -> Either<JSONError, JSONValue> {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             return JSONValue.decode(object)
@@ -138,11 +138,15 @@ extension JSONValue {
         }
     }
     
-    public static func deserialize(json: Swift.String) -> Either<JSONError, JSONValue> {
-        return (deserialize <^> json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)) ?? .Left(.Custom("JSON string (\(json)) could not be converted to NSData using UTF-8 string encoding."))
+    public static func decodeEither(json: Swift.String) -> Either<JSONError, JSONValue> {
+        return (decodeEither <^> json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)) ?? .Left(.Custom("JSON string (\(json)) could not be converted to NSData using UTF-8 string encoding."))
     }
     
-    public static func serialize(value: JSONValue) -> Either<JSONError, NSData> {
+    public static func decode(data: NSData) -> JSONValue? {
+        return decodeEither(data).right
+    }
+    
+    public static func encodeEither(value: JSONValue) -> Either<JSONError, NSData> {
         return JSONValue.encode(value).flatMap { (object) -> Either<JSONError, NSData> in
             do {
                 let data: NSData = try NSJSONSerialization.dataWithJSONObject(object, options: NSJSONWritingOptions(rawValue: 0))
@@ -152,5 +156,13 @@ extension JSONValue {
                 return .Left(.Error(error, "Error while serializing data"))
             }
         }
+    }
+    
+    public static func encode(value: JSONValue) -> NSData? {
+        return encodeEither(value).right
+    }
+    
+    public static func encodeToString(value: JSONValue) -> Swift.String? {
+        return encode(value)?.toUTF8String()
     }
 }
