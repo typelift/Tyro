@@ -7,16 +7,6 @@
 //
 
 import XCTest
-
-//import protocol Swiftz.JSONDecodable
-//import enum Swiftz.JSONValue
-//import func Swiftz.<*>
-//import func Swiftz.<^>
-//import func Swiftz.<>
-//import func Swiftz.<?
-//import func Swiftz.>>-
-//import func Swiftz.curry
-
 import Swiftz
 @testable import Tyro
 
@@ -454,31 +444,3 @@ import Swiftz
 //        XCTAssert(userAccessLog?.lastUpdated == date)
 //    }
 //}
-
-class JSONSpec: XCTestCase {
-    let json = "{\"bool\":true,\"intOrBool\":1}"
-    let invalidJson = "{\"bool\"\":true,\"intOrBool\":1}"
-    
-    func testEither() {
-        let either = JSONValue.deserialize <^> json
-        
-        XCTAssertNil(either?.left)
-        XCTAssertNotNil(either?.right)
-        
-        XCTAssertNotNil((JSONValue.deserialize <^> invalidJson)?.left)
-    }
-    
-    func testEitherCoalescing() {
-        let result1: JSONValue? = (JSONValue.deserialize <^> json) | .Null
-        let result2: JSONValue? = (JSONValue.deserialize <^> invalidJson) | .Null
-        XCTAssert(result1 != .Null)
-        XCTAssert(result2 == .Null)
-    }
-    
-    func testSubscript() {
-        let either = JSONValue.deserialize <^> json
-        let jsonValue = either?.right?["bool"]
-        XCTAssertNotNil(jsonValue)
-        XCTAssert(jsonValue == JSONValue.Number(true))
-    }
-}

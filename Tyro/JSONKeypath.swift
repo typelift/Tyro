@@ -51,7 +51,7 @@ extension JSONKeypath: CustomStringConvertible {
 }
 
 extension JSONKeypath {
-    internal func resolve<V>(dictionary: [String: V]) -> V? {
+    public func resolve<V>(dictionary: [String: V]) -> V? {
         if path.isEmpty {
             return nil
         }
@@ -61,7 +61,6 @@ extension JSONKeypath {
             return nil
         case .Cons(let hd, let tl):
             if let o = dictionary[hd] {
-//                print("o: \(o)")
                 if path.count > 1 {
                     return JSONKeypath(tl).resolve(dictionary)
                 }
