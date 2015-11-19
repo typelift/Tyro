@@ -85,10 +85,14 @@ class TyroSpec: XCTestCase {
         XCTAssertNotNil(object)
         XCTAssert(object?["bool"] == true)
         
-        let bool: Bool? = result?["object"]?["bool"]?.value()
+        let bool1: Bool? = result?["object"]?["bool"]?.value()
         
-        XCTAssertNotNil(bool)
-        XCTAssert(bool == true)
+        XCTAssertNotNil(bool1)
+        XCTAssert(bool1 == true)
+        
+        let bool2: Bool? = result <? "object" <> "bool"
+        XCTAssertNotNil(bool2)
+        XCTAssert(bool2 == true)
     }
     
     func testOperatorRetrieve() {
