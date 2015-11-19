@@ -16,7 +16,6 @@ extension DateTimestampJSONConvertibleType {
     public typealias T = NSDate
     
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
-//        print("value: \(value)")
         switch value {
         case .Number(let value):
             let date = NSDate(timeIntervalSince1970: value.doubleValue / 1000.0)
@@ -42,7 +41,6 @@ extension DateFormatJSONConvertibleType {
     public typealias T = NSDate
     
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
-//        print("value: \(value)")
         switch value {
         case .String(let value):
             let formatter = NSDateFormatter()
