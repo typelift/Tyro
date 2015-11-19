@@ -11,6 +11,8 @@
 		DE4480261BFD5F6D00010200 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
 		DE4480281BFD779200010200 /* TyroSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480271BFD779200010200 /* TyroSpec.swift */; };
 		DE4480291BFD779700010200 /* TyroSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480271BFD779200010200 /* TyroSpec.swift */; };
+		DE44805A1BFD7BB600010200 /* json-data in Resources */ = {isa = PBXBuildFile; fileRef = DE4480591BFD7BB600010200 /* json-data */; };
+		DE44805B1BFD7BB600010200 /* json-data in Resources */ = {isa = PBXBuildFile; fileRef = DE4480591BFD7BB600010200 /* json-data */; };
 		DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
 		DE702CED1BFAC79C0017CEE8 /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
 		DE702CF41BFB15D00017CEE8 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE702CF31BFB15D00017CEE8 /* Swiftz.framework */; };
@@ -76,6 +78,7 @@
 		DE4480231BFC440E00010200 /* EitherExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherExt.swift; sourceTree = "<group>"; };
 		DE4480251BFD5F6D00010200 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		DE4480271BFD779200010200 /* TyroSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TyroSpec.swift; sourceTree = "<group>"; };
+		DE4480591BFD7BB600010200 /* json-data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "json-data"; sourceTree = "<group>"; };
 		DE702CD01BFAC6830017CEE8 /* Tyro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tyro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE702CDA1BFAC6830017CEE8 /* Tyro-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tyro-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE702CEA1BFAC7750017CEE8 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 		DE702CDE1BFAC6830017CEE8 /* TyroTests */ = {
 			isa = PBXGroup;
 			children = (
+				DE4480591BFD7BB600010200 /* json-data */,
 				DE702D261BFB2A0B0017CEE8 /* Info.plist */,
 				DE702CFC1BFB1E2B0017CEE8 /* JSONSpec.swift */,
 				DE702D001BFB21250017CEE8 /* User.swift */,
@@ -356,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE44805B1BFD7BB600010200 /* json-data in Resources */,
 				DE702D2D1BFB2A960017CEE8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE44805A1BFD7BB600010200 /* json-data in Resources */,
 				DE702D271BFB2A0B0017CEE8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
