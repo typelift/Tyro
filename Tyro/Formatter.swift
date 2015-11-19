@@ -14,10 +14,6 @@ public protocol JSONValueConvertible {
     var jsonValue: JSONValue? { get }
 }
 
-//extension JSONValue: JSONValueConvertible {
-//    public var jsonValue: JSONValue? { return self }
-//}
-
 public protocol JSONFormatterType: JSONValueConvertible {
     typealias F: FromJSON
     
@@ -55,14 +51,7 @@ public class JSONFormatter<F: FromJSON>: JSONValueConvertible, JSONFormatterType
     }
 }
 
-extension JSONValue {
-    //    public func format<A: FromJSON>(type: A.Type) -> JSONValue? {
-    //        let formatted: Either<JSONError, A.T> = (A.fromJSON <^> self)!
-    //        let value: AnyObject? = formatted.right as? AnyObject
-    //        let encoded: JSONValue? = (JSONValue.decode <^> value)?.right
-    //        return encoded
-    //    }
-    
+extension JSONValue {    
     public func format<A: FromJSON>(type: A.Type) -> JSONFormatter<A> {
         return JSONFormatter<A>(jsonValue: self)
     }
