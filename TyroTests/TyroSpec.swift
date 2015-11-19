@@ -89,6 +89,11 @@ class TyroSpec: XCTestCase {
         
         XCTAssertNotNil(bool1)
         XCTAssert(bool1 == true)
+    }
+    
+    func testKeypath() {
+        let result = dictionaryJson.deserializeJson()?.right
+        XCTAssertNotNil(result)
         
         let bool2: Bool? = result <? "object" <> "bool"
         XCTAssertNotNil(bool2)
