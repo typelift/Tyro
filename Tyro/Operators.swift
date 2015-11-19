@@ -11,26 +11,15 @@ import Swiftz
 
 /// JSONFormatterType decoding operators
 public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T? {
-    let jv = lhs?.jsonValue
-    if let jv = jv?[rhs] {
-        let r = B.F.fromJSON(jv).right
-        return r
-    }
-    return nil
+    return (B.F.fromJSON <^> lhs?.jsonValue?[rhs])?.right
 }
 
 public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]? {
-    switch lhs?.jsonValue?[rhs] {
-    case .Some(.Array(let values)): return values.flatMap { B.F.fromJSON($0).right }
-    default: return nil
-    }
+    return lhs?.jsonValue?[rhs]?.array?.flatMap { B.F.fromJSON($0).right }
 }
 
 public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.F.T]? {
-    switch lhs?.jsonValue?[rhs] {
-    case .Some(.Object(let value)): return value.flatMap { B.F.fromJSON($0).right }
-    default: return nil
-    }
+    return lhs?.jsonValue?[rhs]?.object?.flatMap { B.F.fromJSON($0).right }
 }
 
 public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T?? {
