@@ -67,9 +67,10 @@ class TyroSpec: XCTestCase {
     }
     
     func testValueArray() {
-        let either = arrayBoolJson.deserializeJson()
-        XCTAssertNotNil(either?.right)
-        let jsonValue: JSONValue? = either?.right?["bools"]
+        let result = arrayBoolJson.deserializeJson()?.right
+        XCTAssertNotNil(result)
+        
+        let jsonValue: JSONValue? = result?["bools"]
         let bools: [Bool]? = jsonValue?.value()
         
         XCTAssertNotNil(bools)
@@ -112,7 +113,8 @@ class TyroSpec: XCTestCase {
     
     func testDate() {
         let timestampInMilliseconds: Double = 1443769200000
-        let json = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\"}"
+        let expectedDate = NSDate(timeIntervalSince1970: timestampInMilliseconds / 1000.0)
+        let json = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
         let result = json.deserializeJson()?.right
         
         XCTAssertNotNil(result)
@@ -122,5 +124,12 @@ class TyroSpec: XCTestCase {
         
         let date2: NSDate? = result?.format(DateFormatJSONFormatter.self) <? "lastUpdatedPretty"
         XCTAssertNotNil(date2)
+        
+        let dates: [NSDate]? = result?.format(DateFormatJSONFormatter.self) <? "dates"
+        XCTAssert(dates?.count == 3)
+        
+        let object: [String: NSDate]? = result?.format(DateTimestampJSONFormatter.self) <? "object"
+        XCTAssert(object?.keys.count == 1)
+        XCTAssert(object?["date"] == expectedDate)
     }
 }

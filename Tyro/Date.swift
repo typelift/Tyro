@@ -16,7 +16,7 @@ extension DateTimestampJSONConvertibleType {
     public typealias T = NSDate
     
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
-        print("value: \(value)")
+//        print("value: \(value)")
         switch value {
         case .Number(let value):
             let date = NSDate(timeIntervalSince1970: value.doubleValue / 1000.0)
@@ -42,7 +42,7 @@ extension DateFormatJSONConvertibleType {
     public typealias T = NSDate
     
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
-        print("value: \(value)")
+//        print("value: \(value)")
         switch value {
         case .String(let value):
             let formatter = NSDateFormatter()
@@ -52,7 +52,7 @@ extension DateFormatJSONConvertibleType {
                 return .Right(date)
             }
             else {
-                return .Left(.Custom("Could no"))
+                return .Left(.Custom("Could not format value (\(value)) to format (\(formatter.dateFormat))"))
             }
         default:
             return .Left(.TypeMismatch("NSDate format", "\(value.dynamicType.self)"))

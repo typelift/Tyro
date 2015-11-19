@@ -19,14 +19,31 @@ public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T? {
     return nil
 }
 
-//public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]? {
-//    let jv = lhs?.jsonValue
-//    if let jv = jv?[rhs] {
-//        //        let r = B.F.fromJSON(jv).right
-//        //        return r
-//    }
-//    return nil
-//}
+public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]? {
+    switch lhs?.jsonValue?[rhs] {
+    case .Some(.Array(let values)): return values.flatMap { B.F.fromJSON($0).right }
+    default: return nil
+    }
+}
+
+public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.F.T]? {
+    switch lhs?.jsonValue?[rhs] {
+    case .Some(.Object(let value)): return value.flatMap { B.F.fromJSON($0).right }
+    default: return nil
+    }
+}
+
+public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T?? {
+    return lhs <? rhs ?? nil
+}
+
+public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]?? {
+    return lhs <? rhs ?? nil
+}
+
+public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.F.T]?? {
+    return lhs <? rhs ?? nil
+}
 
 /// JSONValue decoding operators
 
