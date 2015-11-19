@@ -11,16 +11,8 @@ import Swiftz
 @testable import Tyro
 
 extension String {
-    func deserializeJson() -> Either<JSONError, JSONValue>? {
+    var toJSON: Either<JSONError, JSONValue>? {
         return JSONValue.deserialize <^> self
-    }
-}
-
-extension NSDate: FromJSON {
-    public typealias T = NSDate
-    
-    public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
-        return .Left(.TypeMismatch("", ""))
     }
 }
 
@@ -31,7 +23,7 @@ class TyroSpec: XCTestCase {
     let dictionaryJson = "{\"object\":{\"bool\":true}}"
     
     func testEither() {
-        let either = json.deserializeJson()
+        let either = json.toJSON
         
         XCTAssertNil(either?.left)
         XCTAssertNotNil(either?.right)
@@ -40,21 +32,21 @@ class TyroSpec: XCTestCase {
     }
     
     func testEitherCoalescing() {
-        let result1: JSONValue? = json.deserializeJson() | .Null
-        let result2: JSONValue? = invalidJson.deserializeJson() | .Null
+        let result1: JSONValue? = json.toJSON | .Null
+        let result2: JSONValue? = invalidJson.toJSON | .Null
         XCTAssert(result1 != .Null)
         XCTAssert(result2 == .Null)
     }
     
     func testSubscript() {
-        let either = json.deserializeJson()
+        let either = json.toJSON
         let jsonValue = either?.right?["bool"]
         XCTAssertNotNil(jsonValue)
         XCTAssert(jsonValue == JSONValue.Number(true))
     }
     
     func testValue() {
-        let either = json.deserializeJson()
+        let either = json.toJSON
         XCTAssertNotNil(either?.right)
         
         let bool: Bool? = either?.right?["bool"]?.value()
@@ -67,7 +59,7 @@ class TyroSpec: XCTestCase {
     }
     
     func testValueArray() {
-        let result = arrayBoolJson.deserializeJson()?.right
+        let result = arrayBoolJson.toJSON?.right
         XCTAssertNotNil(result)
         
         let jsonValue: JSONValue? = result?["bools"]
@@ -79,7 +71,7 @@ class TyroSpec: XCTestCase {
     }
     
     func testValueDictionary() {
-        let result = dictionaryJson.deserializeJson()?.right
+        let result = dictionaryJson.toJSON?.right
         XCTAssertNotNil(result)
         
         let object: [String: Bool]? = result <? "object"
@@ -93,7 +85,7 @@ class TyroSpec: XCTestCase {
     }
     
     func testKeypath() {
-        let result = dictionaryJson.deserializeJson()?.right
+        let result = dictionaryJson.toJSON?.right
         XCTAssertNotNil(result)
         
         let bool2: Bool? = result <? "object" <> "bool"
@@ -102,7 +94,7 @@ class TyroSpec: XCTestCase {
     }
     
     func testOperatorRetrieve() {
-        let x: JSONValue? = json.deserializeJson()?.right
+        let x: JSONValue? = json.toJSON?.right
         XCTAssertNotNil(x)
         
         let bool: Bool? = x <? "bool"
@@ -113,9 +105,9 @@ class TyroSpec: XCTestCase {
     
     func testDate() {
         let timestampInMilliseconds: Double = 1443769200000
-        let expectedDate = NSDate(timeIntervalSince1970: timestampInMilliseconds / 1000.0)
-        let json = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
-        let result = json.deserializeJson()?.right
+        let expectedDate = NSDate(timeIntervalSince1970: 1443769200000.0 / 1000.0)
+        let datesJson = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
+        let result = datesJson.toJSON?.right
         
         XCTAssertNotNil(result)
         

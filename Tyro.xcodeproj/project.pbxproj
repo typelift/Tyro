@@ -55,6 +55,7 @@
 		DE8483CC1BFBF4F600273011 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CA1BFBF4F600273011 /* Encoder.swift */; };
 		DE8483CE1BFBF50D00273011 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
 		DE8483CF1BFBF50D00273011 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
+		DEB7BD271BFE77210051C2C0 /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		DE8483C71BFBF3CA00273011 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		DE8483CA1BFBF4F600273011 /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		DE8483CD1BFBF50D00273011 /* NSDataExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExt.swift; sourceTree = "<group>"; };
+		DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				DE702CFC1BFB1E2B0017CEE8 /* JSONSpec.swift */,
 				DE702D001BFB21250017CEE8 /* User.swift */,
 				DE4480271BFD779200010200 /* TyroSpec.swift */,
+				DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */,
 			);
 			path = TyroTests;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB7BD271BFE77210051C2C0 /* JSONDataSpec.swift in Sources */,
 				DE702D2C1BFB2A8F0017CEE8 /* User.swift in Sources */,
 				DE702D2B1BFB2A8F0017CEE8 /* JSONSpec.swift in Sources */,
 				DE4480281BFD779200010200 /* TyroSpec.swift in Sources */,
