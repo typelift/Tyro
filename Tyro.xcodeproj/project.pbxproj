@@ -56,6 +56,8 @@
 		DE8483CE1BFBF50D00273011 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
 		DE8483CF1BFBF50D00273011 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
 		DEB7BD271BFE77210051C2C0 /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
+		DEB7BD281BFE903F0051C2C0 /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
+		DEB7BD291BFE904E0051C2C0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -431,6 +433,7 @@
 				DE8483BA1BFBDC3600273011 /* Operators.swift in Sources */,
 				DE8483CC1BFBF4F600273011 /* Encoder.swift in Sources */,
 				DE8483C91BFBF3CA00273011 /* Error.swift in Sources */,
+				DEB7BD281BFE903F0051C2C0 /* EitherExt.swift in Sources */,
 				DE8483CF1BFBF50D00273011 /* NSDataExt.swift in Sources */,
 				DE8483BD1BFBDC5000273011 /* Types.swift in Sources */,
 				DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */,
@@ -438,6 +441,7 @@
 				DE8483B71BFBD8E500273011 /* JSONValue.swift in Sources */,
 				DE8483C61BFBDE4300273011 /* Date.swift in Sources */,
 				DE8483B61BFBD8E500273011 /* Decoder.swift in Sources */,
+				DEB7BD291BFE904E0051C2C0 /* Formatter.swift in Sources */,
 				DE702CF71BFB17850017CEE8 /* DictionaryExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
