@@ -9,16 +9,19 @@
 import Foundation
 import Swiftz
 
+/// Left-to-right coalescing operator for Either<L, R> where if the either is left then
+/// the operator maps to the value provided by `f` otherwise it returns the either right.
+public func | <L, R>(either: Either<L, R>?, @autoclosure(escaping) f: () -> R?) -> R? {
+    return either?.either(onLeft: { _ in f() }, onRight: identity)
+}
+
+/// Protocol for Either<L, R> type.
 public protocol EitherType {
     typealias L
     typealias R
     
     var left: L? { get }
     var right: R? { get }
-}
-
-public func | <L, R>(either: Either<L, R>?, @autoclosure(escaping) f: () -> R?) -> R? {
-    return either?.either(onLeft: { _ in f() }, onRight: identity)
 }
 
 extension Either: EitherType {

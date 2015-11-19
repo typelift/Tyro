@@ -36,6 +36,11 @@ class TyroSpec: XCTestCase {
         let result2: JSONValue? = invalidJson.toJSON | .Null
         XCTAssert(result1 != .Null)
         XCTAssert(result2 == .Null)
+        
+        let result3: JSONValue? = json.toJSON | nil
+        let result4: JSONValue? = invalidJson.toJSON | nil
+        XCTAssert(result3 != nil)
+        XCTAssertNil(result4)
     }
     
     func testSubscript() {
