@@ -15,6 +15,7 @@ class TyroSpec: XCTestCase {
     let invalidJson = "{\"bool\"\":true,\"intOrBool\":1}"
     let arrayBoolJson = "{\"bools\":[true,true,false,false]}"
     let dictionaryJson = "{\"object\":{\"bool\":true}}"
+    let emojiJson = "{\"👍\":\"😎\"}"
     
     func testToJSONEither() {
         let either = json.toJSONEither
@@ -91,22 +92,8 @@ class TyroSpec: XCTestCase {
         XCTAssert(bool1 == true)
     }
     
-    func testKeypath() {
-        let result = dictionaryJson.toJSONEither?.right
-        XCTAssertNotNil(result)
-        
-        let bool2: Bool? = result <? "object" <> "bool"
-        XCTAssertNotNil(bool2)
-        XCTAssert(bool2 == true)
-    }
-    
-    func testOperatorRetrieve() {
-        let x: JSONValue? = json.toJSONEither?.right
-        XCTAssertNotNil(x)
-        
-        let bool: Bool? = x <? "bool"
-        
-        XCTAssertNotNil(bool)
-        XCTAssert(bool == true)
+    func testEmoji() {
+        let emoji: String? = emojiJson.toJSON <? "👍"
+        XCTAssert(emoji == "😎")
     }
 }

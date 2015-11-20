@@ -23,15 +23,15 @@ public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.
 }
 
 public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T?? {
-    return lhs <? rhs ?? nil
+    return lhs <? rhs
 }
 
 public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]?? {
-    return lhs <? rhs ?? nil
+    return lhs <? rhs
 }
 
 public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.F.T]?? {
-    return lhs <? rhs ?? nil
+    return lhs <? rhs
 }
 
 /// JSONValue decoding operators
@@ -49,41 +49,41 @@ public func <? <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -
 }
 
 public func <?? <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -> A?? {
-    return lhs <? rhs ?? nil
+    return lhs <? rhs
 }
 
 public func <?? <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -> [A]?? {
-    return lhs <? rhs ?? nil
+    return lhs <? rhs
 }
 
 public func <?? <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -> [String: A]?? {
-    return lhs <? rhs ?? nil
+    return lhs <? rhs
 }
 
-public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -> A {
+public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) throws -> A {
     if let result: A = (lhs <? rhs) {
         return result
     }
     else {
-        return error("Could not find value at keypath \(rhs) in JSONValue: \(lhs)")
+        throw JSONError.Custom("Could not find value at keypath \(rhs) in JSONValue: \(lhs)")
     }
 }
 
-public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -> [A] {
+public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) throws -> [A] {
     if let result: [A] = (lhs <? rhs) {
         return result
     }
     else {
-        return error("Could not find array at keypath \(rhs) in JSONValue: \(lhs)")
+        throw JSONError.Custom("Could not find value at keypath \(rhs) in JSONValue: \(lhs)")
     }
 }
 
-public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) -> [String: A] {
+public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) throws -> [String: A] {
     if let result: [String: A] = (lhs <? rhs) {
         return result
     }
     else {
-        return error("Could not find dictionary at keypath \(rhs) in JSONValue: \(lhs)")
+        throw JSONError.Custom("Could not find value at keypath \(rhs) in JSONValue: \(lhs)")
     }
 }
 

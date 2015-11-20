@@ -75,6 +75,8 @@
 		DEB7BD531BFEAEA60051C2C0 /* FormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD511BFEAEA60051C2C0 /* FormatterSpec.swift */; };
 		DEB7BD551BFEB9A00051C2C0 /* EncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */; };
 		DEB7BD571BFEB9A80051C2C0 /* DecoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */; };
+		DEB7BD591BFED3F30051C2C0 /* OperatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */; };
+		DEB7BD5B1BFED42E0051C2C0 /* KeypathSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5A1BFED42E0051C2C0 /* KeypathSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		DEB7BD511BFEAEA60051C2C0 /* FormatterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterSpec.swift; sourceTree = "<group>"; };
 		DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncoderSpec.swift; sourceTree = "<group>"; };
 		DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderSpec.swift; sourceTree = "<group>"; };
+		DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsSpec.swift; sourceTree = "<group>"; };
+		DEB7BD5A1BFED42E0051C2C0 /* KeypathSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypathSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,8 @@
 				DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */,
 				DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */,
 				DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */,
+				DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */,
+				DEB7BD5A1BFED42E0051C2C0 /* KeypathSpec.swift */,
 			);
 			path = TyroTests;
 			sourceTree = "<group>";
@@ -544,8 +550,10 @@
 				DEB7BD451BFEAE480051C2C0 /* TyroSpec.swift in Sources */,
 				DEB7BD441BFEAE480051C2C0 /* JSONSpec.swift in Sources */,
 				DEB7BD551BFEB9A00051C2C0 /* EncoderSpec.swift in Sources */,
+				DEB7BD5B1BFED42E0051C2C0 /* KeypathSpec.swift in Sources */,
 				DEB7BD4F1BFEAE930051C2C0 /* URLSpec.swift in Sources */,
 				DEB7BD4A1BFEAE480051C2C0 /* DateSpec.swift in Sources */,
+				DEB7BD591BFED3F30051C2C0 /* OperatorsSpec.swift in Sources */,
 				DEB7BD481BFEAE480051C2C0 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

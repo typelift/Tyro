@@ -20,7 +20,6 @@ public protocol JSONEncoder {
 
 extension JSONEncoder {
     public static func encode(value: AnyObject) -> Either<JSONError, JSONValue> {
-        print("value: \(value)")
         switch value {
         case let values as [AnyObject]:
             return values.flatMap(encode).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Array($0)) })

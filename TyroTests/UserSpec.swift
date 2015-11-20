@@ -16,7 +16,6 @@ class UserSpec: XCTestCase {
     
     func testDecodeUserEither() {
         let userEither: Either<JSONError, User>? = userJson.toJSON?.valueEither()
-        print("User either: \(userEither)")
         XCTAssertNotNil(userEither)
     }
     

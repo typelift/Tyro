@@ -50,12 +50,13 @@ extension Bool: ToJSON {
 /// Int
 extension Int: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Int> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.integerValue)
-        default:
-            return .Left(.TypeMismatch("\(Int.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.integerValue }.toEither(.TypeMismatch("\(Int.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.integerValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Int.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -68,12 +69,13 @@ extension Int: ToJSON {
 /// Int8
 extension Int8: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Int8> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.charValue)
-        default:
-            return .Left(.TypeMismatch("\(Int8.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.charValue }.toEither(.TypeMismatch("\(Int8.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.charValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Int8.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -86,12 +88,13 @@ extension Int8: ToJSON {
 /// Int16
 extension Int16: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Int16> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.shortValue)
-        default:
-            return .Left(.TypeMismatch("\(Int16.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.shortValue }.toEither(.TypeMismatch("\(Int16.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.shortValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Int16.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -104,12 +107,13 @@ extension Int16: ToJSON {
 /// Int32
 extension Int32: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Int32> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.intValue)
-        default:
-            return .Left(.TypeMismatch("\(Int32.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.intValue }.toEither(.TypeMismatch("\(Int32.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.intValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Int32.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -122,12 +126,13 @@ extension Int32: ToJSON {
 /// Int64
 extension Int64: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Int64> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.longLongValue)
-        default:
-            return .Left(.TypeMismatch("\(Int64.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.longLongValue }.toEither(.TypeMismatch("\(Int64.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.longLongValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Int64.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -140,12 +145,13 @@ extension Int64: ToJSON {
 /// UInt
 extension UInt: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.unsignedLongValue)
-        default:
-            return .Left(.TypeMismatch("\(UInt.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.unsignedLongValue }.toEither(.TypeMismatch("\(UInt.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.unsignedLongValue)
+//        default:
+//            return .Left(.TypeMismatch("\(UInt.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -158,12 +164,13 @@ extension UInt: ToJSON {
 /// UInt8
 extension UInt8: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt8> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.unsignedCharValue)
-        default:
-            return .Left(.TypeMismatch("\(UInt8.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.unsignedCharValue }.toEither(.TypeMismatch("\(UInt8.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.unsignedCharValue)
+//        default:
+//            return .Left(.TypeMismatch("\(UInt8.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -176,12 +183,13 @@ extension UInt8: ToJSON {
 /// UInt16
 extension UInt16: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt16> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.unsignedShortValue)
-        default:
-            return .Left(.TypeMismatch("\(UInt16.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.unsignedShortValue }.toEither(.TypeMismatch("\(UInt16.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.unsignedShortValue)
+//        default:
+//            return .Left(.TypeMismatch("\(UInt16.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -194,12 +202,13 @@ extension UInt16: ToJSON {
 /// UInt32
 extension UInt32: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt32> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.unsignedIntValue)
-        default:
-            return .Left(.TypeMismatch("\(UInt32.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.unsignedIntValue }.toEither(.TypeMismatch("\(UInt32.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.unsignedIntValue)
+//        default:
+//            return .Left(.TypeMismatch("\(UInt32.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -212,12 +221,13 @@ extension UInt32: ToJSON {
 /// UInt64
 extension UInt64: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt64> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.unsignedLongLongValue)
-        default:
-            return .Left(.TypeMismatch("\(UInt64.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.unsignedLongLongValue }.toEither(.TypeMismatch("\(UInt64.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.unsignedLongLongValue)
+//        default:
+//            return .Left(.TypeMismatch("\(UInt64.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -230,12 +240,13 @@ extension UInt64: ToJSON {
 /// Float
 extension Float: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Float> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.floatValue)
-        default:
-            return .Left(.TypeMismatch("\(Float.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.floatValue }.toEither(.TypeMismatch("\(Float.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.floatValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Float.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
@@ -248,12 +259,13 @@ extension Float: ToJSON {
 /// Double
 extension Double: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, Double> {
-        switch value {
-        case .Number(let value):
-            return .Right(value.doubleValue)
-        default:
-            return .Left(.TypeMismatch("\(Double.self)", "\(value.dynamicType.self)"))
-        }
+        return value.number.map { $0.doubleValue }.toEither(.TypeMismatch("\(Double.self)", "\(value.dynamicType.self)"))
+//        switch value {
+//        case .Number(let value):
+//            return .Right(value.doubleValue)
+//        default:
+//            return .Left(.TypeMismatch("\(Double.self)", "\(value.dynamicType.self)"))
+//        }
     }
 }
 
