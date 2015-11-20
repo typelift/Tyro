@@ -51,8 +51,22 @@ public class JSONFormatter<F: FromJSON>: JSONValueConvertible, JSONFormatterType
     }
 }
 
-extension JSONValue {    
+extension JSONValue {
     public func format<A: FromJSON>(type: A.Type) -> JSONFormatter<A> {
         return JSONFormatter<A>(jsonValue: self)
+    }
+}
+
+extension JSONFormatterType {
+    func value() -> F.T? {
+        return (F.fromJSON <^> jsonValue)?.right
+    }
+    
+    func value() -> [F.T]? {
+        return jsonValue?.array?.flatMap { F.fromJSON($0).right }
+    }
+    
+    func value() -> [String: F.T]? {
+        return jsonValue?.object?.flatMap { F.fromJSON($0).right }
     }
 }

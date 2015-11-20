@@ -15,7 +15,7 @@ class DateSpec: XCTestCase {
         let timestampInMilliseconds: Double = 1443769200000
         let expectedDate = NSDate(timeIntervalSince1970: 1443769200000.0 / 1000.0)
         let datesJson = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
-        let result = datesJson.toJSONEither?.right
+        let result = datesJson.toJSON
         
         XCTAssertNotNil(result)
         
