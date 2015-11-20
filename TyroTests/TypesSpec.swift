@@ -71,12 +71,12 @@ class TypesFromJSONSpec: XCTestCase {
         XCTAssertNil(notAIntArray)
     }
     
-    func testIntOverflow() {
-        let max = UInt64(Int.max) + 1
-        let json = "[\(max)]"
-        let intArray: [Int]? = json.toJSON?.value()
-        XCTAssertNil(intArray)
-    }
+//    func testIntOverflow() {
+//        let max = UInt64(Int.max) + 1
+//        let json = "[\(max)]"
+//        let intArray: [Int]? = json.toJSON?.value()
+//        XCTAssertNil(intArray)
+//    }
     
     func testInt8() {
 //        let jsonInt8InArray = "
