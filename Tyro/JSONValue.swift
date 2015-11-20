@@ -153,7 +153,7 @@ extension JSONValue {
     public static func decodeEither(data: NSData) -> Either<JSONError, JSONValue> {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-            return JSONValue.encode(object)
+            return JSONValue.encodeEither(object)
         }
         catch let error {
             return .Left(.Error(error, "Error while decoding data with decodeEither"))
@@ -169,7 +169,7 @@ extension JSONValue {
     }
     
     public static func encodeEither(value: JSONValue) -> Either<JSONError, NSData> {
-        return JSONValue.decode(value).flatMap { (object) -> Either<JSONError, NSData> in
+        return JSONValue.decodeEither(value).flatMap { (object) -> Either<JSONError, NSData> in
             do {
                 let data: NSData = try NSJSONSerialization.dataWithJSONObject(object, options: NSJSONWritingOptions(rawValue: 0))
                 return .Right(data)

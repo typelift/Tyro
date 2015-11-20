@@ -10,11 +10,11 @@ import Foundation
 import Swiftz
 
 public protocol JSONDecoder {
-    static func decode(value: JSONValue) -> Either<JSONError, AnyObject>
+    static func decodeEither(value: JSONValue) -> Either<JSONError, AnyObject>
 }
 
 extension JSONDecoder {
-    public static func decode(value: JSONValue) -> Either<JSONError, AnyObject> {
+    public static func decodeEither(value: JSONValue) -> Either<JSONError, AnyObject> {
         switch value {
         case .Array(let values):
             return .Right(values.flatMap { $0.anyObject })

@@ -53,7 +53,7 @@ class EnumSpec: XCTestCase {
     
     func testEncodeEnum() {
         let dictionary: [String: StatusType] = ["status": .Passed]
-        let json = JSONValue.encode(dictionary).right?.encodeToString()
+        let json = JSONValue.encodeEither(dictionary).right?.encodeToString()
         XCTAssert(json == "{\"status\":\"passed\"}")
     }
 }

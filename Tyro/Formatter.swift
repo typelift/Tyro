@@ -28,7 +28,7 @@ public class JSONFormatter<F: FromJSON>: JSONValueConvertible, JSONFormatterType
     
     public var jsonValue: JSONValue? {
         if let internalValue = internalValue {
-            return (JSONValue.encode <^> (internalValue as? AnyObject))?.right
+            return (JSONValue.encodeEither <^> (internalValue as? AnyObject))?.right
         }
         else {
             return internalJsonValue
