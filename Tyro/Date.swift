@@ -43,8 +43,12 @@ extension DateFormatJSONConvertibleType {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
         switch value {
         case .String(let value):
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = DateFormatJSONFormatter.NSDateFormat
+            var formatter: NSDateFormatter!
+            var onceToken: dispatch_once_t = 0
+            dispatch_once(&onceToken) {
+                formatter = NSDateFormatter()
+                formatter.dateFormat = DateFormatJSONFormatter.NSDateFormat
+            }
             let date = formatter.dateFromString(value)
             if let date = date {
                 return .Right(date)

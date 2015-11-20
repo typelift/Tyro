@@ -11,10 +11,20 @@ import Swiftz
 
 public struct FromJSONArray<A, B: FromJSON where B.T == A>: FromJSON {
     public typealias T = [A]
-    public static func fromJSON(value: JSONValue) -> Either<JSONError, [A]> {
+//    public static func fromJSON(value: JSONValue) -> Either<JSONError, [A]> {
+//        switch value {
+//        case .Array(let values):
+//            return values.flatMap(B.fromJSON).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right($0) })
+//        default:
+//            return .Left(.TypeMismatch("\(JSONValue.Array.self)", "\(value.dynamicType.self)"))
+//        }
+//    }
+    
+    public static func fromJSON<F: FromJSONFormatter where F.T == [A]>(formatter: F?, value: JSONValue) -> Either<JSONError, [A]> {
         switch value {
         case .Array(let values):
-            return values.flatMap(B.fromJSON).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right($0) })
+//            let x = B.fromJSON
+            return values.flatMap(B.fromJSON(formatter)).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right($0) })
         default:
             return .Left(.TypeMismatch("\(JSONValue.Array.self)", "\(value.dynamicType.self)"))
         }

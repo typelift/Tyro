@@ -140,17 +140,6 @@ extension JSONValue {
 }
 
 extension JSONValue {
-    subscript(keypath: JSONKeypath) -> JSONValue? {
-        switch self {
-        case .Object(let d):
-            return keypath.resolve(d)
-        default:
-            return nil
-        }
-    }
-}
-
-extension JSONValue {
     public static func decodeEither(data: NSData) -> Either<JSONError, JSONValue> {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))

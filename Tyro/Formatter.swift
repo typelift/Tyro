@@ -10,44 +10,58 @@ import Foundation
 import Swiftz
 
 public protocol JSONValueConvertible {
-    typealias T
     var jsonValue: JSONValue? { get }
 }
 
 public protocol JSONFormatterType: JSONValueConvertible {
     typealias F: FromJSON
+  
+    func value() -> F.T?
+    func value(keypath: JSONKeypath?) -> F.T?
     
-    func withFormatter(type: F.Type) -> JSONFormatter<F>
+    func value() -> [F.T]?
+    func value(keypath: JSONKeypath?) -> [F.T]?
+    
+    func value() -> [String: F.T]?
+    func value(keypath: JSONKeypath?) -> [String: F.T]?
 }
 
-public class JSONFormatter<F: FromJSON>: JSONValueConvertible, JSONFormatterType {
+public class JSONFormatter<A: FromJSON>: JSONValueConvertible, JSONFormatterType {
+    public typealias F = A
     public typealias T = F.T
     
     private let internalJsonValue: JSONValue?
-    private let internalValue: F.T?
     
     public var jsonValue: JSONValue? {
-        if let internalValue = internalValue {
-            return (JSONValue.encodeEither <^> (internalValue as? AnyObject))?.right
-        }
-        else {
-            return internalJsonValue
-        }
+        return internalJsonValue
     }
     
     public init(jsonValue: JSONValue?) {
         internalJsonValue = jsonValue
-        internalValue = nil
     }
     
-    public init(value: F.T?) {
-        internalJsonValue = nil
-        internalValue = value
+    public func value() -> F.T? {
+        return value(nil)
     }
     
-    public func withFormatter(type: F.Type) -> JSONFormatter<F> {
-        let formatted = F.fromJSON <^> jsonValue
-        return JSONFormatter(value: formatted?.right)
+    public func value(keypath: JSONKeypath?) -> F.T? {
+        return (F.fromJSON <^> jsonValue?[keypath])?.right
+    }
+    
+    public func value() -> [F.T]? {
+        return value(nil)
+    }
+    
+    public func value(keypath: JSONKeypath?) -> [F.T]? {
+        return jsonValue?[keypath]?.array?.flatMap { F.fromJSON($0).right }
+    }
+    
+    public func value() -> [String: F.T]? {
+        return value(nil)
+    }
+    
+    public func value(keypath: JSONKeypath?) -> [String: F.T]? {
+        return jsonValue?[keypath]?.object?.flatMap { F.fromJSON($0).right }
     }
 }
 
@@ -55,18 +69,8 @@ extension JSONValue {
     public func format<A: FromJSON>(type: A.Type) -> JSONFormatter<A> {
         return JSONFormatter<A>(jsonValue: self)
     }
-}
-
-extension JSONFormatterType {
-    func value() -> F.T? {
-        return (F.fromJSON <^> jsonValue)?.right
-    }
     
-    func value() -> [F.T]? {
-        return jsonValue?.array?.flatMap { F.fromJSON($0).right }
-    }
-    
-    func value() -> [String: F.T]? {
-        return jsonValue?.object?.flatMap { F.fromJSON($0).right }
+    public func format<A: FromJSON, B: JSONFormatterType where B.F == A>(type: B) -> B {
+        return type
     }
 }

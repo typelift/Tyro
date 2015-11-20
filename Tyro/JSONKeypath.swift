@@ -73,4 +73,17 @@ extension JSONKeypath {
     }
 }
 
+extension JSONValue {
+    subscript(keypath: JSONKeypath?) -> JSONValue? {
+        switch (self, keypath) {
+        case (.Object(let d), .Some(let k)):
+            return k.resolve(d)
+        case (.Array(_), .None):
+            return self
+        default:
+            return nil
+        }
+    }
+}
+
 // TODO Add JSONKeypath resolver for Array that allows getting an element at a particular index from a JSONValue.Array

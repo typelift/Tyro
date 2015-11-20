@@ -14,10 +14,13 @@ class DateSpec: XCTestCase {
     func testDate() {
         let timestampInMilliseconds: Double = 1443769200000
         let expectedDate = NSDate(timeIntervalSince1970: 1443769200000.0 / 1000.0)
-        let datesJson = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedThisShouldBeMillisecondsNumber\":\"2015-11-19\",\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"lastUpdatedPrettyWrongFormat\":\"2015-10-02 07:00:00\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
+        let datesJson = "{\"int\":42,\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedThisShouldBeMillisecondsNumber\":\"2015-11-19\",\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"lastUpdatedPrettyWrongFormat\":\"2015-10-02 07:00:00\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
         let result = datesJson.toJSON
         
         XCTAssertNotNil(result)
+        
+//        let int: Int? = result?.format(DateTimestampJSONFormatter.self) <? "int"
+//        XCTAssert(int == 42)
         
         let date1: NSDate? = result?.format(DateTimestampJSONFormatter.self) <? "lastUpdated"
         XCTAssertNotNil(date1)
