@@ -25,3 +25,12 @@ extension SequenceType {
         return Dictionary(map { (f($0), $0) })
     }
 }
+
+internal func == <Element: Equatable>(lhs: [Element]?, rhs: [Element]) -> Bool {
+    if let lhs = lhs {
+        return lhs == rhs
+    }
+    else {
+        return false
+    }
+}

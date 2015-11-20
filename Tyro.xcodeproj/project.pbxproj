@@ -58,6 +58,7 @@
 		DEB7BD271BFE77210051C2C0 /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
 		DEB7BD281BFE903F0051C2C0 /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
 		DEB7BD291BFE904E0051C2C0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
+		DEB7BD2D1BFE9C850051C2C0 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,11 @@
 		DE8483CA1BFBF4F600273011 /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		DE8483CD1BFBF50D00273011 /* NSDataExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExt.swift; sourceTree = "<group>"; };
 		DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataSpec.swift; sourceTree = "<group>"; };
+		DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
+		DEB7BD2E1BFE9E1B0051C2C0 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		DEB7BD2F1BFE9E1B0051C2C0 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
+		DEB7BD301BFE9E1B0051C2C0 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DEB7BD311BFE9E1B0051C2C0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,10 @@
 		DE702CC61BFAC6820017CEE8 = {
 			isa = PBXGroup;
 			children = (
+				DEB7BD2E1BFE9E1B0051C2C0 /* Cartfile */,
+				DEB7BD2F1BFE9E1B0051C2C0 /* Cartfile.private */,
+				DEB7BD301BFE9E1B0051C2C0 /* LICENSE */,
+				DEB7BD311BFE9E1B0051C2C0 /* README.md */,
 				DE702D2F1BFB2AD00017CEE8 /* Swiftz.framework */,
 				DE702CD21BFAC6830017CEE8 /* Tyro */,
 				DE702CDE1BFAC6830017CEE8 /* TyroTests */,
@@ -198,9 +208,10 @@
 				DE4480591BFD7BB600010200 /* json-data */,
 				DE702D261BFB2A0B0017CEE8 /* Info.plist */,
 				DE702CFC1BFB1E2B0017CEE8 /* JSONSpec.swift */,
-				DE702D001BFB21250017CEE8 /* User.swift */,
 				DE4480271BFD779200010200 /* TyroSpec.swift */,
 				DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */,
+				DE702D001BFB21250017CEE8 /* User.swift */,
+				DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */,
 			);
 			path = TyroTests;
 			sourceTree = "<group>";
@@ -487,6 +498,7 @@
 				DE702D2C1BFB2A8F0017CEE8 /* User.swift in Sources */,
 				DE702D2B1BFB2A8F0017CEE8 /* JSONSpec.swift in Sources */,
 				DE4480281BFD779200010200 /* TyroSpec.swift in Sources */,
+				DEB7BD2D1BFE9C850051C2C0 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

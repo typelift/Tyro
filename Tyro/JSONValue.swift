@@ -102,13 +102,25 @@ extension JSONValue {
     func value<A: FromJSON where A.T == A>() -> A? {
         return A.fromJSON(self).right
     }
+
+    func valueEither<A: FromJSON where A.T == A>() -> Either<JSONError, A> {
+        return A.fromJSON(self)
+    }
     
     func value<A: FromJSON where A.T == A>() -> [A]? {
         return FromJSONArray<A, A>.fromJSON(self).right
     }
     
+    func valueEither<A: FromJSON where A.T == A>() -> Either<JSONError, [A]> {
+        return FromJSONArray<A, A>.fromJSON(self)
+    }
+    
     func value<A: FromJSON where A.T == A>() -> [Swift.String: A]? {
         return FromJSONDictionary<A, A>.fromJSON(self).right
+    }
+
+    func valueEither<A: FromJSON where A.T == A>() -> Either<JSONError, [Swift.String: A]> {
+        return FromJSONDictionary<A, A>.fromJSON(self)
     }
     
     func error<A: FromJSON>(type: A.Type) -> JSONError? {

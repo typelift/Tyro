@@ -44,6 +44,19 @@ extension Either: EitherType {
     }
 }
 
+extension Optional {
+    /// Case analysis for the Optional type to the Either type. Given a maybe, a default value in case it is None that maps to Either.Left, and
+    /// if there is a value in the Maybe it maps to Either.Right.
+    public func toEither<L>(`default`: L) -> Either<L, Wrapped> {
+        switch self {
+        case .None:
+            return .Left(`default`)
+        case let .Some(x):
+            return .Right(x)
+        }
+    }
+}
+
 extension Array where Element: EitherType {
     func lift() -> Either<[Element.L], [Element.R]> {
         let (lefties, righties) = splitFor { $0.left != nil }
@@ -90,3 +103,33 @@ extension Dictionary where Value: EitherType {
         }
     }
 }
+
+//struct EitherBuilder<L, R> {
+//    let value: R?
+//
+//    init(value v: R?) {
+//        value = v
+//    }
+//
+//    static func either(r: R?) -> EitherBuilder<L, R> {
+//        return EitherBuilder(value: r)
+//    }
+//
+//    func orThat(l: L) -> Either<L, R> {
+//        return value.maybe(Either.Left(l), onSome: { (r) -> Either<L, R> in
+//            return .Right(r)
+//        })
+//    }
+//}
+//
+//func eitherThis<L, R>(_ r: R?) -> EitherBuilder<L, R> {
+//    return EitherBuilder<L, R>.either(r)
+//}
+
+//func left<L, R>(_ left: L) -> Either<L, R> {
+//    return .Left(left)
+//}
+//
+//func right<L, R>(_ right: R) -> Either<L, R> {
+//    return .Right(right)
+//}
