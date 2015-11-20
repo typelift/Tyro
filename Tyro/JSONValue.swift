@@ -96,6 +96,17 @@ extension JSONValue {
         default: return nil
         }
     }
+    
+    var anyObject: AnyObject? {
+        switch self {
+        case .Array(let values): return values as? AnyObject
+        case .Object(let value): return value as? AnyObject
+        case .String(let s): return s
+        case .Number(let n): return n
+        case .Null: return NSNull()
+        default: return nil
+        }
+    }
 }
 
 extension JSONValue {
@@ -143,10 +154,10 @@ extension JSONValue {
     public static func decodeEither(data: NSData) -> Either<JSONError, JSONValue> {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-            return decode(object)
+            return JSONValue.decode(object)
         }
         catch let error {
-            return .Left(.Error(error, "Error while deserializing data"))
+            return .Left(.Error(error, "Error while decoding data with decodeEither"))
         }
     }
     
@@ -159,13 +170,13 @@ extension JSONValue {
     }
     
     public static func encodeEither(value: JSONValue) -> Either<JSONError, NSData> {
-        return encode(value).flatMap { (object) -> Either<JSONError, NSData> in
+        return JSONValue.encode(value).flatMap { (object) -> Either<JSONError, NSData> in
             do {
                 let data: NSData = try NSJSONSerialization.dataWithJSONObject(object, options: NSJSONWritingOptions(rawValue: 0))
                 return .Right(data)
             }
             catch let error {
-                return .Left(.Error(error, "Error while serializing data"))
+                return .Left(.Error(error, "Error while decoding data with encodeEither"))
             }
         }
     }
@@ -176,5 +187,13 @@ extension JSONValue {
     
     public static func encodeToString(value: JSONValue) -> Swift.String? {
         return encode(value)?.toUTF8String()
+    }
+    
+    public func encode() -> NSData? {
+        return JSONValue.encode(self)
+    }
+    
+    public func encodeToString() -> Swift.String? {
+        return JSONValue.encodeToString(self)
     }
 }

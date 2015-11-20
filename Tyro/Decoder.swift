@@ -25,6 +25,7 @@ extension JSONDecoder {
         case let value as NSNumber:
             return .Right(.Number(value))
         default:
+            // This should never happen...
             return .Left(.Custom("Could not match type for value: \(value)"))
         }
     }
