@@ -86,12 +86,3 @@ public func <! <A: FromJSON where A.T == A>(lhs: JSONValue?, rhs: JSONKeypath) t
         throw JSONError.Custom("Could not find value at keypath \(rhs) in JSONValue: \(lhs)")
     }
 }
-
-/// JSONValue encoding operators
-//
-//infix operator ?> {}
-//infix operator ??> {}
-//infix operator !> {}
-//
-//public func ?> <A: FromJSON where A.T == A>() -> A? {
-//}
