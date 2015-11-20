@@ -104,7 +104,6 @@ extension JSONValue {
         case .String(let s): return s
         case .Number(let n): return n
         case .Null: return NSNull()
-        default: return nil
         }
     }
 }
