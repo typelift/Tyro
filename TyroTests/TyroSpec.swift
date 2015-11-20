@@ -74,7 +74,7 @@ class TyroSpec: XCTestCase {
         
         XCTAssertNotNil(bools)
         XCTAssert(bools?.count == 4)
-        XCTAssert(bools! == [true, true, false, false])
+        XCTAssert(bools == [true, true, false, false])
     }
     
     func testValueDictionary() {

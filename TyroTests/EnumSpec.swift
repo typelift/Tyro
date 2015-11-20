@@ -20,8 +20,9 @@ enum HttpErrorCodeType: Int {
     case NotFound = 404
 }
 
-extension StatusType: FromJSON {}
-extension HttpErrorCodeType: FromJSON {}
+extension StatusType: FromJSON, ToJSON {}
+
+extension HttpErrorCodeType: FromJSON, ToJSON {}
 
 class EnumSpec: XCTestCase {
     func testEnum() {
@@ -48,5 +49,11 @@ class EnumSpec: XCTestCase {
         
         let status: StatusType? = json.toJSON <? "status"
         XCTAssertNil(status)
+    }
+    
+    func testEncodeEnum() {
+        let dictionary: [String: StatusType] = ["status": .Passed]
+        let json = JSONValue.decode(dictionary).right?.encodeToString()
+        XCTAssert(json == "{\"status\":\"passed\"}")
     }
 }
