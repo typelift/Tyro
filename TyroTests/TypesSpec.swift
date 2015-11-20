@@ -78,8 +78,150 @@ class TypesFromJSONSpec: XCTestCase {
 //        XCTAssertNil(intArray)
 //    }
     
+//    func minMaxTest<T: NumericType where T: Bounded, T: Equatable, T: FromJSON>(type: T.Type) {
+//        let min = T.minBound()
+//        let max = T.maxBound()
+//        let json = "{\"min\":\(min),\"max\":\(max)}"
+//        let minValue: T? = json.toJSON <? "min"
+//        let maxValue: T? = json.toJSON <? "max"
+//        XCTAssertNotNil(min)
+//        XCTAssert(minValue == min)
+//        
+//        XCTAssertNotNil(max)
+//        XCTAssert(maxValue == max)
+//    }
+    
     func testInt8() {
-//        let jsonInt8InArray = "
+        let min = Int8.min
+        let max = Int8.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: Int8? = json.toJSON <? "min"
+        let maxValue: Int8? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testInt16() {
+        let min = Int16.min
+        let max = Int16.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: Int16? = json.toJSON <? "min"
+        let maxValue: Int16? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testInt32() {
+        let min = Int32.min
+        let max = Int32.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: Int32? = json.toJSON <? "min"
+        let maxValue: Int32? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testInt64() {
+        let min = Int64.min
+        let max = Int64.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: Int64? = json.toJSON <? "min"
+        let maxValue: Int64? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testUInt() {
+        let min = UInt.min
+        let max = UInt.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: UInt? = json.toJSON <? "min"
+        let maxValue: UInt? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testUInt8() {
+        let min = UInt8.min
+        let max = UInt8.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: UInt8? = json.toJSON <? "min"
+        let maxValue: UInt8? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testUInt16() {
+        let min = UInt16.min
+        let max = UInt16.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: UInt16? = json.toJSON <? "min"
+        let maxValue: UInt16? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testUInt32() {
+        let min = UInt32.min
+        let max = UInt32.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: UInt32? = json.toJSON <? "min"
+        let maxValue: UInt32? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testUInt64() {
+        let min = UInt64.min
+        let max = UInt64.max
+        let json = "{\"min\":\(min),\"max\":\(max)}"
+        let minValue: UInt64? = json.toJSON <? "min"
+        let maxValue: UInt64? = json.toJSON <? "max"
+        XCTAssertNotNil(min)
+        XCTAssert(minValue == min)
+        
+        XCTAssertNotNil(max)
+        XCTAssert(maxValue == max)
+    }
+    
+    func testFloat() {
+        let floatPI: Float = 3.14159
+        let json = "{\"pi\":\(floatPI)}"
+        let pi: Float? = json.toJSON <? "pi"
+        XCTAssertNotNil(pi)
+        XCTAssertEqualWithAccuracy(pi!, floatPI, accuracy: 1.0 / 1_000_000.0)
+    }
+    
+    func testDouble() {
+        let doublePI: Double = M_PI
+        let json = "{\"pi\":\(doublePI)}"
+        let pi: Double? = json.toJSON <? "pi"
+        XCTAssertNotNil(pi)
+        XCTAssertEqualWithAccuracy(pi!, doublePI, accuracy: 1.0 / 1_000_000_000_000.0)
     }
 }
 

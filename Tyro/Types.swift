@@ -137,6 +137,24 @@ extension Int64: ToJSON {
     }
 }
 
+/// UInt
+extension UInt: FromJSON {
+    public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt> {
+        switch value {
+        case .Number(let value):
+            return .Right(value.unsignedLongValue)
+        default:
+            return .Left(.TypeMismatch("\(UInt.self)", "\(value.dynamicType.self)"))
+        }
+    }
+}
+
+extension UInt: ToJSON {
+    public static func toJSON(value: UInt) -> Either<JSONError, JSONValue> {
+        return .Right(.Number(NSNumber(unsignedLong: value)))
+    }
+}
+
 /// UInt8
 extension UInt8: FromJSON {
     public static func fromJSON(value: JSONValue) -> Either<JSONError, UInt8> {
