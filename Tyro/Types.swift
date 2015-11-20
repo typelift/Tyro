@@ -9,11 +9,11 @@
 import Foundation
 import Swiftz
 
-private func fromEitherValue<T, F: FromJSONFormatter where F.T == T>(formatter: F?, _ value: JSONValue) -> Either<JSONError, T> {
+internal func fromEitherValue<T, F: FromJSONFormatter where F.T == T>(formatter: F?, _ value: JSONValue) -> Either<JSONError, T> {
     return formatter?.fromJSON(value) ?? .Left(.Custom("No formatter"))
 }
 
-private func toEitherValue<T, F: ToJSONFormatter where F.T == T>(formatter: F?, _ value: T) -> Either<JSONError, JSONValue> {
+internal func toEitherValue<T, F: ToJSONFormatter where F.T == T>(formatter: F?, _ value: T) -> Either<JSONError, JSONValue> {
     return formatter?.toJSON(value) ?? .Left(.Custom("No formatter"))
 }
 

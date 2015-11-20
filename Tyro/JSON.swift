@@ -11,13 +11,25 @@ import Swiftz
 
 public protocol FromJSON {
     typealias T = Self
-    static func fromJSON<F: FromJSONFormatter where F.T == T>(formatter: F?)(value: JSONValue) -> Either<JSONError, T>
+    static func fromJSON<F: FromJSONFormatter where F.T == T>(formatter: F?, _ value: JSONValue) -> Either<JSONError, T>
 }
 
 public protocol ToJSON {
     typealias T = Self
-    static func toJSON<F: ToJSONFormatter where F.T == T>(formatter: F?, value: T) -> Either<JSONError, JSONValue>
+    static func toJSON<F: ToJSONFormatter where F.T == T>(formatter: F?, _ value: T) -> Either<JSONError, JSONValue>
 }
+
+//extension FromJSON {
+//    public static func fromJSON(value: JSONValue) -> Either<JSONError, T> {
+//        return fromJSON(nil, value)
+//    }
+//}
+//
+//extension ToJSON {
+//    public static func toJSON(value: T) -> Either<JSONError, JSONValue> {
+//        return toJSON(nil, value)
+//    }
+//}
 
 public protocol FromJSONFormatter {
 //    typealias FormattedType = Self
