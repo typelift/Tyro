@@ -180,19 +180,19 @@ extension JSONValue {
         }
     }
     
-    public static func encode(value: JSONValue) -> NSData? {
+    public static func toJSONData(value: JSONValue) -> NSData? {
         return encodeEither(value).right
     }
     
-    public static func encodeToString(value: JSONValue) -> Swift.String? {
-        return encode(value)?.toUTF8String()
+    public static func toJSONString(value: JSONValue) -> Swift.String? {
+        return toJSONData(value)?.toUTF8String()
     }
     
-    public func encode() -> NSData? {
-        return JSONValue.encode(self)
+    public func toJSONData() -> NSData? {
+        return JSONValue.toJSONData(self)
     }
     
-    public func encodeToString() -> Swift.String? {
-        return JSONValue.encodeToString(self)
+    public func toJSONString() -> Swift.String? {
+        return JSONValue.toJSONString(self)
     }
 }

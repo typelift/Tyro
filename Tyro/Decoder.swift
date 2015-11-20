@@ -11,6 +11,7 @@ import Swiftz
 
 public protocol JSONDecoder {
     static func decodeEither(value: JSONValue) -> Either<JSONError, AnyObject>
+    static func decode(value: JSONValue) -> AnyObject?
 }
 
 extension JSONDecoder {
@@ -27,6 +28,10 @@ extension JSONDecoder {
         case .Null:
             return .Right(NSNull())
         }
+    }
+    
+    public static func decode(value: JSONValue) -> AnyObject? {
+        return decodeEither(value).right
     }
 }
 
