@@ -10,7 +10,43 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
+enum StatusType: String {
+    case Passed = "passed"
+    case Invalid = "invalid"
+}
+
+enum HttpErrorCodeType: Int {
+    case OK = 200
+    case NotFound = 404
+}
+
+extension StatusType: FromJSON {}
+extension HttpErrorCodeType: FromJSON {}
+
 class EnumSpec: XCTestCase {
     func testEnum() {
+        let json = "{\"statusCode\":200,\"status\":\"passed\"}"
+        let statusCode: HttpErrorCodeType? = json.toJSON <? "statusCode"
+        XCTAssertNotNil(statusCode)
+        XCTAssert(statusCode == .OK)
+        
+        let status: StatusType? = json.toJSON <? "status"
+        XCTAssertNotNil(status)
+        XCTAssert(status == .Passed)
+    }
+    
+    func testEnumNotMapped() {
+        let json = "{\"statusCode\":201}"
+        let statusCode: HttpErrorCodeType? = json.toJSON <? "statusCode"
+        XCTAssertNil(statusCode)
+    }
+    
+    func testEnumWrongType() {
+        let json = "{\"statusCode\":\"this is not a number\",\"status\":200}"
+        let statusCode: HttpErrorCodeType? = json.toJSON <? "statusCode"
+        XCTAssertNil(statusCode)
+        
+        let status: StatusType? = json.toJSON <? "status"
+        XCTAssertNil(status)
     }
 }
