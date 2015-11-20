@@ -17,37 +17,37 @@ extension CustomEncoder: JSONEncoder {}
 
 class EncoderSpec: XCTestCase {
     func testEncodeArray() {
-        let jsonArray = JSONValue.Array([.String("a")])
-        let arrayObject = CustomEncoder.encode(jsonArray).right
-        let arrayStrings: [String]? = arrayObject as? [String]
-        XCTAssert(arrayStrings == ["a"])
+        let array = ["a", "b", "c"]
+        let result = CustomEncoder.encode(array)
+        XCTAssertNotNil(result)
+        XCTAssert(result.right == JSONValue.Array([.String("a"), .String("b"), .String("c")]))
     }
     
     func testEncodeObject() {
-        let jsonObject = JSONValue.Object(["key": .String("value")])
-        let object = CustomEncoder.encode(jsonObject).right
-        let dictionary: [String: String]? = object as? [String: String]
-        XCTAssert(dictionary! == ["key": "value"])
+        let object = ["key": "value"]
+        let result = CustomEncoder.encode(object)
+        XCTAssertNotNil(result)
+        XCTAssert(result.right == JSONValue.Object(["key": .String("value")]))
     }
     
     func testEncodeString() {
-        let jsonString = JSONValue.String("a")
-        let stringObject = CustomEncoder.encode(jsonString).right
-        let string: String? = stringObject as? String
-        XCTAssert(string == "a")
+        let string = "a string"
+        let result = CustomEncoder.encode(string)
+        XCTAssertNotNil(result)
+        XCTAssert(result.right == .String("a string"))
     }
     
     func testEncodeNumber() {
-        let jsonNumber = JSONValue.Number(42)
-        let numberObject = CustomEncoder.encode(jsonNumber).right
-        let number: NSNumber? = numberObject as? NSNumber
-        XCTAssert(number == 42)
+        let number = 10
+        let result = CustomEncoder.encode(number)
+        XCTAssertNotNil(result)
+        XCTAssert(result.right == .Number(number))
     }
     
-    func testEncodeNull() {
-        let jsonNull = JSONValue.Null
-        let nullObject = CustomEncoder.encode(jsonNull).right
-        let null: NSNull? = nullObject as? NSNull
-        XCTAssertNotNil(null) // P = NP?
+    func testEncodeError() {
+        let result = CustomEncoder.encode(CustomEncoder())
+        XCTAssertNotNil(result)
+        XCTAssertNotNil(result.left)
+        XCTAssertNil(result.right)
     }
 }

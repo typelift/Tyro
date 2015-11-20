@@ -10,42 +10,23 @@ import Foundation
 import Swiftz
 
 public protocol JSONDecoder {
-    static func decode(value: AnyObject) -> Either<JSONError, JSONValue>
-    
-    /// Extra decoders for native types that are not of type AnyObject
-    static func decode<A: ToJSON where A.T == A>(value: A) -> Either<JSONError, JSONValue>
-    static func decode<A: ToJSON where A.T == A>(value: [A]) -> Either<JSONError, JSONValue>
-    static func decode<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> Either<JSONError, JSONValue>
+    static func decode(value: JSONValue) -> Either<JSONError, AnyObject>
 }
 
 extension JSONDecoder {
-    public static func decode(value: AnyObject) -> Either<JSONError, JSONValue> {
-        print("value: \(value)")
+    public static func decode(value: JSONValue) -> Either<JSONError, AnyObject> {
         switch value {
-        case let values as [AnyObject]:
-            return values.flatMap(decode).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Array($0)) })
-        case let value as [Swift.String: AnyObject]:
-            return value.flatMap(decode).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Object($0)) })
-        case let value as Swift.String:
-            return .Right(.String(value))
-        case let value as NSNumber:
-            return .Right(.Number(value))
-        default:
-            // This should never happen...
-            return .Left(.Custom("Could not match type for value: \(value)"))
+        case .Array(let values):
+            return .Right(values.flatMap { $0.anyObject })
+        case .Object(let value):
+            return .Right(value.flatMap { $0.anyObject })
+        case .Number(let n):
+            return .Right(n)
+        case .String(let s):
+            return .Right(s)
+        case .Null:
+            return .Right(NSNull())
         }
-    }
-    
-    public static func decode<A: ToJSON where A.T == A>(value: A) -> Either<JSONError, JSONValue> {
-        return A.toJSON(value)
-    }
-
-    public static func decode<A: ToJSON where A.T == A>(value: [A]) -> Either<JSONError, JSONValue> {
-        return value.flatMap(A.toJSON).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Array($0)) })
-    }
-    
-    public static func decode<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> Either<JSONError, JSONValue> {
-        return value.flatMap(A.toJSON).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Object($0)) })
     }
 }
 
