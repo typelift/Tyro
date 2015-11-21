@@ -34,6 +34,13 @@ class UserSpec: XCTestCase {
         XCTAssert(user?.longitude == 31.75)
     }
     
+    func testDecodeUsers() {
+        let usersJson = "[\(userJson),\(userJson),\(userJson)]"
+        let users: [User]? = usersJson.toJSON?.value()
+        XCTAssertNotNil(users)
+        XCTAssert(users?.count == 3)
+    }
+    
     func testDecodeUserInvalid() {
         // Longitude is missing, User.fromJSON will return a JSONError
         let user: User? = userJsonWithoutLongitude.toJSON?.value()

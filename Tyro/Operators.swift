@@ -10,6 +10,7 @@ import Foundation
 import Swiftz
 
 // JSONFormatterType decoding operators
+
 public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.DecodedType? {
     return (lhs?.decode <*> lhs?.jsonValue?[rhs]) ?? nil
 }

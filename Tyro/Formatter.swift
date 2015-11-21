@@ -36,9 +36,3 @@ extension JSONValueConvertible {
 extension JSONValue: JSONFormatterType {
     public typealias T = JSONValue
 }
-
-extension JSONFormatterType {
-    //    public func encodeEither(value: [EncodedType]) -> Either<JSONError, JSONValue> {
-    //        return .Left(.Custom(""))
-    //    }
-}

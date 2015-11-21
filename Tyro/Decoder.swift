@@ -41,15 +41,12 @@ extension JSONDecoderType {
     }
 }
 
-//extension JSONValue: JSONDecoder {}
-
 extension JSONValue: JSONDecoderType {
     public func decodeEither(value: JSONValue) -> Either<JSONError, JSONValue> {
-        return jsonValue.toEither(.Custom(""))
+        return jsonValue.toEither(.Custom("Could not decode JSONValue from JSONValue. There must be a problem."))
     }
 }
 
 extension JSONValue: JSONValueConvertible {
-    //    public typealias T = JSONValue
     public var jsonValue: JSONValue? { return self }
 }
