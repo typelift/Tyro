@@ -29,7 +29,7 @@ public class JSONDecoder : JSONDecoderType {
             return .Right(n)
         case .String(let s):
             return .Right(s)
-        case .Null :
+        case .Null:
             return .Right(NSNull())
         }
     }

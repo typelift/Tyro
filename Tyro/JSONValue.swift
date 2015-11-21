@@ -28,7 +28,7 @@ extension JSONValue : CustomStringConvertible {
             return "JSONValue(String(\(value)))"
         case .Number(let value):
             return "JSONValue(Number(\(value)))"
-        case .Null :
+        case .Null:
             return "JSONValue(Null)"
         }
     }
@@ -101,7 +101,7 @@ extension JSONValue : JSONValueable {
     
     var null : NSNull? {
         switch self {
-        case .Null : return NSNull()
+        case .Null: return NSNull()
         default: return nil
         }
     }
@@ -112,7 +112,7 @@ extension JSONValue : JSONValueable {
         case .Object(let value): return value as? AnyObject
         case .String(let s): return s
         case .Number(let n): return n
-        case .Null : return NSNull()
+        case .Null: return NSNull()
         }
     }
 }
