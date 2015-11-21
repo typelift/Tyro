@@ -24,7 +24,7 @@ extension StatusType: FromJSON, ToJSON {}
 
 extension HttpErrorCodeType: FromJSON, ToJSON {}
 
-class EnumSpec: XCTestCase {
+class EnumSpec : XCTestCase {
     func testEnum() {
         let json = "{\"statusCode\":200,\"status\":\"passed\"}"
         let statusCode: HttpErrorCodeType? = json.toJSON <? "statusCode"

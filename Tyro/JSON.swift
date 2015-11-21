@@ -11,10 +11,10 @@ import Swiftz
 
 public protocol FromJSON {
     typealias T = Self
-    static func fromJSON(value: JSONValue) -> Either<JSONError, T>
+    static func fromJSON(value : JSONValue) -> Either<JSONError, T>
 }
 
 public protocol ToJSON {
     typealias T = Self
-    static func toJSON(value: T) -> Either<JSONError, JSONValue>
+    static func toJSON(value : T) -> Either<JSONError, JSONValue>
 }

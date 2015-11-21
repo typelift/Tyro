@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class DateSpec: XCTestCase {
+class DateSpec : XCTestCase {
     func testDate() {
         let timestampInMilliseconds: Double = 1443769200000
         let expectedDate = NSDate(timeIntervalSince1970: 1443769200000.0 / 1000.0)

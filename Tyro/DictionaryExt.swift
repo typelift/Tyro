@@ -11,22 +11,11 @@ import Swiftz
 
 extension Dictionary {
     /// Initialize a Dictionary from a list of Key-Value pairs.
-    init<S: SequenceType where S.Generator.Element == Element>
-        (_ seq: S) {
+    init<S : SequenceType where S.Generator.Element == Element>
+        (_ seq : S) {
             self.init()
             for (k, v) in seq {
                 self[k] = v
             }
-    }
-    
-    public func flatMap<B>(transform: Value -> B?) -> [Key: B] {
-        var b = [Key: B]()
-        
-        for (k, v) in map(transform) {
-            if let v = v {
-                b[k] = v
-            }
-        }
-        return b
     }
 }

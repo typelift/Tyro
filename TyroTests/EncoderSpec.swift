@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class EncoderSpec: XCTestCase {
+class EncoderSpec : XCTestCase {
     func testEncodeArray() {
         let array = ["a", "b", "c"]
         let result = JSONEncoder.encoder.encodeEither(array)

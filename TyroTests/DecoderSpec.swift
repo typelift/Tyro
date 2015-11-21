@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class DecoderSpec: XCTestCase {
+class DecoderSpec : XCTestCase {
     func testDecodeArray() {
         let jsonArray = JSONValue.Array([.String("a")])
         let arrayObject = JSONDecoder.decoder.decodeEither(jsonArray).right
