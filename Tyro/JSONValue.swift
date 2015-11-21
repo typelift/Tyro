@@ -9,14 +9,11 @@
 import Foundation
 import Swiftz
 
-//public typealias JSONValueLazyArray = () -> [JSONValue]
-
 public enum JSONValue {
     case Array([JSONValue])
     case Object([Swift.String: JSONValue])
     case String(Swift.String)
     case Number(NSNumber)
-//    case LazyArray(() -> [JSONValue])
     case Null
 }
 
