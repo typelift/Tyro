@@ -1,12 +1,5 @@
 language: objective-c
 osx_image: xcode7.1
-
-before_install:
-- brew update || brew update
-- brew install carthage || brew outdated carthage || brew upgrade carthage
-- brew install xctool
-
-install:
-- carthage update --verbose --no-use-binaries
-
+before_install: true
+install: true
 script: script/cibuild Tyro Tyro-iOS

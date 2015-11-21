@@ -53,12 +53,6 @@
 		DEB7BD291BFE904E0051C2C0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
 		DEB7BD351BFEAD020051C2C0 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD341BFEAD020051C2C0 /* URL.swift */; };
 		DEB7BD361BFEAD020051C2C0 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD341BFEAD020051C2C0 /* URL.swift */; };
-		DEB7BD3E1BFEAE460051C2C0 /* TyroSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480271BFD779200010200 /* TyroSpec.swift */; };
-		DEB7BD3F1BFEAE460051C2C0 /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
-		DEB7BD401BFEAE460051C2C0 /* UserExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702D001BFB21250017CEE8 /* UserExample.swift */; };
-		DEB7BD411BFEAE460051C2C0 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */; };
-		DEB7BD421BFEAE460051C2C0 /* TypesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD321BFEA5060051C2C0 /* TypesSpec.swift */; };
-		DEB7BD431BFEAE460051C2C0 /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */; };
 		DEB7BD451BFEAE480051C2C0 /* TyroSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480271BFD779200010200 /* TyroSpec.swift */; };
 		DEB7BD461BFEAE480051C2C0 /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
 		DEB7BD471BFEAE480051C2C0 /* UserExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702D001BFB21250017CEE8 /* UserExample.swift */; };
@@ -66,9 +60,7 @@
 		DEB7BD491BFEAE480051C2C0 /* TypesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD321BFEA5060051C2C0 /* TypesSpec.swift */; };
 		DEB7BD4A1BFEAE480051C2C0 /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */; };
 		DEB7BD4C1BFEAE7B0051C2C0 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */; };
-		DEB7BD4D1BFEAE7B0051C2C0 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */; };
 		DEB7BD4F1BFEAE930051C2C0 /* URLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */; };
-		DEB7BD501BFEAE930051C2C0 /* URLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */; };
 		DEB7BD551BFEB9A00051C2C0 /* EncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */; };
 		DEB7BD571BFEB9A80051C2C0 /* DecoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */; };
 		DEB7BD591BFED3F30051C2C0 /* OperatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */; };
@@ -76,7 +68,19 @@
 		DEB7BD5D1BFEE6500051C2C0 /* DecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */; };
 		DEB7BD5E1BFEE6500051C2C0 /* DecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */; };
 		DEB7BD601BFEE7C80051C2C0 /* DecimalNumberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5F1BFEE7C80051C2C0 /* DecimalNumberSpec.swift */; };
-		DEB7BD611BFEE7CB0051C2C0 /* DecimalNumberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5F1BFEE7C80051C2C0 /* DecimalNumberSpec.swift */; };
+		DEE4807E1C0047F000517CF5 /* UserExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702D001BFB21250017CEE8 /* UserExample.swift */; };
+		DEE4807F1C0047F000517CF5 /* DecoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */; };
+		DEE480801C0047F000517CF5 /* EncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */; };
+		DEE480811C0047F000517CF5 /* TyroSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480271BFD779200010200 /* TyroSpec.swift */; };
+		DEE480821C0047F000517CF5 /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
+		DEE480831C0047F000517CF5 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */; };
+		DEE480841C0047F000517CF5 /* TypesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD321BFEA5060051C2C0 /* TypesSpec.swift */; };
+		DEE480851C0047F000517CF5 /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */; };
+		DEE480861C0047F000517CF5 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */; };
+		DEE480871C0047F000517CF5 /* URLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */; };
+		DEE480881C0047F000517CF5 /* OperatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */; };
+		DEE480891C0047F000517CF5 /* KeypathSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5A1BFED42E0051C2C0 /* KeypathSpec.swift */; };
+		DEE4808A1C0047F000517CF5 /* DecimalNumberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5F1BFEE7C80051C2C0 /* DecimalNumberSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -501,15 +505,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEB7BD421BFEAE460051C2C0 /* TypesSpec.swift in Sources */,
-				DEB7BD4D1BFEAE7B0051C2C0 /* EnumSpec.swift in Sources */,
-				DEB7BD611BFEE7CB0051C2C0 /* DecimalNumberSpec.swift in Sources */,
-				DEB7BD401BFEAE460051C2C0 /* UserExample.swift in Sources */,
-				DEB7BD3F1BFEAE460051C2C0 /* JSONDataSpec.swift in Sources */,
-				DEB7BD3E1BFEAE460051C2C0 /* TyroSpec.swift in Sources */,
-				DEB7BD501BFEAE930051C2C0 /* URLSpec.swift in Sources */,
-				DEB7BD431BFEAE460051C2C0 /* DateSpec.swift in Sources */,
-				DEB7BD411BFEAE460051C2C0 /* UserSpec.swift in Sources */,
+				DEE4808A1C0047F000517CF5 /* DecimalNumberSpec.swift in Sources */,
+				DEE4807E1C0047F000517CF5 /* UserExample.swift in Sources */,
+				DEE4807F1C0047F000517CF5 /* DecoderSpec.swift in Sources */,
+				DEE480851C0047F000517CF5 /* DateSpec.swift in Sources */,
+				DEE480811C0047F000517CF5 /* TyroSpec.swift in Sources */,
+				DEE480821C0047F000517CF5 /* JSONDataSpec.swift in Sources */,
+				DEE480841C0047F000517CF5 /* TypesSpec.swift in Sources */,
+				DEE480881C0047F000517CF5 /* OperatorsSpec.swift in Sources */,
+				DEE480801C0047F000517CF5 /* EncoderSpec.swift in Sources */,
+				DEE480831C0047F000517CF5 /* UserSpec.swift in Sources */,
+				DEE480891C0047F000517CF5 /* KeypathSpec.swift in Sources */,
+				DEE480871C0047F000517CF5 /* URLSpec.swift in Sources */,
+				DEE480861C0047F000517CF5 /* EnumSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +728,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.TyroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -736,6 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.TyroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
