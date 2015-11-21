@@ -25,11 +25,11 @@ extension JSONValueConvertible {
     }
     
     func value() -> [DecodedType]? {
-        return jsonValue?.array?.flatMap { self.decode($0) } ?? nil
+        return jsonValue?.array?.flatMap(self.decode) ?? nil
     }
     
     func value() -> [String : DecodedType]? {
-        return jsonValue?.object?.mapMaybe { self.decode($0) } ?? nil
+        return jsonValue?.object?.mapMaybe(self.decode) ?? nil
     }
 }
 

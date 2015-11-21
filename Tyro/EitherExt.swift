@@ -12,7 +12,7 @@ import Swiftz
 /// Left-to-right coalescing operator for Either<L, R> where if the either is left then
 /// the operator maps to the value provided by `f` otherwise it returns the either right.
 public func | <L, R>(either : Either<L, R>?, @autoclosure(escaping) f : () -> R?) -> R? {
-    return either?.either(onLeft : { _ in f() }, onRight : { $0 })
+    return either?.either(onLeft: { _ in f() }, onRight: { $0 })
 }
 
 /// Protocol for Either<L, R> type.
@@ -72,7 +72,7 @@ extension Array where Element : EitherType {
     
     public func eitherMap(f : Element -> Either<Element, Element>) -> ([Either<Element, Element>], [Either<Element, Element>]) {
         let (lefties, righties) = splitFor { $0.left != nil }
-        return (lefties.map { .Left($0) }, righties.map { .Right($0) })
+        return (lefties.map(Either.Left), righties.map(Either.Right))
     }
 }
 
