@@ -13,64 +13,78 @@ How to use
 
 **JSON**
 
-```swift
-import protocol Tyro.JSONDecoder
-import struct Tyro.JSONKeypath
-    
-final class User {
-	let id : UInt64
-	let name : String
-	let age : Int
-	let tweets : [String]
-	let attr : String
-	let balance : Double
-	let admin : Bool
+```swift    
+import Swiftz
+import Tyro
 
-	init(_ i : UInt64, _ n : String, _ a : Int, _ t : [String], _ r : String, _ b : Double, _ ad : Bool) {
-		id = i
-		name = n
-		age = a
-		tweets = t
-		attr = r
-		balance = b
-		admin = ad
-	}
+// User example
+struct User {
+    let id: UInt64
+    let name: String
+    let age: Int
+    let tweets: [String]
+    let profile: String
+    let balance: Double
+    let latitude: Double
+    let longitude: Double
+    let admin: Bool
+
+    static func create(id: UInt64)(name: String)(age: Int)(tweets: [String])(profile: String)(balance: Double)(latitude: Double)(longitude: Double)(admin: Bool) -> User {
+        return User(id: id, name: name, age: age, tweets: tweets, profile: profile, balance: balance, latitude: latitude, longitude: longitude, admin: admin)
+    }
 }
 
-extension User : JSONDecodable {
-	class func fromJSON(x : JSONValue) -> User? {
-	let p1 : UInt64? = x <? "id"
-	let p2 : String? = x <? "name"
-	let p3 : Int? = x <? "age"
-	let p4 : [String]? = x <? "tweets"
-	let p5 : String? = x <? "attrs" <> "one" // A nested keypath
-	let p6 : Double? = x <? "balance"
-	let p7 : Bool? = x <? "admin"
+extension User: FromJSON {
+    static func fromJSON(j: JSONValue) -> Either<JSONError, User> {
+        let id: UInt64? = j <? "id"
+        let name: String? = j <? "name"
+        let age: Int? = j <? "age"
+        let tweets: [String]? = j <? "tweets"
+        let profile: String? = j <? "attributes" <> "profile" // A nested keypath
+        let balance: Double? = j <? "balance"
+        let latitude: Double? = j <? "latitude"
+        let longitude: Double? = j <? "longitude"
+        let admin: Bool? = j <? "admin"
 
-	return curry(User.init)
-		<^> p1
-		<*> p2
-		<*> p3
-		<*> p4
-		<*> p5
-		<*> p6
-		<*> p7
-	}
+        return (User.create
+            <^> id
+            <*> name
+            <*> age
+            <*> tweets
+            <*> profile
+            <*> balance
+            <*> latitude
+            <*> longitude
+            <*> admin).toEither(.Custom("Could not create user"))
+    }
 }
 
-func ==(lhs : User, rhs : User) -> Bool {
-	return lhs.id == rhs.id
-	&& lhs.name == rhs.name
-	&& lhs.age == rhs.age
-	&& lhs.tweets == rhs.tweets
-	&& lhs.attr == rhs.attr
-	&& lhs.balance == rhs.balance
-	&& lhs.admin == rhs.admin
+extension User: Equatable {}
+
+func == (lhs: User, rhs: User) -> Bool {
+    return lhs.id == rhs.id
+        && lhs.name == rhs.name
+        && lhs.age == rhs.age
+        && lhs.tweets == rhs.tweets
+        && lhs.profile == rhs.profile
+        && lhs.balance == rhs.balance
+        && lhs.latitude == rhs.latitude
+        && lhs.longitude == rhs.longitude
+        && lhs.admin == rhs.admin
 }
 
-let userjs = "{\"name\": \"max\", \"age\": 10, \"tweets\": [\"hello\"], \"attrs\": {\"one\": \"1\"}}"
+func == (lhs: User?, rhs: User?) -> Bool {
+    if let lhs = lhs, rhs = rhs {
+        return lhs == rhs
+    }
+    else {
+        return false
+    }
+}
 
-//: The JSON we've decoded works perfectly with the User structure we defined above.  In case it didn't,
-//: the user would be nil.
-let user : User? = JSONValue.decode(userjs) >>- User.fromJSON // .Some( User("max", 10, ["hello"], "1") )
+
+let userJson = "{\"id\": 103622342330925644, \"name\": \"Matthew Purland\", \"age\": 30, \"tweets\": [\"Hello from Tyro\"], \"attributes\": {\"profile\": \"Test Profile\"}, \"balance\": 102.30, \"admin\": true, \"latitude\": 31.75, \"longitude\": 31.75}"
+
+//: The JSON as defined above will decode to a User object, if not it will return nil.
+let user: User? = userJson.toJSON?.value()
 ```
