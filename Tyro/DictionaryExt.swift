@@ -18,15 +18,4 @@ extension Dictionary {
                 self[k] = v
             }
     }
-    
-    public func mapMaybe<B>(transform : Value -> B?) -> [Key : B] {
-        var b = [Key : B]()
-        
-        for (k, v) in map(transform) {
-            if let v = v {
-                b[k] = v
-            }
-        }
-        return b
-    }
 }
