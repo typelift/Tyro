@@ -9,14 +9,12 @@
 import Foundation
 import Swiftz
 
-//public typealias JSONValueLazyArray = () -> [JSONValue]
-
 public enum JSONValue {
     case Array([JSONValue])
     case Object([Swift.String: JSONValue])
     case String(Swift.String)
     case Number(NSNumber)
-//    case LazyArray(() -> [JSONValue])
+    case Lazy(() -> JSONValue)
     case Null
 }
 
@@ -33,6 +31,8 @@ extension JSONValue: CustomStringConvertible {
             return "JSONValue(Number(\(value)))"
         case .Null:
             return "JSONValue(Null)"
+        case .Lazy:
+            return "JSONValue(Lazy)"
         }
     }
 }
@@ -51,6 +51,12 @@ public func == (lhs: JSONValue, rhs: JSONValue) -> Bool {
         return lhsValue == rhsValue
     case (.Null, .Null):
         return true
+    case (.Lazy(let lhsValue), .Lazy(let rhsValue)):
+        return lhsValue() == rhsValue()
+    case (.Lazy(let lhsValue), let rhsValue):
+        return lhsValue() == rhsValue
+    case (let lhsValue, .Lazy(let rhsValue)):
+        return lhsValue == rhsValue()
     default:
         return false
     }
@@ -116,6 +122,7 @@ extension JSONValue: JSONValueable {
         case .String(let s): return s
         case .Number(let n): return n
         case .Null: return NSNull()
+        case .Lazy(let jsonValueClosure): return jsonValueClosure().anyObject
         }
     }
 }

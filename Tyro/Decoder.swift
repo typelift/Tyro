@@ -31,6 +31,8 @@ public class JSONDecoder: JSONDecoderType {
             return .Right(s)
         case .Null:
             return .Right(NSNull())
+        case .Lazy(let closure):
+            return decodeEither(closure())
         }
     }
 }
