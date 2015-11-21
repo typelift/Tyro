@@ -9,43 +9,28 @@
 import Foundation
 import Swiftz
 
-//postfix operator <?! {}
-//
-///// JSONFormatterType value operators
-//public postfix func <?! <B: JSONFormatterType> (t: B?) -> B.F.T? {
-//    return t?.value()
-//}
-//
-//public postfix func <?! <B: JSONFormatterType> (t: B?) -> [B.F.T]? {
-//    return t?.value()
-//}
-//
-//public postfix func <?! <B: JSONFormatterType> (t: B?) -> [String: B.F.T]? {
-//    return t?.value()
-//}
-
-/// JSONFormatterType decoding operators
-public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T? {
-    return (B.F.fromJSON <^> lhs?.jsonValue?[rhs])?.right
+// JSONFormatterType decoding operators
+public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.DecodedType? {
+    return (lhs?.decode <*> lhs?.jsonValue?[rhs]) ?? nil
 }
 
-public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]? {
-    return lhs?.jsonValue?[rhs]?.array?.flatMap { B.F.fromJSON($0).right }
+public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.DecodedType]? {
+    return lhs?.jsonValue?[rhs]?.array.flatMap { $0.flatMap { lhs?.decode($0) } }
 }
 
-public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.F.T]? {
-    return lhs?.jsonValue?[rhs]?.object?.flatMap { B.F.fromJSON($0).right }
+public func <? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.DecodedType]? {
+    return lhs?.jsonValue?[rhs]?.object.flatMap { $0.flatMap { lhs?.decode($0) } }
 }
 
-public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.F.T?? {
+public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> B.DecodedType?? {
     return lhs <? rhs
 }
 
-public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.F.T]?? {
+public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [B.DecodedType]?? {
     return lhs <? rhs
 }
 
-public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.F.T]?? {
+public func <?? <B: JSONFormatterType> (lhs: B?, rhs: JSONKeypath) -> [String: B.DecodedType]?? {
     return lhs <? rhs
 }
 

@@ -9,11 +9,10 @@
 import Foundation
 import Swiftz
 
-public protocol URLJSONConvertibleType: FromJSON, ToJSON {
-}
-
-extension URLJSONConvertibleType {
+public struct URLJSONConverter: FromJSON, ToJSON {
     public typealias T = NSURL
+    
+    private init() {}
     
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSURL> {
         switch value {
@@ -29,6 +28,24 @@ extension URLJSONConvertibleType {
     }
 }
 
-struct URLJSONFormatter: URLJSONConvertibleType {
-    private init() {}
+public struct URLJSONFormatter: JSONFormatterType {
+    public typealias T = URLJSONConverter.T
+    
+    private let actualJsonValue: JSONValue?
+    
+    public var jsonValue: JSONValue? {
+        return actualJsonValue
+    }
+    
+    init(_ jsonValue: JSONValue?) {
+        actualJsonValue = jsonValue
+    }
+    
+    public func decodeEither(value: JSONValue) -> Either<JSONError, T> {
+        return URLJSONConverter.fromJSON(value)
+    }
+    
+    public func encodeEither(value: T) -> Either<JSONError, JSONValue> {
+        return URLJSONConverter.toJSON(value)
+    }
 }

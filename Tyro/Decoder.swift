@@ -9,13 +9,17 @@
 import Foundation
 import Swiftz
 
-public protocol JSONDecoder {
-    static func decodeEither(value: JSONValue) -> Either<JSONError, AnyObject>
-    static func decode(value: JSONValue) -> AnyObject?
+public protocol JSONDecoderType {
+    typealias DecodedType = AnyObject
+    func decodeEither(value: JSONValue) -> Either<JSONError, DecodedType>
+    func decode(value: JSONValue) -> DecodedType?
 }
 
-extension JSONDecoder {
-    public static func decodeEither(value: JSONValue) -> Either<JSONError, AnyObject> {
+public class JSONDecoder: JSONDecoderType {
+    public static let decoder = JSONDecoder()
+    private init() {}
+    
+    public func decodeEither(value: JSONValue) -> Either<JSONError, AnyObject> {
         switch value {
         case .Array(let values):
             return .Right(values.flatMap { $0.anyObject })
@@ -29,10 +33,23 @@ extension JSONDecoder {
             return .Right(NSNull())
         }
     }
-    
-    public static func decode(value: JSONValue) -> AnyObject? {
+}
+
+extension JSONDecoderType {
+    public func decode(value: JSONValue) -> DecodedType? {
         return decodeEither(value).right
     }
 }
 
-extension JSONValue: JSONDecoder {}
+//extension JSONValue: JSONDecoder {}
+
+extension JSONValue: JSONDecoderType {
+    public func decodeEither(value: JSONValue) -> Either<JSONError, JSONValue> {
+        return jsonValue.toEither(.Custom(""))
+    }
+}
+
+extension JSONValue: JSONValueConvertible {
+    //    public typealias T = JSONValue
+    public var jsonValue: JSONValue? { return self }
+}

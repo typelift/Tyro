@@ -9,64 +9,36 @@
 import Foundation
 import Swiftz
 
-public protocol JSONValueConvertible {
-    typealias T
+public protocol JSONValueConvertible: JSONDecoderType {
     var jsonValue: JSONValue? { get }
 }
 
-public protocol JSONFormatterType: JSONValueConvertible {
-    typealias F: FromJSON
-    
-    func withFormatter(type: F.Type) -> JSONFormatter<F>
+public protocol JSONFormatterType: JSONDecoderType, JSONEncoderType, JSONValueConvertible {
+    typealias T
+    typealias EncodedType = T
+    typealias DecodedType = T
 }
 
-public class JSONFormatter<F: FromJSON>: JSONValueConvertible, JSONFormatterType {
-    public typealias T = F.T
-    
-    private let internalJsonValue: JSONValue?
-    private let internalValue: F.T?
-    
-    public var jsonValue: JSONValue? {
-        if let internalValue = internalValue {
-            return (JSONValue.encodeEither <^> (internalValue as? AnyObject))?.right
-        }
-        else {
-            return internalJsonValue
-        }
+extension JSONValueConvertible {
+    func value() -> DecodedType? {
+        return (decode <^> jsonValue) ?? nil
     }
     
-    public init(jsonValue: JSONValue?) {
-        internalJsonValue = jsonValue
-        internalValue = nil
+    func value() -> [DecodedType]? {
+        return jsonValue?.array?.flatMap { self.decode($0) } ?? nil
     }
     
-    public init(value: F.T?) {
-        internalJsonValue = nil
-        internalValue = value
-    }
-    
-    public func withFormatter(type: F.Type) -> JSONFormatter<F> {
-        let formatted = F.fromJSON <^> jsonValue
-        return JSONFormatter(value: formatted?.right)
+    func value() -> [String: DecodedType]? {
+        return jsonValue?.object?.flatMap { self.decode($0) } ?? nil
     }
 }
 
-extension JSONValue {
-    public func format<A: FromJSON>(type: A.Type) -> JSONFormatter<A> {
-        return JSONFormatter<A>(jsonValue: self)
-    }
+extension JSONValue: JSONFormatterType {
+    public typealias T = JSONValue
 }
 
 extension JSONFormatterType {
-    func value() -> F.T? {
-        return (F.fromJSON <^> jsonValue)?.right
-    }
-    
-    func value() -> [F.T]? {
-        return jsonValue?.array?.flatMap { F.fromJSON($0).right }
-    }
-    
-    func value() -> [String: F.T]? {
-        return jsonValue?.object?.flatMap { F.fromJSON($0).right }
-    }
+    //    public func encodeEither(value: [EncodedType]) -> Either<JSONError, JSONValue> {
+    //        return .Left(.Custom(""))
+    //    }
 }

@@ -9,26 +9,50 @@
 import Foundation
 import Swiftz
 
-public protocol JSONEncoder {
-    static func encodeEither(value: AnyObject) -> Either<JSONError, JSONValue>
-    static func encode(value: AnyObject) -> JSONValue?
+public protocol JSONEncoderType {
+    typealias EncodedType = AnyObject
+    func encodeEither(value: EncodedType) -> Either<JSONError, JSONValue>
+    func encode(value: EncodedType) -> JSONValue?
     
-    /// Extra decoders for native types that are not of type AnyObject
-    static func encodeEither<A: ToJSON where A.T == A>(value: A) -> Either<JSONError, JSONValue>
-    static func encodeEither<A: ToJSON where A.T == A>(value: [A]) -> Either<JSONError, JSONValue>
-    static func encodeEither<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> Either<JSONError, JSONValue>
-    static func encode<A: ToJSON where A.T == A>(value: A) -> JSONValue?
-    static func encode<A: ToJSON where A.T == A>(value: [A]) -> JSONValue?
-    static func encode<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> JSONValue?
+    func encodeEither(value: [EncodedType]) -> Either<JSONError, JSONValue>
+    func encode(value: [EncodedType]) -> JSONValue?
+
+    func encodeEither(value: [String: EncodedType]) -> Either<JSONError, JSONValue>
+    func encode(value: [String: EncodedType]) -> JSONValue?
 }
 
-extension JSONEncoder {
-    public static func encodeEither(value: AnyObject) -> Either<JSONError, JSONValue> {
+extension JSONEncoderType {
+    public func encodeEither(value: [EncodedType]) -> Either<JSONError, JSONValue> {
+        return value.flatMap(encodeEither).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Array($0)) })
+    }
+
+    public func encodeEither(value: [String: EncodedType]) -> Either<JSONError, JSONValue> {
+        return value.flatMap(encodeEither).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Object($0)) })
+    }
+
+    public func encode(value: EncodedType) -> JSONValue? {
+        return encodeEither(value).right
+    }
+    
+    public func encode(value: [EncodedType]) -> JSONValue? {
+        return encodeEither(value).right
+    }
+    
+    public func encode(value: [String: EncodedType]) -> JSONValue? {
+        return encodeEither(value).right
+    }
+}
+
+public class JSONEncoder: JSONEncoderType {
+    public static let encoder = JSONEncoder()
+    private init() {}
+    
+    public func encodeEither(value: AnyObject) -> Either<JSONError, JSONValue> {
         switch value {
         case let values as [AnyObject]:
-            return values.flatMap(encodeEither).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Array($0)) })
+            return encodeEither(values)
         case let value as [Swift.String: AnyObject]:
-            return value.flatMap(encodeEither).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Object($0)) })
+            return encodeEither(value)
         case let value as Swift.String:
             return .Right(.String(value))
         case let value as NSNumber:
@@ -39,10 +63,13 @@ extension JSONEncoder {
         }
     }
     
-    public static func encode(value: AnyObject) -> JSONValue? {
+    public func encode(value: AnyObject) -> JSONValue? {
         return encodeEither(value).right
     }
-    
+}
+
+/// Extra decoders for native types that are not of type AnyObject
+extension JSONEncoderType {
     public static func encodeEither<A: ToJSON where A.T == A>(value: A) -> Either<JSONError, JSONValue> {
         return A.toJSON(value)
     }
@@ -54,7 +81,7 @@ extension JSONEncoder {
     public static func encodeEither<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> Either<JSONError, JSONValue> {
         return value.flatMap(A.toJSON).lift().either(onLeft: { .Left(.Array($0)) }, onRight: { .Right(.Object($0)) })
     }
-
+    
     public static func encode<A: ToJSON where A.T == A>(value: A) -> JSONValue? {
         return encodeEither(value).right
     }
@@ -64,8 +91,40 @@ extension JSONEncoder {
     }
     
     public static func encode<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> JSONValue? {
-         return encodeEither(value).right   
+        return encodeEither(value).right
     }
 }
 
-extension JSONValue: JSONEncoder {}
+extension JSONValue: JSONEncoderType {
+    public func encodeEither(value: AnyObject) -> Either<JSONError, JSONValue> {
+        return JSONEncoder.encoder.encodeEither(value)
+    }
+    
+    public func encode(value: AnyObject) -> JSONValue? {
+        return JSONEncoder.encoder.encode(value)
+    }
+
+    public static func encodeEither<A: ToJSON where A.T == A>(value: A) -> Either<JSONError, JSONValue> {
+        return JSONEncoder.encodeEither(value)
+    }
+    
+    public static func encodeEither<A: ToJSON where A.T == A>(value: [A]) -> Either<JSONError, JSONValue> {
+        return JSONEncoder.encodeEither(value)
+    }
+    
+    public static func encodeEither<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> Either<JSONError, JSONValue> {
+        return JSONEncoder.encodeEither(value)
+    }
+    
+    public static func encode<A: ToJSON where A.T == A>(value: A) -> JSONValue? {
+        return JSONEncoder.encode(value)
+    }
+    
+    public static func encode<A: ToJSON where A.T == A>(value: [A]) -> JSONValue? {
+        return JSONEncoder.encode(value)
+    }
+    
+    public static func encode<A: ToJSON where A.T == A>(value: [Swift.String: A]) -> JSONValue? {
+        return JSONEncoder.encode(value)
+    }
+}

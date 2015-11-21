@@ -14,37 +14,43 @@ class DateSpec: XCTestCase {
     func testDate() {
         let timestampInMilliseconds: Double = 1443769200000
         let expectedDate = NSDate(timeIntervalSince1970: 1443769200000.0 / 1000.0)
-        let datesJson = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedThisShouldBeMillisecondsNumber\":\"2015-11-19\",\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"lastUpdatedPrettyWrongFormat\":\"2015-10-02 07:00:00\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
+        let datesJson = "{\"lastUpdated\":\(timestampInMilliseconds),\"lastUpdatedCustomFormat\":\"2015-10-02\",\"lastUpdatedThisShouldBeMillisecondsNumber\":\"2015-11-19\",\"lastUpdatedPretty\":\"2015-10-02 07:00:00 +0000\",\"lastUpdatedPrettyWrongFormat\":\"2015-10-02 07:00:00\",\"dates\":[\"2015-10-02 07:00:00 +0000\",\"2015-10-02 08:00:00 +0000\",\"2015-10-02 09:00:00 +0000\"],\"object\":{\"date\":\(timestampInMilliseconds)}}"
         let result = datesJson.toJSON
         
         XCTAssertNotNil(result)
         
-        let date1: NSDate? = result?.format(DateTimestampJSONFormatter.self) <? "lastUpdated"
+        let date1: NSDate? = DateTimestampJSONFormatter(result) <? "lastUpdated"
         XCTAssertNotNil(date1)
         
-        let date2: NSDate? = result?.format(DateFormatJSONFormatter.self) <? "lastUpdatedPretty"
+        let date2: NSDate? = DateFormatJSONFormatter(result) <? "lastUpdatedPretty"
         XCTAssertNotNil(date2)
         
-        let date3: NSDate? = result?.format(DateFormatJSONFormatter.self) <? "lastUpdatedPrettyWrongFormat"
+        let date3: NSDate? = DateFormatJSONFormatter(result) <? "lastUpdatedPrettyWrongFormat"
         XCTAssertNil(date3)
 
-        let date4: NSDate? = result?.format(DateTimestampJSONFormatter.self) <? "lastUpdatedThisShouldBeMillisecondsNumber"
+        let date4: NSDate? = DateTimestampJSONFormatter(result) <? "lastUpdatedThisShouldBeMillisecondsNumber"
         XCTAssertNil(date4)
 
-        let date5: NSDate? = result?.format(DateFormatJSONFormatter.self) <? "lastUpdated"
+        let date5: NSDate? = DateFormatJSONFormatter(result) <? "lastUpdated"
         XCTAssertNil(date5)
         
-        let dates: [NSDate]? = result?.format(DateFormatJSONFormatter.self) <? "dates"
+        let dateCustomFormat: NSDate? = DateFormatJSONFormatter(result, "YYYY-MM-dd") <? "lastUpdatedCustomFormat"
+        XCTAssertNotNil(dateCustomFormat)
+        XCTAssert(dateCustomFormat == NSDate(timeIntervalSince1970: 1443769200))
+        
+        let dates: [NSDate]? = DateFormatJSONFormatter(result) <? "dates"
         XCTAssert(dates?.count == 3)
         
-        let object: [String: NSDate]? = result?.format(DateTimestampJSONFormatter.self) <? "object"
+        let object: [String: NSDate]? = DateTimestampJSONFormatter(result) <? "object"
         XCTAssert(object?.keys.count == 1)
         XCTAssert(object?["date"] == expectedDate)
         
-//        let date = NSDate()
-//        let datesArray = [date]
-//        let jsonString = JSONValue.encode(datesArray)?.format(DateTimestampJSONFormatter.self).jsonValue?.toJSONString()
-//        XCTAssert(jsonString != nil)
-//        XCTAssert(jsonString == "[\(date.timeIntervalSince1970 * 1000.0)]")
+        let date = NSDate()
+        let datesArray = [date]
+        let jsonValue = DateTimestampJSONFormatter().encode(datesArray)
+        let jsonString = jsonValue?.toJSONString()
+        let expectedJsonString = "[\(UInt64(date.timeIntervalSince1970 * 1000.0))]"
+        XCTAssert(jsonString != nil)
+        XCTAssert(jsonString == expectedJsonString)
     }
 }

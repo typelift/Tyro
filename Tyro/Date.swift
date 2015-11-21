@@ -9,11 +9,10 @@
 import Foundation
 import Swiftz
 
-public protocol DateTimestampJSONConvertibleType: FromJSON, ToJSON {
-}
-
-extension DateTimestampJSONConvertibleType {
+public struct DateTimestampJSONConverter: FromJSON, ToJSON {
     public typealias T = NSDate
+    
+    private init() {}
     
     public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
         switch value {
@@ -26,25 +25,56 @@ extension DateTimestampJSONConvertibleType {
     }
     
     public static func toJSON(date: NSDate) -> Either<JSONError, JSONValue> {
-        return .Right(.Number(date.timeIntervalSince1970 * 1000.0))
+        return .Right(.Number(NSNumber(unsignedLongLong: UInt64(date.timeIntervalSince1970 * 1000.0))))
     }
 }
 
-struct DateTimestampJSONFormatter: DateTimestampJSONConvertibleType {
-    private init() {}
-}
-
-public protocol DateFormatJSONConvertibleType: FromJSON, ToJSON {
-}
-
-extension DateFormatJSONConvertibleType {
-    public typealias T = NSDate
+public struct DateTimestampJSONFormatter: JSONFormatterType {
+    public typealias T = DateTimestampJSONConverter.T
+    private let actualJsonValue: JSONValue?
     
-    public static func fromJSON(value: JSONValue) -> Either<JSONError, NSDate> {
+    public var jsonValue: JSONValue? {
+        return actualJsonValue
+    }
+    
+    init(_ jsonValue: JSONValue?) {
+        actualJsonValue = jsonValue
+    }
+    
+    init() {
+        actualJsonValue = nil
+    }
+
+    public func decodeEither(value: JSONValue) -> Either<JSONError, T> {
+        return DateTimestampJSONConverter.fromJSON(value)
+    }
+
+    public func encodeEither(value: T) -> Either<JSONError, JSONValue> {
+        return DateTimestampJSONConverter.toJSON(value)
+    }
+}
+
+public struct DateFormatJSONFormatter: JSONFormatterType {
+    public typealias T = NSDate
+    private let actualJsonValue: JSONValue?
+    let dateFormat: String
+    
+    static let DefaultDateFormat = "yyyy'-'MM'-'dd HH':'mm':'ss ZZZ"
+    
+    public var jsonValue: JSONValue? {
+        return actualJsonValue
+    }
+    
+    init(_ jsonValue: JSONValue?, _ dateFormat: String = DateFormatJSONFormatter.DefaultDateFormat) {
+        self.dateFormat = dateFormat
+        actualJsonValue = jsonValue
+    }
+    
+    public func decodeEither(value: JSONValue) -> Either<JSONError, T> {
         switch value {
         case .String(let value):
             let formatter = NSDateFormatter()
-            formatter.dateFormat = DateFormatJSONFormatter.NSDateFormat
+            formatter.dateFormat = dateFormat
             let date = formatter.dateFromString(value)
             if let date = date {
                 return .Right(date)
@@ -57,13 +87,11 @@ extension DateFormatJSONConvertibleType {
         }
     }
     
-    public static func toJSON(date: NSDate) -> Either<JSONError, JSONValue> {
-        return .Right(.String(date.description))
+    public func encodeEither(value: T) -> Either<JSONError, JSONValue> {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = dateFormat
+        let string = formatter.stringFromDate(value)
+        return .Right(.String(string))
     }
-}
-
-struct DateFormatJSONFormatter: DateFormatJSONConvertibleType {
-    static let NSDateFormat = "yyyy'-'MM'-'dd HH':'mm':'ss ZZZ"
     
-    private init() {}
 }

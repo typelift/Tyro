@@ -13,7 +13,7 @@ import Swiftz
 class URLSpec: XCTestCase {
     func testURL() {
         let json = "{\"url\":\"https://github.com/mpurland\"}"
-        let url: NSURL? = json.toJSON?.format(URLJSONFormatter.self) <? "url"
+        let url: NSURL? = URLJSONFormatter(json.toJSON) <? "url"
         XCTAssertNotNil(url)
         XCTAssert(url == NSURL(string: "https://github.com/mpurland"))
     }

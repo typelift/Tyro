@@ -69,8 +69,6 @@
 		DEB7BD4D1BFEAE7B0051C2C0 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */; };
 		DEB7BD4F1BFEAE930051C2C0 /* URLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */; };
 		DEB7BD501BFEAE930051C2C0 /* URLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */; };
-		DEB7BD521BFEAEA60051C2C0 /* FormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD511BFEAEA60051C2C0 /* FormatterSpec.swift */; };
-		DEB7BD531BFEAEA60051C2C0 /* FormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD511BFEAEA60051C2C0 /* FormatterSpec.swift */; };
 		DEB7BD551BFEB9A00051C2C0 /* EncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */; };
 		DEB7BD571BFEB9A80051C2C0 /* DecoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */; };
 		DEB7BD591BFED3F30051C2C0 /* OperatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */; };
@@ -137,7 +135,6 @@
 		DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSpec.swift; sourceTree = "<group>"; };
 		DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumSpec.swift; sourceTree = "<group>"; };
 		DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSpec.swift; sourceTree = "<group>"; };
-		DEB7BD511BFEAEA60051C2C0 /* FormatterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterSpec.swift; sourceTree = "<group>"; };
 		DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncoderSpec.swift; sourceTree = "<group>"; };
 		DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderSpec.swift; sourceTree = "<group>"; };
 		DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsSpec.swift; sourceTree = "<group>"; };
@@ -247,7 +244,6 @@
 				DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */,
 				DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */,
 				DEB7BD321BFEA5060051C2C0 /* TypesSpec.swift */,
-				DEB7BD511BFEAEA60051C2C0 /* FormatterSpec.swift */,
 				DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */,
 				DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */,
 				DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */,
@@ -506,7 +502,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB7BD421BFEAE460051C2C0 /* TypesSpec.swift in Sources */,
-				DEB7BD531BFEAEA60051C2C0 /* FormatterSpec.swift in Sources */,
 				DEB7BD4D1BFEAE7B0051C2C0 /* EnumSpec.swift in Sources */,
 				DEB7BD611BFEE7CB0051C2C0 /* DecimalNumberSpec.swift in Sources */,
 				DEB7BD401BFEAE460051C2C0 /* UserExample.swift in Sources */,
@@ -548,7 +543,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB7BD491BFEAE480051C2C0 /* TypesSpec.swift in Sources */,
-				DEB7BD521BFEAEA60051C2C0 /* FormatterSpec.swift in Sources */,
 				DEB7BD4C1BFEAE7B0051C2C0 /* EnumSpec.swift in Sources */,
 				DEB7BD471BFEAE480051C2C0 /* UserExample.swift in Sources */,
 				DEB7BD461BFEAE480051C2C0 /* JSONDataSpec.swift in Sources */,

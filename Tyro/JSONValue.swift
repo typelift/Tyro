@@ -9,11 +9,14 @@
 import Foundation
 import Swiftz
 
+//public typealias JSONValueLazyArray = () -> [JSONValue]
+
 public enum JSONValue {
     case Array([JSONValue])
     case Object([Swift.String: JSONValue])
     case String(Swift.String)
     case Number(NSNumber)
+//    case LazyArray(() -> [JSONValue])
     case Null
 }
 
@@ -61,7 +64,16 @@ public func == (lhs: JSONValue?, rhs: JSONValue?) -> Bool {
     return false
 }
 
-extension JSONValue {
+protocol JSONValueable {
+    var array: [JSONValue]? { get }
+    var object: [Swift.String: JSONValue]? { get }
+    var string: Swift.String? { get }
+    var number: NSNumber? { get }
+    var null: NSNull? { get }
+    var anyObject: AnyObject? { get }
+}
+
+extension JSONValue: JSONValueable {
     var array: [JSONValue]? {
         switch self {
         case .Array(let values): return values
@@ -154,7 +166,7 @@ extension JSONValue {
     public static func decodeEither(data: NSData) -> Either<JSONError, JSONValue> {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-            return JSONValue.encodeEither(object)
+            return JSONEncoder.encoder.encodeEither(object)
         }
         catch let error {
             return .Left(.Error(error, "Error while decoding data with decodeEither"))
@@ -170,7 +182,7 @@ extension JSONValue {
     }
     
     public static func encodeEither(value: JSONValue) -> Either<JSONError, NSData> {
-        return JSONValue.decodeEither(value).flatMap { (object) -> Either<JSONError, NSData> in
+        return JSONDecoder.decoder.decodeEither(value).flatMap { (object) -> Either<JSONError, NSData> in
             do {
                 let data: NSData = try NSJSONSerialization.dataWithJSONObject(object, options: NSJSONWritingOptions(rawValue: 0))
                 return .Right(data)
