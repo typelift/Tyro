@@ -12,7 +12,7 @@ import Swiftz
 /// Left-to-right coalescing operator for Either<L, R> where if the either is left then
 /// the operator maps to the value provided by `f` otherwise it returns the either right.
 public func | <L, R>(either: Either<L, R>?, @autoclosure(escaping) f: () -> R?) -> R? {
-    return either?.either(onLeft: { _ in f() }, onRight: identity)
+    return either?.either(onLeft: { _ in f() }, onRight: { $0 })
 }
 
 /// Protocol for Either<L, R> type.
