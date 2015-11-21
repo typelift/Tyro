@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class TyroSpec: XCTestCase {
+class TyroSpec : XCTestCase {
     let json = "{\"bool\":true,\"intOrBool\":1}"
     let invalidJson = "{\"bool\"\":true,\"intOrBool\":1}"
     let arrayBoolJson = "{\"bools\":[true,true,false,false]}"
@@ -96,4 +96,13 @@ class TyroSpec: XCTestCase {
         let emoji: String? = emojiJson.toJSON <? "👍"
         XCTAssert(emoji == "😎")
     }
+}
+
+internal func == <Element : Equatable>(lhs : [Element]?, rhs : [Element]) -> Bool {
+	if let lhs = lhs {
+		return lhs == rhs
+	}
+	else {
+		return false
+	}
 }

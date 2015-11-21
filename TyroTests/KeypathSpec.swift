@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class KeypathSpec: XCTestCase {
+class KeypathSpec : XCTestCase {
     let dictionaryJson = "{\"object\":{\"bool\":true}}"
     
     func testKeypath() {

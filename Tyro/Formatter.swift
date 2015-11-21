@@ -9,11 +9,11 @@
 import Foundation
 import Swiftz
 
-public protocol JSONValueConvertible: JSONDecoderType {
-    var jsonValue: JSONValue? { get }
+public protocol JSONValueConvertible : JSONDecoderType {
+    var jsonValue : JSONValue? { get }
 }
 
-public protocol JSONFormatterType: JSONDecoderType, JSONEncoderType, JSONValueConvertible {
+public protocol JSONFormatterType : JSONDecoderType, JSONEncoderType, JSONValueConvertible {
     typealias T
     typealias EncodedType = T
     typealias DecodedType = T
@@ -28,11 +28,11 @@ extension JSONValueConvertible {
         return jsonValue?.array?.flatMap { self.decode($0) } ?? nil
     }
     
-    func value() -> [String: DecodedType]? {
+    func value() -> [String : DecodedType]? {
         return jsonValue?.object?.flatMap { self.decode($0) } ?? nil
     }
 }
 
-extension JSONValue: JSONFormatterType {
+extension JSONValue : JSONFormatterType {
     public typealias T = JSONValue
 }

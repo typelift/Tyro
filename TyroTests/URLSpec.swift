@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class URLSpec: XCTestCase {
+class URLSpec : XCTestCase {
     func testURL() {
         let json = "{\"url\":\"https://github.com/mpurland\"}"
         let url: NSURL? = URLJSONFormatter(json.toJSON) <? "url"

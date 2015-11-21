@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class OperatorsSpec: XCTestCase {
+class OperatorsSpec : XCTestCase {
     let json = "{\"bool\":true,\"intOrBool\":1,\"object\":{\"answer\":42},\"array\":[1,2,3]}"
     
     func testRetrieve() {

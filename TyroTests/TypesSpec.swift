@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class TypesFromJSONSpec: XCTestCase {
+class TypesFromJSONSpec : XCTestCase {
     func testString() {
         let jsonStringInArray = "[\"This is a string\",\"\"]"
         let stringInArray: [String]? = jsonStringInArray.toJSON?.value()
@@ -225,7 +225,7 @@ class TypesFromJSONSpec: XCTestCase {
     }
 }
 
-class TypesToJSONSpec: XCTestCase {
+class TypesToJSONSpec : XCTestCase {
     func testString() {
         // TODO
     }

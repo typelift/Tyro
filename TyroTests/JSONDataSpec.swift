@@ -39,7 +39,7 @@ struct Buffer {
     let friends: [BufferFriend]
 }
 
-class JSONDataSpec: XCTestCase {
+class JSONDataSpec : XCTestCase {
     func testBufferBuilder() {
         
     }

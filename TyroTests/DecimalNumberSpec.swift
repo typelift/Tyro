@@ -10,7 +10,7 @@ import XCTest
 import Swiftz
 @testable import Tyro
 
-class DecimalNumberSpec: XCTestCase {
+class DecimalNumberSpec : XCTestCase {
     func testDecimalNumber() {
         let jsonArray = "[102.31, 100.0, 50]"
         let array: [NSDecimalNumber]? = DecimalNumberJSONFormatter(jsonArray.toJSON).value()
