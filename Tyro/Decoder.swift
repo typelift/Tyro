@@ -24,7 +24,7 @@ public class JSONDecoder : JSONDecoderType {
         case .Array(let values):
             return .Right(values.flatMap { $0.anyObject })
         case .Object(let value):
-            return .Right(value.flatMap { $0.anyObject })
+            return .Right(value.mapMaybe { $0.anyObject })
         case .Number(let n):
             return .Right(n)
         case .String(let s):

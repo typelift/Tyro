@@ -19,7 +19,7 @@ extension Dictionary {
             }
     }
     
-    public func flatMap<B>(transform : Value -> B?) -> [Key : B] {
+    public func mapMaybe<B>(transform : Value -> B?) -> [Key : B] {
         var b = [Key : B]()
         
         for (k, v) in map(transform) {

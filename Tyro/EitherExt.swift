@@ -99,7 +99,7 @@ extension Dictionary where Value : EitherType {
             return .Left(lefties.flatMap { $0.1.left })
         }
         else {
-            return .Right(righties.mapAssociate { $0 }.flatMap { $0.right })
+            return .Right(righties.mapAssociate { $0 }.mapMaybe { $0.right })
         }
     }
 }

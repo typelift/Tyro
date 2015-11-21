@@ -20,7 +20,7 @@ public func <? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [B.Decod
 }
 
 public func <? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [String : B.DecodedType]? {
-    return lhs?.jsonValue?[rhs]?.object.flatMap { $0.flatMap { lhs?.decode($0) } }
+    return lhs?.jsonValue?[rhs]?.object.flatMap { $0.mapMaybe { lhs?.decode($0) } }
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> B.DecodedType?? {
