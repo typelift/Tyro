@@ -6,6 +6,7 @@
 //  Copyright © 2015 TypeLift. All rights reserved.
 //
 
+import XCTest
 import Swiftz
 import Tyro
 import SwiftCheck

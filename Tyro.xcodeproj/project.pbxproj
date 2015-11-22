@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		826B84791C017B8900E2F01C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
 		826B847A1C017B8900E2F01C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
-		826B84901C017BEC00E2F01C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826B84871C017BD900E2F01C /* SwiftCheck.framework */; };
-		826B84941C017BF600E2F01C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826B84931C017BF600E2F01C /* SwiftCheck.framework */; };
-		826B84961C017C8300E2F01C /* SwiftCheck.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 826B848B1C017BD900E2F01C /* SwiftCheck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE4480241BFC440E00010200 /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
 		DE4480261BFD5F6D00010200 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
 		DE44805A1BFD7BB600010200 /* json-data in Resources */ = {isa = PBXBuildFile; fileRef = DE4480591BFD7BB600010200 /* json-data */; };
@@ -66,6 +63,10 @@
 		DEB7BD5D1BFEE6500051C2C0 /* DecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */; };
 		DEB7BD5E1BFEE6500051C2C0 /* DecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */; };
 		DEB7BD601BFEE7C80051C2C0 /* DecimalNumberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5F1BFEE7C80051C2C0 /* DecimalNumberSpec.swift */; };
+		DEC686F31C026B0D0057B393 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE480941C004AB800517CF5 /* Swiftz.framework */; };
+		DEC6872C1C026E1E0057B393 /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826B84871C017BD900E2F01C /* SwiftCheck.framework */; };
+		DEC6872F1C026E530057B393 /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826B84871C017BD900E2F01C /* SwiftCheck.framework */; };
+		DEC687311C026E570057B393 /* SwiftCheck.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 826B848B1C017BD900E2F01C /* SwiftCheck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEE4807E1C0047F000517CF5 /* UserExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702D001BFB21250017CEE8 /* UserExample.swift */; };
 		DEE4807F1C0047F000517CF5 /* DecoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */; };
 		DEE480801C0047F000517CF5 /* EncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */; };
@@ -112,20 +113,6 @@
 			remoteGlobalIDString = 84DF76021B0BD54600C912B0;
 			remoteInfo = "SwiftCheck-iOSTests";
 		};
-		826B848E1C017BE600E2F01C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 844FCC8C198B320500EB242A;
-			remoteInfo = SwiftCheck;
-		};
-		826B84911C017BF300E2F01C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 84DF75F71B0BD54600C912B0;
-			remoteInfo = "SwiftCheck-iOS";
-		};
 		DE702CDC1BFAC6830017CEE8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE702CC71BFAC6820017CEE8 /* Project object */;
@@ -139,6 +126,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = DE702D0E1BFB28E20017CEE8;
 			remoteInfo = Tyro;
+		};
+		DEC6871D1C026C190057B393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 844FCC8D198B320500EB242A;
+			remoteInfo = SwiftCheck;
+		};
+		DEC6871F1C026C190057B393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 844FCC98198B320500EB242A;
+			remoteInfo = SwiftCheckTests;
+		};
+		DEC687211C026C190057B393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84DF75F81B0BD54600C912B0;
+			remoteInfo = "SwiftCheck-iOS";
+		};
+		DEC687231C026C190057B393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84DF76021B0BD54600C912B0;
+			remoteInfo = "SwiftCheck-iOSTests";
+		};
+		DEC6872A1C026E150057B393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 844FCC8C198B320500EB242A;
+			remoteInfo = SwiftCheck;
+		};
+		DEC6872D1C026E2B0057B393 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 84DF75F71B0BD54600C912B0;
+			remoteInfo = "SwiftCheck-iOS";
 		};
 		DEE480931C004AB800517CF5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -177,7 +206,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				826B84961C017C8300E2F01C /* SwiftCheck.framework in CopyFiles */,
+				DEC687311C026E570057B393 /* SwiftCheck.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +215,6 @@
 /* Begin PBXFileReference section */
 		826B84781C017B8900E2F01C /* JSONValueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueSpec.swift; sourceTree = "<group>"; };
 		826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftCheck.xcodeproj; path = Carthage/Checkouts/SwiftCheck/SwiftCheck.xcodeproj; sourceTree = SOURCE_ROOT; };
-		826B84931C017BF600E2F01C /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = "Carthage/Checkouts/Swiftz/Carthage/Checkouts/SwiftCheck/build/Debug-iphoneos/SwiftCheck.framework"; sourceTree = "<group>"; };
 		DE4480231BFC440E00010200 /* EitherExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherExt.swift; sourceTree = "<group>"; };
 		DE4480251BFD5F6D00010200 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		DE4480271BFD779200010200 /* TyroSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TyroSpec.swift; sourceTree = "<group>"; };
@@ -230,6 +258,7 @@
 		DEB7BD5A1BFED42E0051C2C0 /* KeypathSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypathSpec.swift; sourceTree = "<group>"; };
 		DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalNumber.swift; sourceTree = "<group>"; };
 		DEB7BD5F1BFEE7C80051C2C0 /* DecimalNumberSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalNumberSpec.swift; sourceTree = "<group>"; };
+		DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftCheck.xcodeproj; path = Carthage/Checkouts/SwiftCheck/SwiftCheck.xcodeproj; sourceTree = "<group>"; };
 		DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swiftz.xcodeproj; path = Carthage/Checkouts/Swiftz/Swiftz.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,9 +275,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				826B84941C017BF600E2F01C /* SwiftCheck.framework in Frameworks */,
 				DE702D071BFB264A0017CEE8 /* Swiftz.framework in Frameworks */,
 				DE702D061BFB248E0017CEE8 /* Tyro.framework in Frameworks */,
+				DEC6872F1C026E530057B393 /* SwiftCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +293,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				826B84901C017BEC00E2F01C /* SwiftCheck.framework in Frameworks */,
+				DEC6872C1C026E1E0057B393 /* SwiftCheck.framework in Frameworks */,
+				DEC686F31C026B0D0057B393 /* Swiftz.framework in Frameworks */,
 				DE702D191BFB28E30017CEE8 /* Tyro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,11 +316,11 @@
 		DE702CC61BFAC6820017CEE8 = {
 			isa = PBXGroup;
 			children = (
-				826B84931C017BF600E2F01C /* SwiftCheck.framework */,
 				DEB7BD2E1BFE9E1B0051C2C0 /* Cartfile */,
 				DEB7BD2F1BFE9E1B0051C2C0 /* Cartfile.private */,
 				DEB7BD301BFE9E1B0051C2C0 /* LICENSE */,
 				DEB7BD311BFE9E1B0051C2C0 /* README.md */,
+				DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */,
 				DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */,
 				DE702CD21BFAC6830017CEE8 /* Tyro */,
 				DE702CDE1BFAC6830017CEE8 /* TyroTests */,
@@ -368,6 +398,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DEC687171C026C190057B393 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEC6871E1C026C190057B393 /* SwiftCheck.framework */,
+				DEC687201C026C190057B393 /* SwiftCheckTests.xctest */,
+				DEC687221C026C190057B393 /* SwiftCheck.framework */,
+				DEC687241C026C190057B393 /* SwiftCheck-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DEE4808C1C004AB800517CF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,7 +470,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				826B84921C017BF300E2F01C /* PBXTargetDependency */,
+				DEC6872E1C026E2B0057B393 /* PBXTargetDependency */,
 				DE702CDD1BFAC6830017CEE8 /* PBXTargetDependency */,
 			);
 			name = "Tyro-iOSTests";
@@ -466,7 +507,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				826B848F1C017BE600E2F01C /* PBXTargetDependency */,
+				DEC6872B1C026E150057B393 /* PBXTargetDependency */,
 				DE702D1B1BFB28E30017CEE8 /* PBXTargetDependency */,
 			);
 			name = TyroTests;
@@ -514,6 +555,10 @@
 					ProjectRef = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
 				},
 				{
+					ProductGroup = DEC687171C026C190057B393 /* Products */;
+					ProjectRef = DEC687161C026C190057B393 /* SwiftCheck.xcodeproj */;
+				},
+				{
 					ProductGroup = DEE4808C1C004AB800517CF5 /* Products */;
 					ProjectRef = DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */;
 				},
@@ -555,6 +600,34 @@
 			fileType = wrapper.cfbundle;
 			path = "SwiftCheck-iOSTests.xctest";
 			remoteRef = 826B848C1C017BD900E2F01C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DEC6871E1C026C190057B393 /* SwiftCheck.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftCheck.framework;
+			remoteRef = DEC6871D1C026C190057B393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DEC687201C026C190057B393 /* SwiftCheckTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftCheckTests.xctest;
+			remoteRef = DEC6871F1C026C190057B393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DEC687221C026C190057B393 /* SwiftCheck.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftCheck.framework;
+			remoteRef = DEC687211C026C190057B393 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DEC687241C026C190057B393 /* SwiftCheck-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftCheck-iOSTests.xctest";
+			remoteRef = DEC687231C026C190057B393 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		DEE480941C004AB800517CF5 /* Swiftz.framework */ = {
@@ -716,16 +789,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		826B848F1C017BE600E2F01C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftCheck;
-			targetProxy = 826B848E1C017BE600E2F01C /* PBXContainerItemProxy */;
-		};
-		826B84921C017BF300E2F01C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SwiftCheck-iOS";
-			targetProxy = 826B84911C017BF300E2F01C /* PBXContainerItemProxy */;
-		};
 		DE702CDD1BFAC6830017CEE8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE702CCF1BFAC6830017CEE8 /* Tyro-iOS */;
@@ -735,6 +798,16 @@
 			isa = PBXTargetDependency;
 			target = DE702D0E1BFB28E20017CEE8 /* Tyro */;
 			targetProxy = DE702D1A1BFB28E30017CEE8 /* PBXContainerItemProxy */;
+		};
+		DEC6872B1C026E150057B393 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftCheck;
+			targetProxy = DEC6872A1C026E150057B393 /* PBXContainerItemProxy */;
+		};
+		DEC6872E1C026E2B0057B393 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftCheck-iOS";
+			targetProxy = DEC6872D1C026E2B0057B393 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
