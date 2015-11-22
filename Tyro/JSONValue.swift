@@ -45,7 +45,7 @@ public func == (lhs : JSONValue, rhs : JSONValue) -> Bool {
     case (.String(let lhsValue), .String(let rhsValue)):
         return lhsValue == rhsValue
     case (.Number(let lhsValue), .Number(let rhsValue)):
-        return lhsValue == rhsValue
+        return lhsValue.isEqualToNumber(rhsValue)
     case (.Null, .Null):
         return true
     default:
