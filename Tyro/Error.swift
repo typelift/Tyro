@@ -31,3 +31,24 @@ extension JSONError : CustomStringConvertible {
         }
     }
 }
+
+extension JSONError : Equatable {}
+
+public func ==(l : JSONError, r : JSONError) -> Bool {
+	switch (l, r) {
+	case let (.Array(ls), .Array(rs)):
+		return ls == rs
+	case let (.TypeMismatch(ls, lt), .TypeMismatch(rs, rt)):
+		return ls == rs && lt == rt
+	case let (.Error(_, ls), .Error(_, rs)):
+		return ls == rs
+	case let (.Custom(ls), .Custom(rs)):
+		return ls == rs
+	default:
+		return false
+	}
+}
+
+public func !=(l : JSONError, r : JSONError) -> Bool {
+	return !(l == r)
+}
