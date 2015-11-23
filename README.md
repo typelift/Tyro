@@ -1,5 +1,5 @@
  [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Build Status](https://travis-ci.org/mpurland/Tyro.svg?branch=master)](https://travis-ci.org/mpurland/Tyro)
+[![Build Status](https://travis-ci.org/typelift/Tyro.svg?branch=master)](https://travis-ci.org/typelift/Tyro)
 [![Gitter chat](https://badges.gitter.im/DPVN/chat.png)](https://gitter.im/typelift/general?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Tyro
@@ -10,7 +10,7 @@ Tyro is a Swift library for Functional JSON parsing and encoding.
 Introduction
 ------------
 
-Tyro has roots in Swiftz. It draws inspiration from [Aeson](https://github.com/bos/aeson) (from [Haskell](https://www.haskell.org)) and [Argo](https://github.com/thoughtbot/Argo). In Greek mythology, Tyro is the father of Aeson.
+Tyro has roots in [Swiftz](https://github.com/typelift/Swiftz). It draws inspiration from [Aeson](https://github.com/bos/aeson) (from [Haskell](https://www.haskell.org)) and [Argo](https://github.com/thoughtbot/Argo). In Greek mythology, Tyro is the father of Aeson.
 
 How to use
 ----------
