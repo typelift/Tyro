@@ -15,13 +15,8 @@
 		DE44805B1BFD7BB600010200 /* json-data in Resources */ = {isa = PBXBuildFile; fileRef = DE4480591BFD7BB600010200 /* json-data */; };
 		DE702CEB1BFAC7750017CEE8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
 		DE702CED1BFAC79C0017CEE8 /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
-		DE702CF71BFB17850017CEE8 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CF61BFB17850017CEE8 /* DictionaryExt.swift */; };
-		DE702CFA1BFB1BDB0017CEE8 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CF91BFB1BDB0017CEE8 /* ArrayExt.swift */; };
 		DE702D061BFB248E0017CEE8 /* Tyro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE702CD01BFAC6830017CEE8 /* Tyro.framework */; };
-		DE702D071BFB264A0017CEE8 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE702CF31BFB15D00017CEE8 /* Swiftz.framework */; };
 		DE702D191BFB28E30017CEE8 /* Tyro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE702D0F1BFB28E20017CEE8 /* Tyro.framework */; };
-		DE702D311BFB2ADC0017CEE8 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CF91BFB1BDB0017CEE8 /* ArrayExt.swift */; };
-		DE702D321BFB2ADC0017CEE8 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CF61BFB17850017CEE8 /* DictionaryExt.swift */; };
 		DE702D331BFB2ADC0017CEE8 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
 		DE702D341BFB2ADC0017CEE8 /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
 		DE8483B31BFBD87800273011 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B21BFBD87800273011 /* Decoder.swift */; };
@@ -169,6 +164,20 @@
 			remoteGlobalIDString = 84DF75F71B0BD54600C912B0;
 			remoteInfo = "SwiftCheck-iOS";
 		};
+		DED31DF81C08F93600BA1855 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 84A88F971A71DF7F003D53CF;
+			remoteInfo = Swiftz;
+		};
+		DED31DFA1C08F95000BA1855 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 84DF751D1B0BD17700C912B0;
+			remoteInfo = "Swiftz-iOS";
+		};
 		DEE480931C004AB800517CF5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */;
@@ -223,9 +232,6 @@
 		DE702CDA1BFAC6830017CEE8 /* Tyro-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tyro-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE702CEA1BFAC7750017CEE8 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONKeypath.swift; sourceTree = "<group>"; };
-		DE702CF31BFB15D00017CEE8 /* Swiftz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swiftz.framework; path = ../Carthage/Build/iOS/Swiftz.framework; sourceTree = "<group>"; };
-		DE702CF61BFB17850017CEE8 /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
-		DE702CF91BFB1BDB0017CEE8 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		DE702D001BFB21250017CEE8 /* UserExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserExample.swift; sourceTree = "<group>"; };
 		DE702D0F1BFB28E20017CEE8 /* Tyro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tyro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE702D181BFB28E30017CEE8 /* TyroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TyroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,7 +281,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE702D071BFB264A0017CEE8 /* Swiftz.framework in Frameworks */,
 				DE702D061BFB248E0017CEE8 /* Tyro.framework in Frameworks */,
 				DEC6872F1C026E530057B393 /* SwiftCheck.framework in Frameworks */,
 			);
@@ -343,8 +348,6 @@
 			isa = PBXGroup;
 			children = (
 				DE702CEE1BFB0AAB0017CEE8 /* Supporting Files */,
-				DE702CF91BFB1BDB0017CEE8 /* ArrayExt.swift */,
-				DE702CF61BFB17850017CEE8 /* DictionaryExt.swift */,
 				DE4480231BFC440E00010200 /* EitherExt.swift */,
 				DE8483CD1BFBF50D00273011 /* NSDataExt.swift */,
 				DE8483B21BFBD87800273011 /* Decoder.swift */,
@@ -393,7 +396,6 @@
 			isa = PBXGroup;
 			children = (
 				DE702D281BFB2A1C0017CEE8 /* Info.plist */,
-				DE702CF31BFB15D00017CEE8 /* Swiftz.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -452,6 +454,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DED31DFB1C08F95000BA1855 /* PBXTargetDependency */,
 			);
 			name = "Tyro-iOS";
 			productName = Tyro;
@@ -490,6 +493,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DED31DF91C08F93600BA1855 /* PBXTargetDependency */,
 			);
 			name = Tyro;
 			productName = Tyro;
@@ -699,7 +703,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE702CED1BFAC79C0017CEE8 /* JSONKeypath.swift in Sources */,
-				DE702CFA1BFB1BDB0017CEE8 /* ArrayExt.swift in Sources */,
 				DE8483C31BFBDD1700273011 /* EncodedTypes.swift in Sources */,
 				DE8483BA1BFBDC3600273011 /* JSONOperators.swift in Sources */,
 				DE8483CC1BFBF4F600273011 /* Encoder.swift in Sources */,
@@ -715,7 +718,6 @@
 				DEB7BD5E1BFEE6500051C2C0 /* DecimalNumber.swift in Sources */,
 				DE8483B61BFBD8E500273011 /* Decoder.swift in Sources */,
 				DEB7BD291BFE904E0051C2C0 /* Formatter.swift in Sources */,
-				DE702CF71BFB17850017CEE8 /* DictionaryExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,14 +756,12 @@
 				DEB7BD351BFEAD020051C2C0 /* URL.swift in Sources */,
 				DE8483CE1BFBF50D00273011 /* NSDataExt.swift in Sources */,
 				DE8483BC1BFBDC5000273011 /* Instances.swift in Sources */,
-				DE702D311BFB2ADC0017CEE8 /* ArrayExt.swift in Sources */,
 				DE8483BF1BFBDCED00273011 /* Enum.swift in Sources */,
 				DE8483B51BFBD8B000273011 /* JSONValue.swift in Sources */,
 				DE8483C51BFBDE4300273011 /* Date.swift in Sources */,
 				DEB7BD5D1BFEE6500051C2C0 /* DecimalNumber.swift in Sources */,
 				DE8483B31BFBD87800273011 /* Decoder.swift in Sources */,
 				DE4480261BFD5F6D00010200 /* Formatter.swift in Sources */,
-				DE702D321BFB2ADC0017CEE8 /* DictionaryExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +808,16 @@
 			isa = PBXTargetDependency;
 			name = "SwiftCheck-iOS";
 			targetProxy = DEC6872D1C026E2B0057B393 /* PBXContainerItemProxy */;
+		};
+		DED31DF91C08F93600BA1855 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Swiftz;
+			targetProxy = DED31DF81C08F93600BA1855 /* PBXContainerItemProxy */;
+		};
+		DED31DFB1C08F95000BA1855 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Swiftz-iOS";
+			targetProxy = DED31DFA1C08F95000BA1855 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -990,10 +1000,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Tyro/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1015,10 +1021,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Tyro/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1036,10 +1038,6 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = TyroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -1054,10 +1052,6 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = TyroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
