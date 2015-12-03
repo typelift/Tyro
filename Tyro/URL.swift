@@ -31,14 +31,10 @@ public struct URLJSONConverter : FromJSON, ToJSON {
 public struct URLJSONFormatter : JSONFormatterType {
     public typealias T = URLJSONConverter.T
     
-    private let actualJsonValue : JSONValue?
-    
-    public var jsonValue : JSONValue? {
-        return actualJsonValue
-    }
+    public private(set) var jsonValue : JSONValue?
     
     init(_ jsonValue : JSONValue?) {
-        actualJsonValue = jsonValue
+        self.jsonValue = jsonValue
     }
     
     public func decodeEither(value : JSONValue) -> Either<JSONError, T> {

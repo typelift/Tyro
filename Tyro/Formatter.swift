@@ -20,15 +20,15 @@ public protocol JSONFormatterType : JSONDecoderType, JSONEncoderType, JSONValueC
 }
 
 extension JSONValueConvertible {
-    func value() -> DecodedType? {
+    public func value() -> DecodedType? {
         return (decode <^> jsonValue) ?? nil
     }
     
-    func value() -> [DecodedType]? {
+    public func value() -> [DecodedType]? {
         return jsonValue?.array?.flatMap(self.decode) ?? nil
     }
     
-    func value() -> [String : DecodedType]? {
+    public func value() -> [String : DecodedType]? {
         return jsonValue?.object?.mapMaybe(self.decode) ?? nil
     }
 }
