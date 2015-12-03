@@ -37,11 +37,11 @@ public struct DateTimestampJSONFormatter : JSONFormatterType {
         return actualJsonValue
     }
     
-    init(_ jsonValue : JSONValue?) {
+    public init(_ jsonValue : JSONValue?) {
         actualJsonValue = jsonValue
     }
     
-    init() {
+    public init() {
         actualJsonValue = nil
     }
 
@@ -57,15 +57,16 @@ public struct DateTimestampJSONFormatter : JSONFormatterType {
 public struct DateFormatJSONFormatter : JSONFormatterType {
     public typealias T = NSDate
     private let actualJsonValue : JSONValue?
-    let dateFormat : String
     
-    static let DefaultDateFormat = "yyyy'-'MM'-'dd HH':'mm':'ss ZZZ"
+    public let dateFormat : String
+    
+    public static let DefaultDateFormat = "yyyy'-'MM'-'dd HH':'mm':'ss ZZZ"
     
     public var jsonValue : JSONValue? {
         return actualJsonValue
     }
     
-    init(_ jsonValue : JSONValue?, _ dateFormat : String = DateFormatJSONFormatter.DefaultDateFormat) {
+    public init(_ jsonValue : JSONValue?, _ dateFormat : String = DateFormatJSONFormatter.DefaultDateFormat) {
         self.dateFormat = dateFormat
         actualJsonValue = jsonValue
     }
@@ -93,5 +94,4 @@ public struct DateFormatJSONFormatter : JSONFormatterType {
         let string = formatter.stringFromDate(value)
         return .Right(.String(string))
     }
-    
 }
