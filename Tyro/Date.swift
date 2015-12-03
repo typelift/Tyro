@@ -31,24 +31,21 @@ public struct DateTimestampJSONConverter : FromJSON, ToJSON {
 
 public struct DateTimestampJSONFormatter : JSONFormatterType {
     public typealias T = DateTimestampJSONConverter.T
-    private let actualJsonValue : JSONValue?
     
-    public var jsonValue : JSONValue? {
-        return actualJsonValue
-    }
+    public private(set) var jsonValue : JSONValue?
     
     public init(_ jsonValue : JSONValue?) {
-        actualJsonValue = jsonValue
+        self.jsonValue = jsonValue
     }
     
     public init() {
-        actualJsonValue = nil
+        jsonValue = nil
     }
-
+    
     public func decodeEither(value : JSONValue) -> Either<JSONError, T> {
         return DateTimestampJSONConverter.fromJSON(value)
     }
-
+    
     public func encodeEither(value : T) -> Either<JSONError, JSONValue> {
         return DateTimestampJSONConverter.toJSON(value)
     }
@@ -56,19 +53,16 @@ public struct DateTimestampJSONFormatter : JSONFormatterType {
 
 public struct DateFormatJSONFormatter : JSONFormatterType {
     public typealias T = NSDate
-    private let actualJsonValue : JSONValue?
     
     public let dateFormat : String
     
     public static let DefaultDateFormat = "yyyy'-'MM'-'dd HH':'mm':'ss ZZZ"
     
-    public var jsonValue : JSONValue? {
-        return actualJsonValue
-    }
+    public private(set) var jsonValue : JSONValue?
     
     public init(_ jsonValue : JSONValue?, _ dateFormat : String = DateFormatJSONFormatter.DefaultDateFormat) {
         self.dateFormat = dateFormat
-        actualJsonValue = jsonValue
+        self.jsonValue = jsonValue
     }
     
     public func decodeEither(value : JSONValue) -> Either<JSONError, T> {

@@ -31,14 +31,10 @@ public struct DecimalNumberJSONConverter : FromJSON, ToJSON {
 public struct DecimalNumberJSONFormatter : JSONFormatterType {
     public typealias T = DecimalNumberJSONConverter.T
     
-    private let actualJsonValue : JSONValue?
+    public private(set) var jsonValue : JSONValue?
     
-    public var jsonValue : JSONValue? {
-        return actualJsonValue
-    }
-    
-    init(_ jsonValue : JSONValue?) {
-        actualJsonValue = jsonValue
+    public init(_ jsonValue : JSONValue?) {
+        self.jsonValue = jsonValue
     }
     
     public func decodeEither(value : JSONValue) -> Either<JSONError, T> {

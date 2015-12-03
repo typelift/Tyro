@@ -61,7 +61,7 @@ public func == (lhs : JSONValue?, rhs : JSONValue?) -> Bool {
     return false
 }
 
-protocol JSONValueable {
+public protocol JSONValueable {
     var array : [JSONValue]? { get }
     var object : [Swift.String : JSONValue]? { get }
     var string : Swift.String? { get }
@@ -71,42 +71,42 @@ protocol JSONValueable {
 }
 
 extension JSONValue : JSONValueable {
-    var array : [JSONValue]? {
+    public var array : [JSONValue]? {
         switch self {
         case .Array(let values): return values
         default: return nil
         }
     }
     
-    var object : [Swift.String : JSONValue]? {
+    public var object : [Swift.String : JSONValue]? {
         switch self {
         case .Object(let value): return value
         default: return nil
         }
     }
     
-    var string : Swift.String? {
+    public var string : Swift.String? {
         switch self {
         case .String(let value): return value
         default: return nil
         }
     }
     
-    var number : NSNumber? {
+    public var number : NSNumber? {
         switch self {
         case .Number(let value): return value
         default: return nil
         }
     }
     
-    var null : NSNull? {
+    public var null : NSNull? {
         switch self {
         case .Null: return NSNull()
         default: return nil
         }
     }
     
-    var anyObject : AnyObject? {
+    public var anyObject : AnyObject? {
         switch self {
         case .Array(let values): return values as? AnyObject
         case .Object(let value): return value as? AnyObject
@@ -119,37 +119,37 @@ extension JSONValue : JSONValueable {
 
 extension JSONValue {
     /// Values for FromJSON
-    func value<A : FromJSON where A.T == A>() -> A? {
+    public func value<A : FromJSON where A.T == A>() -> A? {
         return valueEither().right
     }
 
-    func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, A> {
+    public func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, A> {
         return A.fromJSON(self)
     }
     
-    func value<A : FromJSON where A.T == A>() -> [A]? {
+    public func value<A : FromJSON where A.T == A>() -> [A]? {
         return valueEither().right
     }
     
-    func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, [A]> {
+    public func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, [A]> {
         return FromJSONArray<A, A>.fromJSON(self)
     }
     
-    func value<A : FromJSON where A.T == A>() -> [Swift.String : A]? {
+    public func value<A : FromJSON where A.T == A>() -> [Swift.String : A]? {
         return valueEither().right
     }
 
-    func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, [Swift.String : A]> {
+    public func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, [Swift.String : A]> {
         return FromJSONDictionary<A, A>.fromJSON(self)
     }
     
-    func error<A : FromJSON>(type : A.Type) -> JSONError? {
+    public func error<A : FromJSON>(type : A.Type) -> JSONError? {
         return type.fromJSON(self).left
     }
 }
 
 extension JSONValue {
-    subscript(keypath : JSONKeypath) -> JSONValue? {
+    public subscript(keypath : JSONKeypath) -> JSONValue? {
         switch self {
         case .Object(let d):
             return keypath.resolve(d)
