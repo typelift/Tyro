@@ -23,12 +23,6 @@ class TypesFromJSONSpec : XCTestCase {
         XCTAssert(stringFromObject == "This is a string")
     }
     
-    func testStringInvalid() {
-        let jsonNotAString = "[1]"
-        let notAStringArray: [String]? = jsonNotAString.toJSON?.value()
-        XCTAssertNil(notAStringArray)
-    }
-    
     func testBool() {
         let jsonBoolInArray = "[true,false]"
         let boolInArray: [Bool]? = jsonBoolInArray.toJSON?.value()
@@ -222,6 +216,21 @@ class TypesFromJSONSpec : XCTestCase {
         let pi: Double? = json.toJSON <? "pi"
         XCTAssertNotNil(pi)
         XCTAssertEqualWithAccuracy(pi!, doublePI, accuracy: 1.0 / 1_000_000_000_000.0)
+    }
+    
+    func testStringFromNumber() {
+        let json = "{\"id\":122585221112454722}"
+        let id: UInt64? = json.toJSON <? "id"
+        XCTAssertNotNil(id)
+        
+        let idString: String? = json.toJSON <? "id"
+        XCTAssertNotNil(idString)
+    }
+    
+    func testStringFromNumberArray() {
+        let jsonNotAString = "[1]"
+        let stringOfNumberArray: [String]? = jsonNotAString.toJSON?.value()
+        XCTAssert(stringOfNumberArray == ["1"])
     }
 }
 

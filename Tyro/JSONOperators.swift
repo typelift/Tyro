@@ -24,15 +24,15 @@ public func <? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [String 
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> B.DecodedType?? {
-    return lhs <? rhs
+    return (lhs <? rhs) ?? nil
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [B.DecodedType]?? {
-    return lhs <? rhs
+    return (lhs <? rhs) ?? nil
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [String : B.DecodedType]?? {
-    return lhs <? rhs
+    return (lhs <? rhs) ?? nil
 }
 
 /// JSONValue decoding operators
