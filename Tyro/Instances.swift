@@ -15,6 +15,8 @@ extension String : FromJSON {
         switch value {
         case .String(let value):
             return .Right(value)
+        case .Number(let value):
+            return .Right(value.stringValue)
         default:
             return .Left(.TypeMismatch("\(String.self)", "\(value.dynamicType.self)"))
         }

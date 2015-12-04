@@ -73,8 +73,9 @@ func roundTrip<T : protocol<FromJSON, ToJSON>>(_ : T.Type, _ x : JSONValue) -> T
 
 class JSONSpec : XCTestCase {
 	let frequentFliers : [Property] = [
-		forAll { (x : JSONValue) in roundTrip(Swift.String.self, x) },
+//		forAll { (x : JSONValue) in roundTrip(Swift.String.self, x) },
 		forAll { (x : JSONValue) in roundTrip(Bool.self, x) },
+
 //		forAll { (x : JSONValue) in roundTrip(Int.self, x) },
 //		forAll { (x : JSONValue) in roundTrip(Int8.self, x) },
 //		forAll { (x : JSONValue) in roundTrip(Int16.self, x) },

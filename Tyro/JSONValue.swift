@@ -88,6 +88,7 @@ extension JSONValue : JSONValueable {
     public var string : Swift.String? {
         switch self {
         case .String(let value): return value
+        case .Number(let value): return value.stringValue
         default: return nil
         }
     }

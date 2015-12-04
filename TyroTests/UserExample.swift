@@ -22,10 +22,7 @@ struct User {
     let latitude: Double
     let longitude: Double
     let admin: Bool
-    
-    static func create(id: UInt64)(name: String)(age: Int)(tweets: [String])(profile: String)(balance: Double)(latitude: Double)(longitude: Double)(admin: Bool) -> User {
-        return User(id: id, name: name, age: age, tweets: tweets, profile: profile, balance: balance, latitude: latitude, longitude: longitude, admin: admin)
-    }
+    let optionalNickname: String?
 }
 
 extension User: FromJSON {
@@ -39,8 +36,9 @@ extension User: FromJSON {
         let latitude: Double? = j <? "latitude"
         let longitude: Double? = j <? "longitude"
         let admin: Bool? = j <? "admin"
+        let optionalNickname: String?? = j <?? "optionalNickname"
         
-        return (User.create
+        return (curry(User.init)
             <^> id
             <*> name
             <*> age
@@ -49,7 +47,8 @@ extension User: FromJSON {
             <*> balance
             <*> latitude
             <*> longitude
-            <*> admin).toEither(.Custom("Could not create user"))
+            <*> admin
+            <*> optionalNickname).toEither(.Custom("Could not create user"))
     }
 }
 
@@ -65,6 +64,7 @@ func == (lhs: User, rhs: User) -> Bool {
         && lhs.latitude == rhs.latitude
         && lhs.longitude == rhs.longitude
         && lhs.admin == rhs.admin
+        && lhs.optionalNickname == rhs.optionalNickname
 }
 
 func == (lhs: User?, rhs: User?) -> Bool {
