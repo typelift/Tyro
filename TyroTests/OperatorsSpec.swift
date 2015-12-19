@@ -13,6 +13,16 @@ import Swiftz
 class OperatorsSpec : XCTestCase {
     let json = "{\"bool\":true,\"intOrBool\":1,\"object\":{\"answer\":42},\"array\":[1,2,3]}"
     
+    func testRetrieveJSONValue() {
+        let x: JSONValue? = json.toJSONEither?.right
+        XCTAssertNotNil(x)
+        
+        let jsonValue: JSONValue? = x <? "object"
+        
+        let answer: Int? = jsonValue <? "answer"
+        XCTAssert(answer == 42)
+    }
+    
     func testRetrieve() {
         let x: JSONValue? = json.toJSONEither?.right
         XCTAssertNotNil(x)
