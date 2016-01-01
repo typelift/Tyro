@@ -90,33 +90,3 @@ extension Dictionary where Value : EitherType {
         }
     }
 }
-
-//struct EitherBuilder<L, R> {
-//    let value : R?
-//
-//    init(value v : R?) {
-//        value = v
-//    }
-//
-//    static func either(r : R?) -> EitherBuilder<L, R> {
-//        return EitherBuilder(value : r)
-//    }
-//
-//    func orThat(l : L) -> Either<L, R> {
-//        return value.maybe(Either.Left(l), onSome : { (r) -> Either<L, R> in
-//            return .Right(r)
-//        })
-//    }
-//}
-//
-//func eitherThis<L, R>(_ r : R?) -> EitherBuilder<L, R> {
-//    return EitherBuilder<L, R>.either(r)
-//}
-
-//func left<L, R>(_ left : L) -> Either<L, R> {
-//    return .Left(left)
-//}
-//
-//func right<L, R>(_ right : R) -> Either<L, R> {
-//    return .Right(right)
-//}
