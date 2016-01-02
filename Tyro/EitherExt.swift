@@ -25,23 +25,6 @@ public protocol EitherType {
 }
 
 extension Either : EitherType {
-    public var right : R? {
-        switch self {
-        case .Right(let r): return r
-        default: return nil
-        }
-    }
-    
-    public var left : L? {
-        switch self {
-        case .Left(let l): return l
-        default: return nil
-        }
-    }
-    
-    func fmap<L, RA, RB>(f : RA -> RB, e : Either<L, RA>) -> Either<L, RB> {
-        return f <^> e
-    }
 }
 
 extension Array where Element : EitherType {
