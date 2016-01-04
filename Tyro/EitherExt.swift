@@ -25,23 +25,6 @@ public protocol EitherType {
 }
 
 extension Either : EitherType {
-    public var right : R? {
-        switch self {
-        case .Right(let r): return r
-        default: return nil
-        }
-    }
-    
-    public var left : L? {
-        switch self {
-        case .Left(let l): return l
-        default: return nil
-        }
-    }
-    
-    func fmap<L, RA, RB>(f : RA -> RB, e : Either<L, RA>) -> Either<L, RB> {
-        return f <^> e
-    }
 }
 
 extension Array where Element : EitherType {
@@ -90,33 +73,3 @@ extension Dictionary where Value : EitherType {
         }
     }
 }
-
-//struct EitherBuilder<L, R> {
-//    let value : R?
-//
-//    init(value v : R?) {
-//        value = v
-//    }
-//
-//    static func either(r : R?) -> EitherBuilder<L, R> {
-//        return EitherBuilder(value : r)
-//    }
-//
-//    func orThat(l : L) -> Either<L, R> {
-//        return value.maybe(Either.Left(l), onSome : { (r) -> Either<L, R> in
-//            return .Right(r)
-//        })
-//    }
-//}
-//
-//func eitherThis<L, R>(_ r : R?) -> EitherBuilder<L, R> {
-//    return EitherBuilder<L, R>.either(r)
-//}
-
-//func left<L, R>(_ left : L) -> Either<L, R> {
-//    return .Left(left)
-//}
-//
-//func right<L, R>(_ right : R) -> Either<L, R> {
-//    return .Right(right)
-//}
