@@ -109,8 +109,8 @@ extension JSONValue : JSONValueable {
     
     public var anyObject : AnyObject? {
         switch self {
-        case .Array(let values): return values as? AnyObject
-        case .Object(let value): return value as? AnyObject
+        case .Array(let values): return values.mapMaybe { $0.anyObject }
+        case .Object(let value): return value.mapMaybe { $0.anyObject }
         case .String(let s): return s
         case .Number(let n): return n
         case .Null: return NSNull()
