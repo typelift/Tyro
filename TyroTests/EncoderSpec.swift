@@ -58,9 +58,10 @@ class EncoderSpec : XCTestCase {
             XCTAssert(v["array"] == .Array([.Number(1), .Number(2), .Number(3)]))
             XCTAssert(v["object"] == .Object(["strings": .Array([.String("1"), .String("2"), .String("3")]), "pi": .Number(3.14159)]))
             let jsonString = result.right!.toJSONString()!
-            print("testEncodeEmbeddedObjects: \(jsonString)")
-            let expectedJson = "{\"array\":[1,2,3],\"object\":{\"strings\":[\"1\",\"2\",\"3\"],\"pi\":3.14159},\"number\":42,\"string\":\"hello\"}"
-            XCTAssertEqual(expectedJson, jsonString)
+            
+            // Ensure the decoded json string matches the original encoded value
+            let decodedValueFromJson = JSONValue.decodeEither(jsonString).right!
+            XCTAssertEqual(decodedValueFromJson, result.right!)
         default:
             XCTFail("Could not encode to JSONValue.Object")
         }
