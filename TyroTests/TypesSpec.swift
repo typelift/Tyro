@@ -232,6 +232,15 @@ class TypesFromJSONSpec : XCTestCase {
         let stringOfNumberArray: [String]? = jsonNotAString.toJSON?.value()
         XCTAssert(stringOfNumberArray == ["1"])
     }
+    
+    func testNull() {
+        let json = "{\"message\":\"this is a message\",\"type\":null}"
+        let jsonValueEither = JSONValue.decodeEither(json)
+        let jsonValue = jsonValueEither.right
+        XCTAssertTrue(jsonValue?.object != nil)
+        XCTAssertTrue(jsonValue?.object?["message"] == .String("this is a message"))
+        XCTAssertTrue(jsonValue?.object?["type"] == .Null)
+    }
 }
 
 class TypesToJSONSpec : XCTestCase {

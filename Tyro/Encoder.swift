@@ -57,6 +57,8 @@ public class JSONEncoder : JSONEncoderType {
             return .Right(.String(value))
         case let value as NSNumber :
             return .Right(.Number(value))
+        case _ as NSNull :
+            return .Right(.Null)
         default:
             // This should never happen...
             return .Left(.Custom("Could not match type for value : \(value)"))
