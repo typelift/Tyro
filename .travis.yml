@@ -7,8 +7,8 @@ before_install:
 install: true
 script:
   - set -o pipefail
-  - xcodebuild test -scheme Tyro -configuration Release | xcpretty -c
-  - xcodebuild test -scheme Tyro-iOS -configuration Release -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" | xcpretty -c
+  - xcodebuild test -scheme Tyro -configuration Debug | xcpretty -c
+  - xcodebuild test -scheme Tyro-iOS -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" | xcpretty -c
 notifications:
   webhooks:
     urls:
