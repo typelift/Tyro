@@ -1,8 +1,14 @@
 language: objective-c
 osx_image: xcode7.3
-before_install: true
+git:
+  submodules: false
+before_install:
+  - git submodule update --init --recursive
 install: true
-script: script/cibuild Tyro
+script:
+  - set -o pipefail
+  - xcodebuild test -scheme Tyro -configuration Release | xcpretty -c
+  - xcodebuild test -scheme Tyro-iOS -configuration Release -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" | xcpretty -c
 notifications:
   webhooks:
     urls:
