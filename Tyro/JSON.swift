@@ -10,11 +10,11 @@ import Foundation
 import Swiftz
 
 public protocol FromJSON {
-    typealias T = Self
+    associatedtype T = Self
     static func fromJSON(value : JSONValue) -> Either<JSONError, T>
 }
 
 public protocol ToJSON {
-    typealias T = Self
+    associatedtype T = Self
     static func toJSON(value : T) -> Either<JSONError, JSONValue>
 }

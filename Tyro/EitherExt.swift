@@ -17,8 +17,8 @@ public func | <L, R>(either : Either<L, R>?, @autoclosure(escaping) f : () -> R?
 
 /// Protocol for Either<L, R> type.
 public protocol EitherType {
-    typealias L
-    typealias R
+    associatedtype L
+    associatedtype R
     
     var left : L? { get }
     var right : R? { get }
