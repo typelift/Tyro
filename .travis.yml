@@ -1,8 +1,8 @@
 language: objective-c
-osx_image: xcode7.1
+osx_image: xcode7.3
 before_install: true
 install: true
-script: script/cibuild Tyro Tyro-iOS
+script: script/cibuild Tyro
 notifications:
   webhooks:
     urls:

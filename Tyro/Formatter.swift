@@ -14,9 +14,9 @@ public protocol JSONValueConvertible : JSONDecoderType {
 }
 
 public protocol JSONFormatterType : JSONDecoderType, JSONEncoderType, JSONValueConvertible {
-    typealias T
-    typealias EncodedType = T
-    typealias DecodedType = T
+    associatedtype T
+    associatedtype EncodedType = T
+    associatedtype DecodedType = T
 }
 
 extension JSONValueConvertible {

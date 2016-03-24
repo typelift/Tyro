@@ -10,7 +10,7 @@ import Foundation
 import Swiftz
 
 public protocol JSONDecoderType {
-    typealias DecodedType = AnyObject
+    associatedtype DecodedType = AnyObject
     func decodeEither(value : JSONValue) -> Either<JSONError, DecodedType>
     func decode(value : JSONValue) -> DecodedType?
 }
