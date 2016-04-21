@@ -1038,7 +1038,7 @@
 				INFOPLIST_FILE = Tyro/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.tyro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.Tyro;
 				PRODUCT_NAME = Tyro;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1059,7 +1059,7 @@
 				INFOPLIST_FILE = Tyro/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.tyro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.Tyro;
 				PRODUCT_NAME = Tyro;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1323,6 +1323,7 @@
 				8A5621B31CC8F9B300B956F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE702CCA1BFAC6820017CEE8 /* Build configuration list for PBXProject "Tyro" */ = {
 			isa = XCConfigurationList;
