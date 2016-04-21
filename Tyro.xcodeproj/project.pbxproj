@@ -9,6 +9,23 @@
 /* Begin PBXBuildFile section */
 		826B84791C017B8900E2F01C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
 		826B847A1C017B8900E2F01C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
+		8A5621B71CC8FA5F00B956F4 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDC9CBE1CA37D15004B6289 /* Swiftz.framework */; };
+		8A5621B81CC8FA6D00B956F4 /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
+		8A5621B91CC8FA6D00B956F4 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
+		8A5621BA1CC8FA6D00B956F4 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B21BFBD87800273011 /* Decoder.swift */; };
+		8A5621BB1CC8FA6D00B956F4 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CA1BFBF4F600273011 /* Encoder.swift */; };
+		8A5621BC1CC8FA6D00B956F4 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
+		8A5621BD1CC8FA6D00B956F4 /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
+		8A5621BE1CC8FA6D00B956F4 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B41BFBD8B000273011 /* JSONValue.swift */; };
+		8A5621BF1CC8FA6D00B956F4 /* JSONOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B81BFBDC3600273011 /* JSONOperators.swift */; };
+		8A5621C01CC8FA6D00B956F4 /* Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BB1BFBDC5000273011 /* Instances.swift */; };
+		8A5621C11CC8FA6D00B956F4 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BE1BFBDCED00273011 /* Enum.swift */; };
+		8A5621C21CC8FA6D00B956F4 /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
+		8A5621C31CC8FA6D00B956F4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C71BFBF3CA00273011 /* Error.swift */; };
+		8A5621C41CC8FA6D00B956F4 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
+		8A5621C51CC8FA6D00B956F4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C41BFBDE4300273011 /* Date.swift */; };
+		8A5621C61CC8FA6D00B956F4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD341BFEAD020051C2C0 /* URL.swift */; };
+		8A5621C71CC8FA6D00B956F4 /* DecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */; };
 		DE4480241BFC440E00010200 /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
 		DE4480261BFD5F6D00010200 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
 		DE44805A1BFD7BB600010200 /* json-data in Resources */ = {isa = PBXBuildFile; fileRef = DE4480591BFD7BB600010200 /* json-data */; };
@@ -107,6 +124,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 84DF76021B0BD54600C912B0;
 			remoteInfo = "SwiftCheck-iOSTests";
+		};
+		8A5621B51CC8FA5400B956F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8240CDD71C3A41F000EF4D29;
+			remoteInfo = "Swiftz-watchOS";
 		};
 		DE702CDC1BFAC6830017CEE8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -273,6 +297,7 @@
 /* Begin PBXFileReference section */
 		826B84781C017B8900E2F01C /* JSONValueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueSpec.swift; sourceTree = "<group>"; };
 		826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftCheck.xcodeproj; path = Carthage/Checkouts/SwiftCheck/SwiftCheck.xcodeproj; sourceTree = SOURCE_ROOT; };
+		8A5621AC1CC8F9B300B956F4 /* Tyro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tyro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4480231BFC440E00010200 /* EitherExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EitherExt.swift; sourceTree = "<group>"; };
 		DE4480251BFD5F6D00010200 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		DE4480271BFD779200010200 /* TyroSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TyroSpec.swift; sourceTree = "<group>"; };
@@ -318,6 +343,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A5621A81CC8F9B300B956F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5621B71CC8FA5F00B956F4 /* Swiftz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE702CCC1BFAC6830017CEE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +424,7 @@
 				DE702CDA1BFAC6830017CEE8 /* Tyro-iOSTests.xctest */,
 				DE702D0F1BFB28E20017CEE8 /* Tyro.framework */,
 				DE702D181BFB28E30017CEE8 /* TyroTests.xctest */,
+				8A5621AC1CC8F9B300B956F4 /* Tyro.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -481,6 +515,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8A5621A91CC8F9B300B956F4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE702CCD1BFAC6830017CEE8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -498,6 +539,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8A5621AB1CC8F9B300B956F4 /* Tyro-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A5621B11CC8F9B300B956F4 /* Build configuration list for PBXNativeTarget "Tyro-watchOS" */;
+			buildPhases = (
+				8A5621A71CC8F9B300B956F4 /* Sources */,
+				8A5621A81CC8F9B300B956F4 /* Frameworks */,
+				8A5621A91CC8F9B300B956F4 /* Headers */,
+				8A5621AA1CC8F9B300B956F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A5621B61CC8FA5400B956F4 /* PBXTargetDependency */,
+			);
+			name = "Tyro-watchOS";
+			productName = "Tyro-watchOS";
+			productReference = 8A5621AC1CC8F9B300B956F4 /* Tyro.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		DE702CCF1BFAC6830017CEE8 /* Tyro-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE702CE41BFAC6830017CEE8 /* Build configuration list for PBXNativeTarget "Tyro-iOS" */;
@@ -585,6 +645,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = TypeLift;
 				TargetAttributes = {
+					8A5621AB1CC8F9B300B956F4 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					DE702CCF1BFAC6830017CEE8 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -629,6 +692,7 @@
 				DE702D171BFB28E30017CEE8 /* TyroTests */,
 				DE702CCF1BFAC6830017CEE8 /* Tyro-iOS */,
 				DE702CD91BFAC6830017CEE8 /* Tyro-iOSTests */,
+				8A5621AB1CC8F9B300B956F4 /* Tyro-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -770,6 +834,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A5621AA1CC8F9B300B956F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE702CCE1BFAC6830017CEE8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -803,6 +874,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8A5621A71CC8F9B300B956F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5621BB1CC8FA6D00B956F4 /* Encoder.swift in Sources */,
+				8A5621C41CC8FA6D00B956F4 /* Formatter.swift in Sources */,
+				8A5621C21CC8FA6D00B956F4 /* EncodedTypes.swift in Sources */,
+				8A5621BE1CC8FA6D00B956F4 /* JSONValue.swift in Sources */,
+				8A5621BC1CC8FA6D00B956F4 /* JSON.swift in Sources */,
+				8A5621C61CC8FA6D00B956F4 /* URL.swift in Sources */,
+				8A5621C71CC8FA6D00B956F4 /* DecimalNumber.swift in Sources */,
+				8A5621C31CC8FA6D00B956F4 /* Error.swift in Sources */,
+				8A5621B91CC8FA6D00B956F4 /* NSDataExt.swift in Sources */,
+				8A5621BA1CC8FA6D00B956F4 /* Decoder.swift in Sources */,
+				8A5621C01CC8FA6D00B956F4 /* Instances.swift in Sources */,
+				8A5621C51CC8FA6D00B956F4 /* Date.swift in Sources */,
+				8A5621BD1CC8FA6D00B956F4 /* JSONKeypath.swift in Sources */,
+				8A5621B81CC8FA6D00B956F4 /* EitherExt.swift in Sources */,
+				8A5621C11CC8FA6D00B956F4 /* Enum.swift in Sources */,
+				8A5621BF1CC8FA6D00B956F4 /* JSONOperators.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE702CCB1BFAC6830017CEE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,6 +988,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8A5621B61CC8FA5400B956F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Swiftz-watchOS";
+			targetProxy = 8A5621B51CC8FA5400B956F4 /* PBXContainerItemProxy */;
+		};
 		DE702CDD1BFAC6830017CEE8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE702CCF1BFAC6830017CEE8 /* Tyro-iOS */;
@@ -927,6 +1026,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8A5621B21CC8F9B300B956F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Tyro/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.tyro;
+				PRODUCT_NAME = Tyro;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		8A5621B31CC8F9B300B956F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Tyro/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.tyro;
+				PRODUCT_NAME = Tyro;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		DE702CE21BFAC6830017CEE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1175,6 +1316,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8A5621B11CC8F9B300B956F4 /* Build configuration list for PBXNativeTarget "Tyro-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A5621B21CC8F9B300B956F4 /* Debug */,
+				8A5621B31CC8F9B300B956F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DE702CCA1BFAC6820017CEE8 /* Build configuration list for PBXProject "Tyro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
