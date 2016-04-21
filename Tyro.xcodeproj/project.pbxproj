@@ -7,6 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8237397C1CC99B1500CBAF3C /* Tyro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823739721CC99B1400CBAF3C /* Tyro.framework */; };
+		823739971CC99B3900CBAF3C /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDC9CBA1CA37D15004B6289 /* Swiftz.framework */; };
+		823739981CC99B4200CBAF3C /* EitherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480231BFC440E00010200 /* EitherExt.swift */; };
+		823739991CC99B4200CBAF3C /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CD1BFBF50D00273011 /* NSDataExt.swift */; };
+		8237399A1CC99B4200CBAF3C /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B21BFBD87800273011 /* Decoder.swift */; };
+		8237399B1CC99B4200CBAF3C /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483CA1BFBF4F600273011 /* Encoder.swift */; };
+		8237399C1CC99B4200CBAF3C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEA1BFAC7750017CEE8 /* JSON.swift */; };
+		8237399D1CC99B4200CBAF3C /* JSONKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702CEC1BFAC79C0017CEE8 /* JSONKeypath.swift */; };
+		8237399E1CC99B4300CBAF3C /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B41BFBD8B000273011 /* JSONValue.swift */; };
+		8237399F1CC99B4300CBAF3C /* JSONOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483B81BFBDC3600273011 /* JSONOperators.swift */; };
+		823739A01CC99B4300CBAF3C /* Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BB1BFBDC5000273011 /* Instances.swift */; };
+		823739A11CC99B4300CBAF3C /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483BE1BFBDCED00273011 /* Enum.swift */; };
+		823739A21CC99B4300CBAF3C /* EncodedTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C11BFBDD1700273011 /* EncodedTypes.swift */; };
+		823739A31CC99B4300CBAF3C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C71BFBF3CA00273011 /* Error.swift */; };
+		823739A41CC99B4300CBAF3C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480251BFD5F6D00010200 /* Formatter.swift */; };
+		823739A51CC99B4300CBAF3C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8483C41BFBDE4300273011 /* Date.swift */; };
+		823739A61CC99B4300CBAF3C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD341BFEAD020051C2C0 /* URL.swift */; };
+		823739A71CC99B4300CBAF3C /* DecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5C1BFEE6500051C2C0 /* DecimalNumber.swift */; };
+		823739AE1CC99B8800CBAF3C /* UserExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE702D001BFB21250017CEE8 /* UserExample.swift */; };
+		823739AF1CC99B8800CBAF3C /* DecoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD561BFEB9A80051C2C0 /* DecoderSpec.swift */; };
+		823739B01CC99B8800CBAF3C /* EncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD541BFEB9A00051C2C0 /* EncoderSpec.swift */; };
+		823739B11CC99B8800CBAF3C /* TyroSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4480271BFD779200010200 /* TyroSpec.swift */; };
+		823739B21CC99B8800CBAF3C /* JSONDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD261BFE77210051C2C0 /* JSONDataSpec.swift */; };
+		823739B31CC99B8800CBAF3C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
+		823739B41CC99B8800CBAF3C /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD2C1BFE9C850051C2C0 /* UserSpec.swift */; };
+		823739B51CC99B8800CBAF3C /* TypesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD321BFEA5060051C2C0 /* TypesSpec.swift */; };
+		823739B61CC99B8800CBAF3C /* DateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD371BFEAE090051C2C0 /* DateSpec.swift */; };
+		823739B71CC99B8800CBAF3C /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4B1BFEAE7B0051C2C0 /* EnumSpec.swift */; };
+		823739B81CC99B8800CBAF3C /* URLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD4E1BFEAE930051C2C0 /* URLSpec.swift */; };
+		823739B91CC99B8800CBAF3C /* OperatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD581BFED3F30051C2C0 /* OperatorsSpec.swift */; };
+		823739BA1CC99B8800CBAF3C /* KeypathSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5A1BFED42E0051C2C0 /* KeypathSpec.swift */; };
+		823739BB1CC99B8800CBAF3C /* DecimalNumberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7BD5F1BFEE7C80051C2C0 /* DecimalNumberSpec.swift */; };
+		823739BD1CC99BB800CBAF3C /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE480981C004AB800517CF5 /* Swiftz.framework */; };
+		823739BE1CC99BC900CBAF3C /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDC9CBA1CA37D15004B6289 /* Swiftz.framework */; };
+		823739C11CC99BD900CBAF3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDC9CA71CA37D15004B6289 /* SwiftCheck.framework */; };
 		826B84791C017B8900E2F01C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
 		826B847A1C017B8900E2F01C /* JSONValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826B84781C017B8900E2F01C /* JSONValueSpec.swift */; };
 		8A5621B71CC8FA5F00B956F4 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDC9CBE1CA37D15004B6289 /* Swiftz.framework */; };
@@ -97,6 +132,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8237397D1CC99B1500CBAF3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE702CC71BFAC6820017CEE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 823739711CC99B1400CBAF3C;
+			remoteInfo = "Tyro-tvOS";
+		};
+		823739AA1CC99B5A00CBAF3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEE4808B1C004AB800517CF5 /* Swiftz.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8240CD1B1C3A395F00EF4D29;
+			remoteInfo = "Swiftz-tvOS";
+		};
+		823739AC1CC99B7D00CBAF3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8240CCB01C3A123600EF4D29;
+			remoteInfo = "SwiftCheck-tvOS";
+		};
 		826B84861C017BD900E2F01C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */;
@@ -295,6 +351,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		823739721CC99B1400CBAF3C /* Tyro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tyro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8237397B1CC99B1500CBAF3C /* Tyro-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tyro-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		826B84781C017B8900E2F01C /* JSONValueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValueSpec.swift; sourceTree = "<group>"; };
 		826B847F1C017BD900E2F01C /* SwiftCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftCheck.xcodeproj; path = Carthage/Checkouts/SwiftCheck/SwiftCheck.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8A5621AC1CC8F9B300B956F4 /* Tyro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tyro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +401,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8237396E1CC99B1400CBAF3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				823739971CC99B3900CBAF3C /* Swiftz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		823739781CC99B1500CBAF3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				823739C11CC99BD900CBAF3C /* SwiftCheck.framework in Frameworks */,
+				823739BE1CC99BC900CBAF3C /* Swiftz.framework in Frameworks */,
+				8237397C1CC99B1500CBAF3C /* Tyro.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A5621A81CC8F9B300B956F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,6 +439,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823739BD1CC99BB800CBAF3C /* Swiftz.framework in Frameworks */,
 				DE702D061BFB248E0017CEE8 /* Tyro.framework in Frameworks */,
 				DEC6872F1C026E530057B393 /* SwiftCheck.framework in Frameworks */,
 			);
@@ -425,6 +502,8 @@
 				DE702D0F1BFB28E20017CEE8 /* Tyro.framework */,
 				DE702D181BFB28E30017CEE8 /* TyroTests.xctest */,
 				8A5621AC1CC8F9B300B956F4 /* Tyro.framework */,
+				823739721CC99B1400CBAF3C /* Tyro.framework */,
+				8237397B1CC99B1500CBAF3C /* Tyro-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -515,6 +594,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8237396F1CC99B1400CBAF3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A5621A91CC8F9B300B956F4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +625,44 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		823739711CC99B1400CBAF3C /* Tyro-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 823739951CC99B1500CBAF3C /* Build configuration list for PBXNativeTarget "Tyro-tvOS" */;
+			buildPhases = (
+				8237396D1CC99B1400CBAF3C /* Sources */,
+				8237396E1CC99B1400CBAF3C /* Frameworks */,
+				8237396F1CC99B1400CBAF3C /* Headers */,
+				823739701CC99B1400CBAF3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				823739AB1CC99B5A00CBAF3C /* PBXTargetDependency */,
+			);
+			name = "Tyro-tvOS";
+			productName = "Tyro-tvOS";
+			productReference = 823739721CC99B1400CBAF3C /* Tyro.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8237397A1CC99B1500CBAF3C /* Tyro-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 823739961CC99B1500CBAF3C /* Build configuration list for PBXNativeTarget "Tyro-tvOSTests" */;
+			buildPhases = (
+				823739771CC99B1500CBAF3C /* Sources */,
+				823739781CC99B1500CBAF3C /* Frameworks */,
+				823739791CC99B1500CBAF3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				823739AD1CC99B7D00CBAF3C /* PBXTargetDependency */,
+				8237397E1CC99B1500CBAF3C /* PBXTargetDependency */,
+			);
+			name = "Tyro-tvOSTests";
+			productName = "Tyro-tvOSTests";
+			productReference = 8237397B1CC99B1500CBAF3C /* Tyro-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8A5621AB1CC8F9B300B956F4 /* Tyro-watchOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A5621B11CC8F9B300B956F4 /* Build configuration list for PBXNativeTarget "Tyro-watchOS" */;
@@ -641,10 +765,16 @@
 		DE702CC71BFAC6820017CEE8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = TypeLift;
 				TargetAttributes = {
+					823739711CC99B1400CBAF3C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					8237397A1CC99B1500CBAF3C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					8A5621AB1CC8F9B300B956F4 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -692,6 +822,8 @@
 				DE702D171BFB28E30017CEE8 /* TyroTests */,
 				DE702CCF1BFAC6830017CEE8 /* Tyro-iOS */,
 				DE702CD91BFAC6830017CEE8 /* Tyro-iOSTests */,
+				823739711CC99B1400CBAF3C /* Tyro-tvOS */,
+				8237397A1CC99B1500CBAF3C /* Tyro-tvOSTests */,
 				8A5621AB1CC8F9B300B956F4 /* Tyro-watchOS */,
 			);
 		};
@@ -834,6 +966,20 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		823739701CC99B1400CBAF3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		823739791CC99B1500CBAF3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A5621AA1CC8F9B300B956F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -874,6 +1020,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8237396D1CC99B1400CBAF3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				823739981CC99B4200CBAF3C /* EitherExt.swift in Sources */,
+				823739991CC99B4200CBAF3C /* NSDataExt.swift in Sources */,
+				8237399A1CC99B4200CBAF3C /* Decoder.swift in Sources */,
+				8237399B1CC99B4200CBAF3C /* Encoder.swift in Sources */,
+				8237399C1CC99B4200CBAF3C /* JSON.swift in Sources */,
+				8237399D1CC99B4200CBAF3C /* JSONKeypath.swift in Sources */,
+				8237399E1CC99B4300CBAF3C /* JSONValue.swift in Sources */,
+				8237399F1CC99B4300CBAF3C /* JSONOperators.swift in Sources */,
+				823739A01CC99B4300CBAF3C /* Instances.swift in Sources */,
+				823739A11CC99B4300CBAF3C /* Enum.swift in Sources */,
+				823739A21CC99B4300CBAF3C /* EncodedTypes.swift in Sources */,
+				823739A31CC99B4300CBAF3C /* Error.swift in Sources */,
+				823739A41CC99B4300CBAF3C /* Formatter.swift in Sources */,
+				823739A51CC99B4300CBAF3C /* Date.swift in Sources */,
+				823739A61CC99B4300CBAF3C /* URL.swift in Sources */,
+				823739A71CC99B4300CBAF3C /* DecimalNumber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		823739771CC99B1500CBAF3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				823739AE1CC99B8800CBAF3C /* UserExample.swift in Sources */,
+				823739AF1CC99B8800CBAF3C /* DecoderSpec.swift in Sources */,
+				823739B01CC99B8800CBAF3C /* EncoderSpec.swift in Sources */,
+				823739B11CC99B8800CBAF3C /* TyroSpec.swift in Sources */,
+				823739B21CC99B8800CBAF3C /* JSONDataSpec.swift in Sources */,
+				823739B31CC99B8800CBAF3C /* JSONValueSpec.swift in Sources */,
+				823739B41CC99B8800CBAF3C /* UserSpec.swift in Sources */,
+				823739B51CC99B8800CBAF3C /* TypesSpec.swift in Sources */,
+				823739B61CC99B8800CBAF3C /* DateSpec.swift in Sources */,
+				823739B71CC99B8800CBAF3C /* EnumSpec.swift in Sources */,
+				823739B81CC99B8800CBAF3C /* URLSpec.swift in Sources */,
+				823739B91CC99B8800CBAF3C /* OperatorsSpec.swift in Sources */,
+				823739BA1CC99B8800CBAF3C /* KeypathSpec.swift in Sources */,
+				823739BB1CC99B8800CBAF3C /* DecimalNumberSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A5621A71CC8F9B300B956F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -988,6 +1178,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8237397E1CC99B1500CBAF3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 823739711CC99B1400CBAF3C /* Tyro-tvOS */;
+			targetProxy = 8237397D1CC99B1500CBAF3C /* PBXContainerItemProxy */;
+		};
+		823739AB1CC99B5A00CBAF3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Swiftz-tvOS";
+			targetProxy = 823739AA1CC99B5A00CBAF3C /* PBXContainerItemProxy */;
+		};
+		823739AD1CC99B7D00CBAF3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftCheck-tvOS";
+			targetProxy = 823739AC1CC99B7D00CBAF3C /* PBXContainerItemProxy */;
+		};
 		8A5621B61CC8FA5400B956F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Swiftz-watchOS";
@@ -1026,6 +1231,80 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		823739831CC99B1500CBAF3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Tyro/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Tyro-tvOS";
+				PRODUCT_NAME = Tyro;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		823739841CC99B1500CBAF3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Tyro/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Tyro-tvOS";
+				PRODUCT_NAME = Tyro;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		823739851CC99B1500CBAF3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Swiftz/Carthage/Checkouts/SwiftCheck/build/Debug-appletvos",
+				);
+				INFOPLIST_FILE = TyroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Tyro-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		823739861CC99B1500CBAF3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Swiftz/Carthage/Checkouts/SwiftCheck/build/Debug-appletvos",
+				);
+				INFOPLIST_FILE = TyroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Tyro-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
 		8A5621B21CC8F9B300B956F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1316,6 +1595,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		823739951CC99B1500CBAF3C /* Build configuration list for PBXNativeTarget "Tyro-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				823739831CC99B1500CBAF3C /* Debug */,
+				823739841CC99B1500CBAF3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		823739961CC99B1500CBAF3C /* Build configuration list for PBXNativeTarget "Tyro-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				823739851CC99B1500CBAF3C /* Debug */,
+				823739861CC99B1500CBAF3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8A5621B11CC8F9B300B956F4 /* Build configuration list for PBXNativeTarget "Tyro-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
