@@ -9,6 +9,7 @@ script:
   - set -o pipefail
   - xcodebuild test -scheme Tyro -configuration Debug | xcpretty -c
   - xcodebuild test -scheme Tyro-iOS -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s" | xcpretty -c
+  - xcodebuild build -scheme Tyro-watchOS -destination 'platform=watchOS Simulator,name=Apple Watch - 42mm' | xcpretty -c
 notifications:
   webhooks:
     urls:
