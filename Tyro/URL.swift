@@ -33,7 +33,7 @@ public struct URLJSONFormatter : JSONFormatterType {
     
     public private(set) var jsonValue : JSONValue?
     
-    init(_ jsonValue : JSONValue?) {
+    public init(_ jsonValue : JSONValue?) {
         self.jsonValue = jsonValue
     }
     

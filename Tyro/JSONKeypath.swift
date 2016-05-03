@@ -51,7 +51,7 @@ extension JSONKeypath : CustomStringConvertible {
 }
 
 extension JSONKeypath {
-    func resolve(dictionary : Dictionary<String, JSONValue>) -> JSONValue? {
+    public func resolve(dictionary : Dictionary<String, JSONValue>) -> JSONValue? {
         if path.isEmpty {
             return nil
         }
