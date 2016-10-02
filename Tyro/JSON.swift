@@ -11,10 +11,10 @@ import Swiftz
 
 public protocol FromJSON {
     associatedtype T = Self
-    static func fromJSON(value : JSONValue) -> Either<JSONError, T>
+    static func fromJSON(_ value : JSONValue) -> Either<JSONError, T>
 }
 
 public protocol ToJSON {
     associatedtype T = Self
-    static func toJSON(value : T) -> Either<JSONError, JSONValue>
+    static func toJSON(_ value : T) -> Either<JSONError, JSONValue>
 }

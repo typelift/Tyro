@@ -16,8 +16,8 @@ enum StatusType: String {
 }
 
 enum HttpErrorCodeType: Int {
-    case OK = 200
-    case NotFound = 404
+    case ok = 200
+    case notFound = 404
 }
 
 extension StatusType: FromJSON, ToJSON {}
@@ -29,7 +29,7 @@ class EnumSpec : XCTestCase {
         let json = "{\"statusCode\":200,\"status\":\"passed\"}"
         let statusCode: HttpErrorCodeType? = json.toJSON <? "statusCode"
         XCTAssertNotNil(statusCode)
-        XCTAssert(statusCode == .OK)
+        XCTAssert(statusCode == .ok)
         
         let status: StatusType? = json.toJSON <? "status"
         XCTAssertNotNil(status)

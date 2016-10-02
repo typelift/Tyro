@@ -786,9 +786,11 @@
 					};
 					DE702D0E1BFB28E20017CEE8 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0810;
 					};
 					DE702D171BFB28E30017CEE8 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -1540,6 +1542,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1561,6 +1564,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1576,6 +1580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.TyroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1591,6 +1596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.typelift.TyroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

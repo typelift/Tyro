@@ -34,7 +34,7 @@ class OperatorsSpec : XCTestCase {
     }
     
     func testRetrieveNested() {
-        let answer: Int? = json.toJSON <? "object" <> "answer"
+        let answer: Int? = json.toJSON <? ("object" <> "answer")
         XCTAssert(answer == 42)
     }
     
