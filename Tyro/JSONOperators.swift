@@ -41,6 +41,10 @@ public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [String
 
 /// JSONValue decoding operators
 
+public func <? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> Either<JSONError, A> {
+    return (lhs?[rhs]?.value()).toEither(JSONError.Custom("Could not find value at keypath \(rhs) in JSONValue : \(lhs)"))
+}
+
 public func <? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> A? {
     return lhs?[rhs]?.value()
 }
