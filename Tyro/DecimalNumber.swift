@@ -12,36 +12,38 @@ import Swiftz
 public struct DecimalNumberJSONConverter : FromJSON, ToJSON {
     public typealias T = NSDecimalNumber
     
-    private init() {}
+    fileprivate init() {}
     
-    public static func fromJSON(value : JSONValue) -> Either<JSONError, NSDecimalNumber> {
+    public static func fromJSON(_ value : JSONValue) -> Either<JSONError, NSDecimalNumber> {
         switch value {
         case .Number(let n):
             return .Right(NSDecimalNumber(decimal : n.decimalValue))
         default:
-            return .Left(.TypeMismatch("NSDecimalNumber JSON", "\(value.dynamicType.self)"))
+            return .Left(.TypeMismatch("DecimalNumber JSON", "\(type(of: value).self)"))
         }
     }
     
-    public static func toJSON(dn : NSDecimalNumber) -> Either<JSONError, JSONValue> {
+    public static func toJSON(_ dn : NSDecimalNumber) -> Either<JSONError, JSONValue> {
         return .Right(.Number(dn))
     }
 }
 
 public struct DecimalNumberJSONFormatter : JSONFormatterType {
+
     public typealias T = DecimalNumberJSONConverter.T
     
-    public private(set) var jsonValue : JSONValue?
+    public fileprivate(set) var jsonValue : JSONValue?
     
     public init(_ jsonValue : JSONValue?) {
         self.jsonValue = jsonValue
     }
     
-    public func decodeEither(value : JSONValue) -> Either<JSONError, T> {
+    public func decodeEither(_ value : JSONValue) -> Either<JSONError, T> {
         return DecimalNumberJSONConverter.fromJSON(value)
     }
     
-    public func encodeEither(value : T) -> Either<JSONError, JSONValue> {
+    public func encodeEither(_ value : T) -> Either<JSONError, JSONValue> {
         return DecimalNumberJSONConverter.toJSON(value)
     }
+    
 }

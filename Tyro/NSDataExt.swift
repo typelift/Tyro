@@ -9,9 +9,9 @@
 import Foundation
 import Swiftz
 
-extension NSData {
+extension Data {
     internal func toUTF8String() -> String? {
-        return String(data : self, encoding : NSUTF8StringEncoding)
+        return String(data : self, encoding : String.Encoding.utf8)
     }
 }
 

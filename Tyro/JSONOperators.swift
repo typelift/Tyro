@@ -11,6 +11,8 @@ import Swiftz
 
 // JSONFormatterType decoding operators
 
+infix operator <?? : JSONPrecedence
+
 public func <? (lhs : JSONValue?, rhs : JSONKeypath) -> JSONValue? {
     return lhs?[rhs]
 }
@@ -28,44 +30,44 @@ public func <? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [String 
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> B.DecodedType?? {
-    return (lhs <? rhs) ?? nil
+    return (lhs <? rhs)
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [B.DecodedType]?? {
-    return (lhs <? rhs) ?? nil
+    return (lhs <? rhs) 
 }
 
 public func <?? <B : JSONFormatterType> (lhs : B?, rhs : JSONKeypath) -> [String : B.DecodedType]?? {
-    return (lhs <? rhs) ?? nil
+    return (lhs <? rhs) 
 }
 
 /// JSONValue decoding operators
 
-public func <? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> A? {
+public func <? <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) -> A? where A.T == A {
     return lhs?[rhs]?.value()
 }
 
-public func <? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> [A]? {
+public func <? <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) -> [A]? where A.T == A {
     return lhs?[rhs]?.value()
 }
 
-public func <? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> [String : A]? {
+public func <? <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) -> [String : A]? where A.T == A {
     return lhs?[rhs]?.value()
 }
 
-public func <?? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> A?? {
+public func <?? <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) -> A?? where A.T == A {
     return lhs <? rhs
 }
 
-public func <?? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> [A]?? {
+public func <?? <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) -> [A]?? where A.T == A {
     return lhs <? rhs
 }
 
-public func <?? <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) -> [String : A]?? {
+public func <?? <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) -> [String : A]?? where A.T == A {
     return lhs <? rhs
 }
 
-public func <! <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) throws -> A {
+public func <! <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) throws -> A where A.T == A {
     if let result : A = (lhs <? rhs) {
         return result
     }
@@ -74,7 +76,7 @@ public func <! <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath
     }
 }
 
-public func <! <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) throws -> [A] {
+public func <! <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) throws -> [A] where A.T == A {
     if let result : [A] = (lhs <? rhs) {
         return result
     }
@@ -83,7 +85,7 @@ public func <! <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath
     }
 }
 
-public func <! <A : FromJSON where A.T == A>(lhs : JSONValue?, rhs : JSONKeypath) throws -> [String : A] {
+public func <! <A : FromJSON>(lhs : JSONValue?, rhs : JSONKeypath) throws -> [String : A] where A.T == A {
     if let result : [String : A] = (lhs <? rhs) {
         return result
     }

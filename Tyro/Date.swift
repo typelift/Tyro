@@ -10,29 +10,29 @@ import Foundation
 import Swiftz
 
 public struct DateTimestampJSONConverter : FromJSON, ToJSON {
-    public typealias T = NSDate
+    public typealias T = Date
     
-    private init() {}
+    fileprivate init() {}
     
-    public static func fromJSON(value : JSONValue) -> Either<JSONError, NSDate> {
+    public static func fromJSON(_ value : JSONValue) -> Either<JSONError, Date> {
         switch value {
         case .Number(let value):
-            let date = NSDate(timeIntervalSince1970 : value.doubleValue / 1000.0)
+            let date = Date(timeIntervalSince1970 : value.doubleValue / 1000.0)
             return .Right(date)
         default:
-            return .Left(.TypeMismatch("NSDate timestamp", "\(value.dynamicType.self)"))
+            return .Left(.TypeMismatch("Date timestamp", "\(type(of: value).self)"))
         }
     }
     
-    public static func toJSON(date : NSDate) -> Either<JSONError, JSONValue> {
-        return .Right(.Number(NSNumber(unsignedLongLong : UInt64(date.timeIntervalSince1970 * 1000.0))))
+    public static func toJSON(_ date : Date) -> Either<JSONError, JSONValue> {
+        return .Right(.Number(NSNumber(value : UInt64(date.timeIntervalSince1970 * 1000.0))))
     }
 }
 
 public struct DateTimestampJSONFormatter : JSONFormatterType {
     public typealias T = DateTimestampJSONConverter.T
     
-    public private(set) var jsonValue : JSONValue?
+    public fileprivate(set) var jsonValue : JSONValue?
     
     public init(_ jsonValue : JSONValue?) {
         self.jsonValue = jsonValue
@@ -42,35 +42,35 @@ public struct DateTimestampJSONFormatter : JSONFormatterType {
         jsonValue = nil
     }
     
-    public func decodeEither(value : JSONValue) -> Either<JSONError, T> {
+    public func decodeEither(_ value : JSONValue) -> Either<JSONError, T> {
         return DateTimestampJSONConverter.fromJSON(value)
     }
     
-    public func encodeEither(value : T) -> Either<JSONError, JSONValue> {
+    public func encodeEither(_ value : T) -> Either<JSONError, JSONValue> {
         return DateTimestampJSONConverter.toJSON(value)
     }
 }
 
 public struct DateFormatJSONFormatter : JSONFormatterType {
-    public typealias T = NSDate
+    public typealias T = Date
     
     public let dateFormat : String
     
     public static let DefaultDateFormat = "yyyy'-'MM'-'dd HH':'mm':'ss ZZZ"
     
-    public private(set) var jsonValue : JSONValue?
+    public fileprivate(set) var jsonValue : JSONValue?
     
     public init(_ jsonValue : JSONValue?, _ dateFormat : String = DateFormatJSONFormatter.DefaultDateFormat) {
         self.dateFormat = dateFormat
         self.jsonValue = jsonValue
     }
     
-    public func decodeEither(value : JSONValue) -> Either<JSONError, T> {
+    public func decodeEither(_ value : JSONValue) -> Either<JSONError, T> {
         switch value {
         case .String(let value):
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = dateFormat
-            let date = formatter.dateFromString(value)
+            let date = formatter.date(from: value)
             if let date = date {
                 return .Right(date)
             }
@@ -78,14 +78,14 @@ public struct DateFormatJSONFormatter : JSONFormatterType {
                 return .Left(.Custom("Could not format value (\(value)) to format (\(formatter.dateFormat))"))
             }
         default:
-            return .Left(.TypeMismatch("NSDate format", "\(value.dynamicType.self)"))
+            return .Left(.TypeMismatch("Date format", "\(type(of: value).self)"))
         }
     }
     
-    public func encodeEither(value : T) -> Either<JSONError, JSONValue> {
-        let formatter = NSDateFormatter()
+    public func encodeEither(_ value : T) -> Either<JSONError, JSONValue> {
+        let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
-        let string = formatter.stringFromDate(value)
+        let string = formatter.string(from: value)
         return .Right(.String(string))
     }
 }

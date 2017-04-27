@@ -10,38 +10,39 @@ import Foundation
 import Swiftz
 
 public struct URLJSONConverter : FromJSON, ToJSON {
-    public typealias T = NSURL
+    public typealias T = URL
     
-    private init() {}
+    fileprivate init() {}
     
-    public static func fromJSON(value : JSONValue) -> Either<JSONError, NSURL> {
+    public static func fromJSON(_ value : JSONValue) -> Either<JSONError, URL> {
         switch value {
         case .String(let value):
-            return NSURL(string : value).toEither(.Custom("Could not convert value (\(value)) to NSURL"))
+            return URL(string : value).toEither(.Custom("Could not convert value (\(value)) to URL"))
         default:
-            return .Left(.TypeMismatch("URL JSON", "\(value.dynamicType.self)"))
+            return .Left(.TypeMismatch("URL JSON", "\(type(of: value).self)"))
         }
     }
     
-    public static func toJSON(url : NSURL) -> Either<JSONError, JSONValue> {
+    public static func toJSON(_ url : URL) -> Either<JSONError, JSONValue> {
         return .Right(.String(url.absoluteString))
     }
 }
 
 public struct URLJSONFormatter : JSONFormatterType {
+
     public typealias T = URLJSONConverter.T
     
-    public private(set) var jsonValue : JSONValue?
+    public fileprivate(set) var jsonValue : JSONValue?
     
     public init(_ jsonValue : JSONValue?) {
         self.jsonValue = jsonValue
     }
     
-    public func decodeEither(value : JSONValue) -> Either<JSONError, T> {
+    public func decodeEither(_ value : JSONValue) -> Either<JSONError, T> {
         return URLJSONConverter.fromJSON(value)
     }
     
-    public func encodeEither(value : T) -> Either<JSONError, JSONValue> {
+    public func encodeEither(_ value : T) -> Either<JSONError, JSONValue> {
         return URLJSONConverter.toJSON(value)
     }
 }

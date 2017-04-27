@@ -32,7 +32,7 @@ struct Buffer {
     let phone: String
     let address: String
     let about: String
-    let registered: NSDate
+    let registered: Date
     let latitude: Double
     let longitude: Double
     let tags: [String]

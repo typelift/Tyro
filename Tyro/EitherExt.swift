@@ -11,7 +11,7 @@ import Swiftz
 
 /// Left-to-right coalescing operator for Either<L, R> where if the either is left then
 /// the operator maps to the value provided by `f` otherwise it returns the either right.
-public func | <L, R>(either : Either<L, R>?, @autoclosure(escaping) f : () -> R?) -> R? {
+public func | <L, R>(either : Either<L, R>?, f : @autoclosure @escaping () -> R?) -> R? {
     return either?.either(onLeft: { _ in f() }, onRight: { $0 })
 }
 
@@ -40,7 +40,7 @@ extension Array where Element : EitherType {
         }
     }
     
-    public func eitherMap(f : Element -> Either<Element, Element>) -> ([Either<Element, Element>], [Either<Element, Element>]) {
+    public func eitherMap(_ f : (Element) -> Either<Element, Element>) -> ([Either<Element, Element>], [Either<Element, Element>]) {
         let (lefties, righties) = splitFor { $0.left != nil }
         return (lefties.map(Either.Left), righties.map(Either.Right))
     }
@@ -48,7 +48,7 @@ extension Array where Element : EitherType {
 
 extension Array {
     /// Splits the array into a tuple with the first array being which elements hold for f and the second array for those elements that do not hold for f.
-    public func splitFor(f : Element -> Bool) -> ([Element], [Element]) {
+    public func splitFor(_ f : (Element) -> Bool) -> ([Element], [Element]) {
         return (takeWhile(f), dropWhile(f))
     }
 }

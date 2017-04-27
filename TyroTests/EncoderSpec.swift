@@ -13,7 +13,7 @@ import Swiftz
 class EncoderSpec : XCTestCase {
     func testEncodeArray() {
         let array = ["a", "b", "c"]
-        let result = JSONEncoder.encoder.encodeEither(array)
+        let result = JSONEncoder.encoder.encodeEither(array as AnyObject)
         XCTAssertNotNil(result)
         XCTAssert(result.right == JSONValue.Array([.String("a"), .String("b"), .String("c")]))
         let jsonString = result.right!.toJSONString()!
@@ -23,7 +23,7 @@ class EncoderSpec : XCTestCase {
     
     func testEncodeObject() {
         let object = ["key": "value"]
-        let result = JSONEncoder.encoder.encodeEither(object)
+        let result = JSONEncoder.encoder.encodeEither(object as AnyObject)
         XCTAssertNotNil(result)
         XCTAssert(result.right == JSONValue.Object(["key": .String("value")]))
         let jsonString = result.right!.toJSONString()!
@@ -33,21 +33,21 @@ class EncoderSpec : XCTestCase {
     
     func testEncodeString() {
         let string = "a string"
-        let result = JSONEncoder.encoder.encodeEither(string)
+        let result = JSONEncoder.encoder.encodeEither(string as AnyObject)
         XCTAssertNotNil(result)
         XCTAssert(result.right == .String("a string"))
     }
     
     func testEncodeNumber() {
         let number = 10
-        let result = JSONEncoder.encoder.encodeEither(number)
+        let result = JSONEncoder.encoder.encodeEither(number as AnyObject)
         XCTAssertNotNil(result)
-        XCTAssert(result.right == .Number(number))
+        XCTAssert(result.right == JSONValue.Number(NSNumber(value: number)))
     }
     
     func testEncodeEmbeddedObjects() {
-        let object = ["number": 42, "array": [1, 2, 3], "object": ["strings": ["1", "2", "3"], "pi": 3.14159], "string": "hello"]
-        let result = JSONEncoder.encoder.encodeEither(object)
+        let object = ["number": 42, "array": [1, 2, 3], "object": ["strings": ["1", "2", "3"], "pi": 3.14159], "string": "hello"] as [String : Any]
+        let result = JSONEncoder.encoder.encodeEither(object as AnyObject)
         XCTAssertNotNil(result)
         
         switch result.right! {

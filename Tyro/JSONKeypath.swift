@@ -12,7 +12,7 @@ import Swiftz
 /// Represents a subscript into a nested set of dictionaries.  When used in conjunction with the
 /// JSON decoding machinery, this class can be used to combine strings into keypaths to target
 /// values inside nested JSON objects.
-public struct JSONKeypath : StringLiteralConvertible {
+public struct JSONKeypath : ExpressibleByStringLiteral {
     public typealias StringLiteralType = String
     
     public let path : [String]
@@ -39,19 +39,19 @@ extension JSONKeypath : Monoid {
         return JSONKeypath([])
     }
     
-    public func op(other : JSONKeypath) -> JSONKeypath {
+    public func op(_ other : JSONKeypath) -> JSONKeypath {
         return JSONKeypath(self.path + other.path)
     }
 }
 
 extension JSONKeypath : CustomStringConvertible {
     public var description : String {
-        return self.path.intersperse(".").reduce("", combine : +)
+        return self.path.intersperse(".").reduce("", +)
     }
 }
 
 extension JSONKeypath {
-    public func resolve(dictionary : Dictionary<String, JSONValue>) -> JSONValue? {
+    public func resolve(_ dictionary : Dictionary<String, JSONValue>) -> JSONValue? {
         if path.isEmpty {
             return nil
         }

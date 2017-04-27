@@ -26,12 +26,12 @@ struct User {
 }
 
 extension User: FromJSON {
-    static func fromJSON(j: JSONValue) -> Either<JSONError, User> {
+    static func fromJSON(_ j: JSONValue) -> Either<JSONError, User> {
         let id: UInt64? = j <? "id"
         let name: String? = j <? "name"
         let age: Int? = j <? "age"
         let tweets: [String]? = j <? "tweets"
-        let profile: String? = j <? "attributes" <> "profile" // A nested keypath
+        let profile: String? = j <? ("attributes" <> "profile") // A nested keypath
         let balance: Double? = j <? "balance"
         let latitude: Double? = j <? "latitude"
         let longitude: Double? = j <? "longitude"
@@ -68,7 +68,7 @@ func == (lhs: User, rhs: User) -> Bool {
 }
 
 func == (lhs: User?, rhs: User?) -> Bool {
-    if let lhs = lhs, rhs = rhs {
+    if let lhs = lhs, let rhs = rhs {
         return lhs == rhs
     }
     else {

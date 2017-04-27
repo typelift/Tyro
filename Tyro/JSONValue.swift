@@ -45,7 +45,7 @@ public func == (lhs : JSONValue, rhs : JSONValue) -> Bool {
     case (.String(let lhsValue), .String(let rhsValue)):
         return lhsValue == rhsValue
     case (.Number(let lhsValue), .Number(let rhsValue)):
-        return lhsValue.isEqualToNumber(rhsValue)
+        return lhsValue.isEqual(to: rhsValue)
     case (.Null, .Null):
         return true
     default:
@@ -54,7 +54,7 @@ public func == (lhs : JSONValue, rhs : JSONValue) -> Bool {
 }
 
 public func == (lhs : JSONValue?, rhs : JSONValue?) -> Bool {
-    if let lhs = lhs, rhs = rhs {
+    if let lhs = lhs, let rhs = rhs {
         return lhs == rhs
     }
     
@@ -109,9 +109,9 @@ extension JSONValue : JSONValueable {
     
     public var anyObject : AnyObject? {
         switch self {
-        case .Array(let values): return values.mapMaybe { $0.anyObject }
-        case .Object(let value): return value.mapMaybe { $0.anyObject }
-        case .String(let s): return s
+        case .Array(let values): return values.mapMaybe { $0.anyObject } as AnyObject?
+        case .Object(let value): return value.mapMaybe { $0.anyObject } as AnyObject?
+        case .String(let s): return s as AnyObject?
         case .Number(let n): return n
         case .Null: return NSNull()
         }
@@ -120,31 +120,31 @@ extension JSONValue : JSONValueable {
 
 extension JSONValue {
     /// Values for FromJSON
-    public func value<A : FromJSON where A.T == A>() -> A? {
+    public func value<A : FromJSON>() -> A? where A.T == A {
         return valueEither().right
     }
 
-    public func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, A> {
+    public func valueEither<A : FromJSON>() -> Either<JSONError, A> where A.T == A {
         return A.fromJSON(self)
     }
     
-    public func value<A : FromJSON where A.T == A>() -> [A]? {
+    public func value<A : FromJSON>() -> [A]? where A.T == A {
         return valueEither().right
     }
     
-    public func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, [A]> {
+    public func valueEither<A : FromJSON>() -> Either<JSONError, [A]> where A.T == A {
         return FromJSONArray<A, A>.fromJSON(self)
     }
     
-    public func value<A : FromJSON where A.T == A>() -> [Swift.String : A]? {
+    public func value<A : FromJSON>() -> [Swift.String : A]? where A.T == A {
         return valueEither().right
     }
 
-    public func valueEither<A : FromJSON where A.T == A>() -> Either<JSONError, [Swift.String : A]> {
+    public func valueEither<A : FromJSON>() -> Either<JSONError, [Swift.String : A]> where A.T == A {
         return FromJSONDictionary<A, A>.fromJSON(self)
     }
     
-    public func error<A : FromJSON>(type : A.Type) -> JSONError? {
+    public func error<A : FromJSON>(_ type : A.Type) -> JSONError? {
         return type.fromJSON(self).left
     }
 }
@@ -161,28 +161,32 @@ extension JSONValue {
 }
 
 extension JSONValue {
-    public static func decodeEither(data : NSData) -> Either<JSONError, JSONValue> {
+    public static func decodeEither(_ data : Data) -> Either<JSONError, JSONValue> {
+        
         do {
-            let object = try NSJSONSerialization.JSONObjectWithData(data, options : NSJSONReadingOptions(rawValue : 0))
-            return JSONEncoder.encoder.encodeEither(object)
+            let object = try JSONSerialization.jsonObject(with: data, options : JSONSerialization.ReadingOptions(rawValue : 0))
+            return JSONEncoder.encoder.encodeEither(object as AnyObject)
         }
         catch let error {
             return .Left(.Error(error, "Error while decoding data with decodeEither"))
         }
     }
     
-    public static func decodeEither(json : Swift.String) -> Either<JSONError, JSONValue> {
-        return (decodeEither <^> json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion : false)) ?? .Left(.Custom("JSON string (\(json)) could not be converted to NSData using UTF-8 string encoding."))
+    public static func decodeEither(_ json : Swift.String) -> Either<JSONError, JSONValue> {
+        
+        let t = (decodeEither <^> json.data(using: Swift.String.Encoding.utf8, allowLossyConversion : false))
+        
+        return  t ?? .Left(.Custom("JSON string (\(json)) could not be converted to Data using UTF-8 string encoding."))
     }
     
-    public static func decode(data : NSData) -> JSONValue? {
+    public static func decode(_ data : Data) -> JSONValue? {
         return decodeEither(data).right
     }
     
-    public static func encodeEither(value : JSONValue) -> Either<JSONError, NSData> {
-        return JSONDecoder.decoder.decodeEither(value).flatMap { (object) -> Either<JSONError, NSData> in
+    public static func encodeEither(_ value : JSONValue) -> Either<JSONError, Data> {
+        return JSONDecoder.decoder.decodeEither(value).flatMap { (object) -> Either<JSONError, Data> in
             do {
-                let data : NSData = try NSJSONSerialization.dataWithJSONObject(object, options : NSJSONWritingOptions(rawValue : 0))
+                let data : Data = try JSONSerialization.data(withJSONObject: object, options : JSONSerialization.WritingOptions(rawValue : 0))
                 return .Right(data)
             }
             catch let error {
@@ -191,15 +195,15 @@ extension JSONValue {
         }
     }
     
-    public static func toJSONData(value : JSONValue) -> NSData? {
+    public static func toJSONData(_ value : JSONValue) -> Data? {
         return encodeEither(value).right
     }
     
-    public static func toJSONString(value : JSONValue) -> Swift.String? {
+    public static func toJSONString(_ value : JSONValue) -> Swift.String? {
         return toJSONData(value)?.toUTF8String()
     }
     
-    public func toJSONData() -> NSData? {
+    public func toJSONData() -> Data? {
         return JSONValue.toJSONData(self)
     }
     

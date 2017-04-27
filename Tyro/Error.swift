@@ -8,12 +8,12 @@
 
 import Foundation
 
-public protocol JSONErrorType : ErrorType {}
+public protocol JSONErrorType : Error {}
 
 public enum JSONError : JSONErrorType {
     case Array([JSONError])           // array of errors
     case TypeMismatch(String, String) // expected / actual
-    case Error(ErrorType, String)     // error / message
+    case Error(Error, String)     // error / message
     case Custom(String)               // message
 }
 
@@ -21,13 +21,13 @@ extension JSONError : CustomStringConvertible {
     public var description : String {
         switch self {
         case .Array(let errors):
-            return "JSONError(Array(\"\(errors)\"))"
+            return "JSONError(array(\"\(errors)\"))"
         case .TypeMismatch(let expected, let actual):
-            return "JSONError(TypeMismatch(\"\(expected) is not \(actual)\"))"
+            return "JSONError(typeMismatch(\"\(expected) is not \(actual)\"))"
         case .Error(let error, let message):
-            return "JSONError(Error(\"\(message) error : \(error)\"))"
+            return "JSONError(error(\"\(message) error : \(error)\"))"
         case .Custom(let message):
-            return "JSONError(Custom(\"\(message)\"))"
+            return "JSONError(custom(\"\(message)\"))"
         }
     }
 }

@@ -11,7 +11,7 @@ import Swiftz
 
 /// FromJSON conformance for Int enums
 extension FromJSON where Self : RawRepresentable, Self.RawValue == Int {    
-    public static func fromJSON(value : JSONValue) -> Either<JSONError, T> {
+    public static func fromJSON(_ value : JSONValue) -> Either<JSONError, T> {
         switch value {
         case .Number(let n as Int):
             let x : T? = self.init(rawValue : n) as? T
@@ -24,14 +24,14 @@ extension FromJSON where Self : RawRepresentable, Self.RawValue == Int {
 
 /// ToJSON conformance for Int enums
 extension ToJSON where Self : RawRepresentable, Self.RawValue == Int, T == Self {
-    public static func toJSON(value : T) -> Either<JSONError, JSONValue> {
-        return .Right(.Number(value.rawValue))
+    public static func toJSON(_ value : T) -> Either<JSONError, JSONValue> {
+        return .Right(.Number(NSNumber(value:value.rawValue)))
     }
 }
 
 /// FromJSON conformance for String enums
 extension FromJSON where Self : RawRepresentable, Self.RawValue == String {
-    public static func fromJSON(value : JSONValue) -> Either<JSONError, T> {
+    public static func fromJSON(_ value : JSONValue) -> Either<JSONError, T> {
         switch value {
         case .String(let s):
             let x : T? = self.init(rawValue : s) as? T
@@ -44,7 +44,7 @@ extension FromJSON where Self : RawRepresentable, Self.RawValue == String {
 
 /// ToJSON conformance for String enums
 extension ToJSON where Self : RawRepresentable, Self.RawValue == String, T == Self {
-    public static func toJSON(value : T) -> Either<JSONError, JSONValue> {
+    public static func toJSON(_ value : T) -> Either<JSONError, JSONValue> {
         return .Right(.String(value.rawValue))
     }
 }

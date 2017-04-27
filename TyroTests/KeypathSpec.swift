@@ -17,7 +17,7 @@ class KeypathSpec : XCTestCase {
         let result = dictionaryJson.toJSONEither?.right
         XCTAssertNotNil(result)
         
-        let bool2: Bool? = result <? "object" <> "bool"
+        let bool2: Bool? = result <? ("object" <> "bool")
         XCTAssertNotNil(bool2)
         XCTAssert(bool2 == true)
     }

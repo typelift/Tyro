@@ -53,7 +53,7 @@ class TypesFromJSONSpec : XCTestCase {
         
         let jsonIntInObject = "{\"int1\":1,\"nestedInt\":{\"answer\":42}}"
         let int1: Int? = jsonIntInObject.toJSON <? "int1"
-        let answer: Int? = jsonIntInObject.toJSON <? "nestedInt" <> "answer"
+        let answer: Int? = jsonIntInObject.toJSON <? ("nestedInt" <> "answer")
         XCTAssert(jsonIntInObject.toJSON?.object?.keys.count == 2)
         XCTAssert(int1 == 1)
         XCTAssert(answer == 42)
