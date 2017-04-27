@@ -63,8 +63,6 @@ extension JSONValue : Arbitrary {
                 return Gen.pure(JSONValue.Null)
             }
         }
-        
-        fatalError()
 	}
 }
 
